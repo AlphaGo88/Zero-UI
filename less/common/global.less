@@ -1,0 +1,243 @@
+//
+//  Global Style
+// --------------------------------------------------
+
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    line-height: @line-height-base;
+    color: @text-color-base;
+    font-size: @font-size-base;
+    font-family: @font-family-base;
+    font-smoothing: antialiased;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h6 {
+    font-size: 12px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+// Override normalize.css
+button, input, optgroup, select, textarea {
+    font-family: @font-family-base;
+}
+
+a {
+    color: @link-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+:focus {
+    outline: none;
+}
+
+// Font Size
+.font-size(@size) when (@size > 11) {
+    .font@{size} {
+        font-size: unit(@size, px) !important;
+    }
+    .font-size(@size - 1);
+}
+.font-size(36);
+
+// Text Colors And Icon Colors
+.text-primary,
+i.primary {
+    color: @primary-color !important;
+}
+.text-green,
+i.green {
+    color: @green !important;
+}
+.text-red,
+i.red {
+    color: @red !important;
+}
+.text-teal,
+i.teal {
+    color: @teal !important;
+}
+.text-yellow,
+i.yellow {
+    color: @yellow !important;
+}
+.text-purple,
+i.purple {
+    color: @purple !important;
+}
+
+// Backgound Colors
+.bg-gray {
+    background-color: #f9f9f9 !important;
+}
+.bg-primary {
+    background-color: @primary-color !important;
+}
+.bg-green {
+    background-color: @green !important;
+}
+.bg-red {
+    background-color: @red !important;
+}
+.bg-teal {
+    background-color: @teal !important;
+}
+.bg-yellow {
+    background-color: @yellow !important;
+}
+.bg-purple {
+    background-color: @purple !important;
+}
+.bg-primary,
+.bg-green,
+.bg-red,
+.bg-teal,
+.bg-yellow,
+.bg-purple {
+    color: #fff !important;
+
+    i {
+        color: #fff !important;
+    }
+}
+
+// Text Truncate
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// Float
+.fl {
+    float: left !important;
+}
+.fr {
+    float: right !important;
+}
+.clearfix {
+    &:before, 
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+/* // Text Align
+.ta-l {
+    text-align: left !important;
+}
+.ta-c {
+    text-align: center !important;
+}
+.ta-r {
+    text-align: right !important;
+}
+
+// Display
+.d-n {
+    display: none !important;
+}
+.d-b {
+    display: block !important;
+}
+.d-i {
+    display: inline !important;
+}
+.d-ib {
+    display: inline-block !important;
+}
+.d-tb {
+    display: table !important;
+}
+.d-tbr {
+    display: table-row !important;
+}
+.d-tbc {
+    display: table-cell !important;
+}
+.d-f {
+    display: flex !important;
+}
+.d-if {
+    display: inline-flex !important;
+}
+
+// Position
+.pos-s {
+    position: static !important;
+}
+.pos-r {
+    position: relative !important;
+}
+.pos-a {
+    position: absolute !important;
+}
+.pos-f {
+    position: fixed !important;
+}
+
+// Vertical Align
+.va-bs {
+    vertical-align: baseline !important;
+}
+.va-t {
+    vertical-align: top !important;
+}
+.va-m {
+    vertical-align: middle !important;
+}
+.va-b {
+    vertical-align: bottom !important;
+}
+.va-tt {
+    vertical-align: text-top !important;
+}
+.va-tb {
+    vertical-align: text-bottom !important;
+} */

@@ -1,0 +1,83 @@
+//
+// Breadcrumb
+// --------------------------------------------------
+
+
+@breadcrumb-divider-padding-x: 4px;
+@breadcrumb-icon-color: #999;
+
+.z-breadcrumb {
+	display: block;
+	font-size: @font-size-base;
+	color: #777;
+	user-select: none;
+
+	> i {
+		margin-right: 5px;
+		font-size: inherit;
+		color: @breadcrumb-icon-color;
+	}
+
+	> a {
+		display: inline-block;
+		color: inherit;
+		
+		&:hover {
+			color: #555;
+			text-decoration: none;
+		}
+
+		&.current {
+			color: @primary-color;
+			font-weight: 600;
+		}
+	}
+
+	> .z-divider {
+		display: inline-block;
+		padding: 0 @breadcrumb-divider-padding-x;
+		text-align: center;
+		color: @breadcrumb-icon-color;
+
+		> i {
+			font-size: inherit;
+			color: inherit;
+		}
+	}
+}
+
+.z-breadcrumb.large {
+	font-size: @font-size-base + 2;
+
+	> .z-divider {
+		padding: 0 @breadcrumb-divider-padding-x + 2;
+	}
+}
+
+.z-breadcrumb.larger {
+	font-size: @font-size-base + 4;
+
+	> .z-divider {
+		padding: 0 @breadcrumb-divider-padding-x + 4;
+	}
+}
+
+.z-breadcrumb.green > a.current {
+	color: @green;
+}
+
+.z-breadcrumb.red > a.current {
+	color: @red;
+}
+
+.z-breadcrumb.teal > a.current {
+	color: @teal;
+}
+
+.z-breadcrumb.yellow > a.current {
+	color: @yellow;
+}
+
+.z-breadcrumb.purple > a.current {
+	color: @purple;
+}

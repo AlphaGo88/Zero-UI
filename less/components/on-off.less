@@ -1,0 +1,93 @@
+//
+// Switch
+// --------------------------------------------------
+
+@on-off-height: 22px;
+@on-off-height-small: 18px;
+
+.z-on-off {
+	display: inline-block;
+	position: relative;
+	width: @on-off-height * 2;
+	height: @on-off-height;
+	cursor: pointer;
+	user-select: none;
+}
+
+.z-on-off > [type=checkbox] {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.z-on-off-lever {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #aaa;
+	border-radius: 15px;
+	transition: background 0.3s ease;
+	vertical-align: middle;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		width: @on-off-height - 4;
+		height: @on-off-height - 4;
+		background-color: #fff;
+		border-radius: 50%;
+		transform: translateX(0px);
+		transition: transform 0.3s ease;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+	}
+}
+
+.z-on-off>[type=checkbox]:checked+.z-on-off-lever {
+	background-color: @primary-color;
+}
+.z-on-off.green>[type=checkbox]:checked+.z-on-off-lever {
+	background-color: @green;
+}
+.z-on-off.red>[type=checkbox]:checked+.z-on-off-lever {
+	background-color: @red;
+}
+.z-on-off.teal>[type=checkbox]:checked+.z-on-off-lever {
+	background-color: @teal;
+}
+.z-on-off.yellow>[type=checkbox]:checked+.z-on-off-lever {
+	background-color: @yellow;
+}
+.z-on-off.purple>[type=checkbox]:checked+.z-on-off-lever {
+	background-color: @purple;
+}
+
+.z-on-off>[type=checkbox]:checked+.z-on-off-lever:after {
+	transform: translateX(@on-off-height);
+}
+
+// Disabled Styles
+.z-on-off>[type=checkbox][disabled] + .z-on-off-lever,
+.z-on-off>[type=checkbox]:disabled + .z-on-off-lever {
+	opacity: 0.4;
+	cursor: default;
+}
+
+.z-on-off.small {
+	width: @on-off-height-small * 2;
+	height: @on-off-height-small;
+}
+
+.z-on-off.small>.z-on-off-lever:after {
+	width: @on-off-height-small - 4;
+	height: @on-off-height-small - 4;
+}
+
+.z-on-off.small>[type=checkbox]:checked+.z-on-off-lever:after {
+	transform: translateX(@on-off-height-small);
+}

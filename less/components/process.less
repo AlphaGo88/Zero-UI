@@ -1,0 +1,73 @@
+//
+// Process
+// --------------------------------------------------
+
+
+.z-process-bar {
+	display: block;
+	height: 15px;
+	line-height: 15px;
+	background-color: #ddd;
+	border-radius: 5px;
+	font-size: 12px;
+	vertical-align: middle;
+	overflow: hidden;
+
+	> .z-process {
+		height: 100%;
+		min-width: 28px;
+		max-width: 100%;
+		padding-right: 4px;
+		background-color: @primary-color;
+		text-align: right;
+		color: #fff;
+		border-radius: 5px;
+		transition: width .4s;
+	}
+
+	&.large {
+		height: 24px;
+		line-height: 24px;
+		font-size: 14px;
+
+		> .z-process {
+			min-width: 32px;
+		}
+	}
+
+	&.small {
+		height: 10px;
+
+		> .z-process {
+			min-width: 16px;
+		}
+	}
+
+	&.mini {
+		height: 5px;
+
+		> .z-process {
+			min-width: 12px;
+		}
+	}
+}
+
+.z-process-bar.green > .z-process {
+	background-color: @green;
+}
+
+.z-process-bar.red > .z-process {
+	background-color: @red;
+}
+
+.z-process-bar.teal > .z-process {
+	background-color: @teal;
+}
+
+.z-process-bar.yellow > .z-process {
+	background-color: @yellow;
+}
+
+.z-process-bar.purple > .z-process {
+	background-color: @purple;
+}

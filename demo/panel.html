@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../dist/zui.css">
+    <link rel="stylesheet" href="./css/demo-common.css">
+    <link rel="stylesheet" href="./css/atom-one-light.css">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/highlight.pack.js"></script>
+    <script src="../dist/zui.js"></script>
+    <style>
+      .example {background-color: #eee}
+    </style>
+  </head>
+  <body>
+    <h3>Panel面板</h3>
+
+    <h4>基本实例</h4>
+    <section>
+      <div class="example">
+      	<div class="z-panel">
+      		<div class="z-panel-head">
+            <span class="z-panel-title">标题</span>
+          </div>
+      		<div class="z-panel-body">这里是内容</div>
+      	</div>
+      </div>
+      <pre><code>
+  &lt;div class="z-panel"&gt;
+    &lt;div class="z-panel-head"&gt;
+      &lt;span class="z-panel-title"&gt;标题&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="z-panel-body"&gt;这里是内容&lt;/div&gt;
+  &lt;/div&gt;
+      </code></pre>
+    </section>
+
+    <h4>表格</h4>
+    <section>
+      <div class="example">
+          <div class="z-panel">
+            <div class="z-panel-head">
+              <span class="z-panel-title">标题</span>
+            </div>
+            <div class="z-panel-body">这里是内容</div>
+            <table class="z-table">
+              <thead>
+                <tr>
+                  <th>姓名</th>
+                  <th>年龄</th>
+                  <th>邮箱</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>张三</td>
+                  <td>24</td>
+                  <td>zhangsan@gmail.com</td>
+                </tr>
+                <tr>
+                  <td>李四</td>
+                  <td>20</td>
+                  <td>lisi@hotmail.com</td>
+                </tr>
+                <tr>
+                  <td>王五</td>
+                  <td>32</td>
+                  <td>wangwu@yahu.com</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="z-panel-foot">
+              共3条记录，第1页
+            </div>
+          </div>
+      </div>
+      <pre><code>
+  &lt;div class="z-panel"&gt;
+    &lt;div class="z-panel-head"&gt;
+      &lt;span class="z-panel-title"&gt;标题&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="z-panel-body"&gt;这里是内容&lt;/div&gt;
+    &lt;table class="z-table"&gt;
+      ...
+    &lt;/table&gt;
+    &lt;div class="z-panel-foot"&gt;共3条记录，第1页&lt;/div&gt;
+  &lt;/div&gt;
+      </code></pre>
+    </section>
+
+    <h4>Tab</h4>
+    <section>
+      <div class="example">
+        <div class="z-panel-tab">
+          <div class="z-tabs-card">
+              <a data-content="#d1" class="z-tab active">Tab1</a>
+              <a data-content="#d2" class="z-tab">Tab2</a>
+              <a data-content="#d3" class="z-tab">Tab3</a>
+          </div>
+          <div class="z-tab-content bordered" style="height: 110px">
+              <div class="z-tab-pane active" id="d1">content1</div>
+              <div class="z-tab-pane" id="d2">content2</div>
+              <div class="z-tab-pane" id="d3">content3</div>
+          </div>
+        </div>
+      </div>
+      <pre><code>
+    &lt;div class="z-panel-tab"&gt;
+      &lt;ul class="z-tabs card"&gt;
+          &lt;li class="z-tab active"&gt;
+              &lt;a href="#d1"&gt;Tab1&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class="z-tab"&gt;
+              &lt;a href="#d2"&gt;&lt;i class="fa fa-apple"&gt;&lt;/i&gt;Tab2&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class="z-tab"&gt;
+              &lt;a href="#d3"&gt;Tab3&lt;/a&gt;
+          &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;div class="z-tab-content bordered" style="height: 110px"&gt;
+          &lt;div class="z-tab-pane" id="d1"&gt;content1&lt;/div&gt;
+          &lt;div class="z-tab-pane" id="d2"&gt;content2&lt;/div&gt;
+          &lt;div class="z-tab-pane" id="d3"&gt;content3&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+      </code></pre>
+    </section>
+
+    <h4>Panel body with states</h4>
+    <section>
+      <div class="example">
+        <div class="z-panel">
+          <div class="z-panel-body success">
+            <b>Note:</b> Master UI supports modern browsers. IE6, 7, 8 are not supported. IE9 is partially supported.
+          </div>
+        </div>
+        <br>
+        <div class="z-panel">
+          <div class="z-panel-body info">
+            <b>Note:</b> Master UI supports modern browsers. IE6, 7, 8 are not supported. IE9 is partially supported.
+          </div>
+        </div>
+        <br>
+        <div class="z-panel">
+          <div class="z-panel-body warning">
+            <b>Note:</b> Master UI supports modern browsers. IE6, 7, 8 are not supported. IE9 is partially supported.
+          </div>
+        </div>
+        <br>
+        <div class="z-panel">
+          <div class="z-panel-body error">
+            <b>Note:</b> Master UI supports modern browsers. IE6, 7, 8 are not supported. IE9 is partially supported.
+          </div>
+        </div>
+      </div>
+      <pre><code>
+  &lt;div class="z-panel"&gt;
+    &lt;div class="z-panel-body success"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="z-panel"&gt;
+    &lt;div class="z-panel-body warning"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="z-panel"&gt;
+    &lt;div class="z-panel-body error"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+      </code></pre>
+    </section>
+
+    <script>
+      $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+      });
+    </script>
+  </body>
+</html>

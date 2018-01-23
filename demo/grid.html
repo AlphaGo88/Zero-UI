@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" href="../dist/zui.css">
+		<link rel="stylesheet" href="./css/demo-common.css">
+		<link rel="stylesheet" href="./css/atom-one-light.css">
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/highlight.pack.js"></script>
+		<script src="../dist/zui.js"></script>
+		<style>
+			.z-row {
+				margin: 15px 0;
+				line-height: 40px;
+			}
+			.z-row > div {
+				height: 40px;
+				background-color: #eee;
+				text-align: center;
+				border: 1px solid #ccc;
+				border-right: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>Grid栅格</h3>
+		<p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局。</p>
+		<p>MUI的栅格系统把水平空间划分为12列进行布局。</p>
+
+		<h4>基本实例</h4>
+		<section>
+			<div class="example">
+				<p>将<mark>column</mark>置于<mark>row</mark>内。</p>
+				<p>你的内容应置于<mark>column</mark>内。</p>
+				<p>通过<mark>.z-col-x</mark>控制列宽。</p>
+				<p>通过<mark>.z-offset-x</mark>控制列偏移。</p>
+				<div class="z-row">
+					<div class="z-col-4">z-col-4</div>
+					<div class="z-col-4">z-col-4</div>
+					<div class="z-col-4">z-col-4</div>
+				</div>
+				<div class="z-row">
+					<div class="z-col-4">z-col-4</div>
+					<div class="z-col-8">z-col-8</div>
+				</div>
+				<div class="z-row">
+					<div class="z-col-2">z-col-2</div>
+					<div class="z-col-7">z-col-7</div>
+					<div class="z-col-3">z-col-3</div>
+				</div>
+				<div class="z-row">
+					<div class="z-col-6 z-offset-4">z-col-6 z-offset-4</div>
+				</div>
+				<div class="z-row">
+					<div class="z-col-4 z-offset-2">z-col-4 z-offset-2</div>
+					<div class="z-col-4 z-offset-2">z-col-4 z-offset-2</div>
+				</div>
+			</div>
+			<pre><code>
+	&lt;div class="z-row"&gt;
+		&lt;div class="z-col-4"&gt;z-col-4&lt;/div&gt;
+		&lt;div class="z-col-4"&gt;z-col-4&lt;/div&gt;
+		&lt;div class="z-col-4"&gt;z-col-4&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="z-row"&gt;
+		&lt;div class="z-col-4"&gt;z-col-4&lt;/div&gt;
+		&lt;div class="z-col-8"&gt;z-col-8&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="z-row"&gt;
+		&lt;div class="z-col-2"&gt;z-col-2&lt;/div&gt;
+		&lt;div class="z-col-7"&gt;z-col-7&lt;/div&gt;
+		&lt;div class="z-col-3"&gt;z-col-3&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="z-row"&gt;
+		&lt;div class="z-col-6 z-offset-4"&gt;z-col-6 z-offset-4&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="z-row"&gt;
+		&lt;div class="z-col-4 z-offset-2"&gt;z-col-4 z-offset-2&lt;/div&gt;
+		&lt;div class="z-col-4 z-offset-2"&gt;z-col-4 z-offset-2&lt;/div&gt;
+	&lt;/div&gt;
+			</code></pre>
+		</section>
+
+		<script>
+		$(document).ready(function() {
+			$('pre code').each(function(i, block) {
+			hljs.highlightBlock(block);
+			});
+		});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,122 @@
+//
+// Pop Up
+// --------------------------------------------------
+
+
+.z-pop {
+	display: block;
+	position: absolute;
+	left: -10000px;
+	padding: 12px;
+	background-color: #fff;
+	font-size: @font-size-base - 1;
+	border-radius: 5px;
+	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.28);
+	z-index: 1001;
+	animation: z-pop-effect 120ms ease;
+
+	&.top {
+    	transform-origin: 50% 90%;
+
+    	> .z-pop-arrow {
+    		left: 50%;
+    		top: 100%;
+    		margin-top: -5px;
+    		margin-left: -4px;
+    		box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
+    	}
+	}
+
+	&.bottom {
+    	transform-origin: 50% 10%;
+
+    	> .z-pop-arrow {
+    		left: 50%;
+    		top: 0;
+    		margin-top: -3px;
+    		margin-left: -4px;
+    		box-shadow: -3px -3px 7px rgba(0, 0, 0, 0.07);
+    	}
+	}
+
+	&.left {
+    	transform-origin: 85% 50%;
+
+    	> .z-pop-arrow {
+    		left: 100%;
+    		top: 50%;
+    		margin-top: -4px;
+    		margin-left: -5px;
+    		box-shadow: 3px -3px 7px rgba(0, 0, 0, 0.07);
+    	}
+	}
+
+	&.right {
+    	transform-origin: 15% 50%;
+
+    	> .z-pop-arrow {
+    		left: 0;
+    		top: 50%;
+    		margin-top: -4px;
+    		margin-left: -3px;
+    		box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.07);
+    	}
+	}
+}
+
+.z-pop-arrow {
+	display: block;
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background-color: #fff;
+	transform: rotate(45deg);
+}
+
+.z-pop-icon {
+	margin-right: 5px;
+	color: @color-warning;
+	font-size: @font-size-base + 4;
+	vertical-align: middle;
+}
+
+.z-pop-text {
+	vertical-align: middle;
+}
+
+.z-pop-actions {
+	margin-top: 12px;
+	text-align: right;
+}
+
+.z-pop-cancel,
+.z-pop-ok {
+	color: @primary-color;
+	cursor: pointer;
+}
+
+.z-pop-ok {
+	margin-left: 10px;
+}
+
+.z-tooltip {
+    padding: 12px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.96);
+    background-color: #444;
+}
+
+.z-tooltip > .z-pop-arrow {
+    background-color: #444;
+}
+
+@keyframes z-pop-effect {
+    from {
+        opacity: 0;
+        transform: scale(0.6, 0.6);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}

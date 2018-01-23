@@ -1,0 +1,41 @@
+//
+// Badge
+// --------------------------------------------------
+
+@badge-height: 20px;
+@badge-padding-x: 4px;
+
+.z-badge {
+	display: block;
+	position: absolute;
+	height: @badge-height;
+    min-width: @badge-height;
+    top: 0;
+    left: 100%;
+	padding: 0 @badge-padding-x;
+    margin: -@badge-height/2 0 0 -@badge-height/2;
+    line-height: @badge-height;
+    background-color: @primary-color;
+    color: #fff;
+    text-align: center;
+    font-size: @font-size-base - 2;
+    z-index: 100;
+    border-radius: 16px;
+    box-shadow: 0 0 0 1px #fff;
+
+    &.green {
+    	background-color: @green;
+    }
+    &.red {
+    	background-color: @red;
+    }
+    &.teal {
+    	background-color: @teal;
+    }
+    &.yellow {
+    	background-color: @yellow;
+    }
+    &.purple {
+    	background-color: @purple;
+    }
+}

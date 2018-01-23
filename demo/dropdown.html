@@ -1,0 +1,364 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../dist/zui.css">
+        <link rel="stylesheet" href="./css/demo-common.css">
+        <link rel="stylesheet" href="./css/atom-one-light.css">
+        <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script src="../dist/zui.js"></script>
+    </head>
+    <body>
+        <h3>Dropdown</h3>
+
+        <h4>Basic</h4>
+        <section>
+            <div class="example">
+                <p>Add class name<mark>.z-dropdown-trigger</mark>on the trigger element.</p>
+                <p><b>Note:</b> Make true to use <mark>.z-dropdown</mark> as root node.</p>
+                <br>
+                <div class="z-dropdown">
+                    <button class="z-btn primary z-dropdown-trigger" >
+                        Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="z-dropdown-menu">
+                        <a class="z-menu-item">MENU 1</a>
+                        <a class="z-menu-item">MENU 2</a>
+                        <a class="z-menu-item disabled">Disabled</a>
+                    </div>
+                </div>
+            </div>
+            <pre><code class="html">    &lt;div class="z-dropdown"&gt;
+        &lt;button class="z-btn primary z-dropdown-trigger" &gt;
+            Dropdown
+            &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;div class="z-dropdown-menu"&gt;
+            &lt;a class="z-menu-item"&gt;MENU 1&lt;/a&gt;
+            &lt;a class="z-menu-item"&gt;MENU 2&lt;/a&gt;
+            &lt;a class="z-menu-item disabled"&gt;Disabled&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+        </section>
+
+        <h4>Icon And Image</h4>
+        <section>
+            <div class="example">
+                <div class="z-dropdown">
+                    <div class="z-dropdown-trigger">
+                        Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                    <div class="z-dropdown-menu">
+                        <a class="z-menu-item">
+                            <i class="fa fa-bank"></i>MENU 1
+                        </a class="z-menu-item">
+                        <a class="z-menu-item disabled">
+                            <i class="fa fa-envelope"></i>MENU 2
+                        </a>
+                        <div class="z-dropdown-divider"></div>
+                        <a class="z-menu-item">
+                            <i class="fa fa-phone"></i>MENU 3
+                        </a>
+                    </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="z-dropdown">
+                    <button class="z-btn-outline primary z-dropdown-trigger">
+                        Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="z-dropdown-menu">
+                        <a class="z-menu-item">
+                            <img src="./img/qq.jpg">MENU 1
+                        </a class="z-menu-item">
+                        <a class="z-menu-item disabled">
+                            <img src="./img/phone.png">MENU 2
+                        </a>
+                        <a class="z-menu-item">
+                            <img src="./img/film.jpg">MENU 3
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <pre><code class="html">    &lt;div class="z-dropdown"&gt;
+        &lt;div class="z-dropdown-trigger" &gt;
+            Dropdown
+            &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="z-dropdown-menu"&gt;
+            &lt;a class="z-menu-item"&gt;
+                &lt;i class="fa fa-bank"&gt;&lt;/i&gt;MENU 1
+            &lt;/a class="z-menu-item"&gt;
+            &lt;a class="z-menu-item disabled"&gt;
+                &lt;i class="fa fa-envelope"&gt;&lt;/i&gt;MENU 2
+            &lt;/a&gt;
+            &lt;div class="z-dropdown-divider"&gt;&lt;/div&gt;
+            &lt;a class="z-menu-item"&gt;
+                &lt;i class="fa fa-phone"&gt;&lt;/i&gt;MENU 3
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-dropdown"&gt;
+        &lt;button class="z-btn-outline primary z-dropdown-trigger"&gt;
+            Dropdown
+            &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;div class="z-dropdown-menu"&gt;
+            &lt;a class="z-menu-item"&gt;
+                &lt;img src="./img/qq.jpg"&gt;MENU 1
+            &lt;/a class="z-menu-item"&gt;
+            &lt;a class="z-menu-item disabled"&gt;
+                &lt;img src="./img/phone.png"&gt;MENU 2
+            &lt;/a&gt;
+            &lt;a class="z-menu-item"&gt;
+                &lt;img src="./img/film.jpg"&gt;MENU 3
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+        </section>
+
+        <h4>Sub Menu</h4>
+        <section>
+            <div class="example">
+                <div class="z-dropdown">
+                    <button class="z-btn primary z-dropdown-trigger" >
+                        Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="z-dropdown-menu">
+                        <a class="z-menu-item">MENU 1</a>
+                        <a class="z-menu-item">MENU 2</a>
+                        <div class="z-menu-head">
+                            MENU 3
+                            <div class="z-sub-menu">
+                                <a class="z-menu-item">ONE</a>
+                                <a class="z-menu-item">TWO</a>
+                                <a class="z-menu-item">THREE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre><code class="html">    &lt;div class="z-dropdown"&gt;
+        &lt;button class="z-btn primary z-dropdown-trigger" &gt;
+            Dropdown
+            &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;div class="z-dropdown-menu"&gt;
+            &lt;a class="z-menu-item"&gt;MENU 1&lt;/a&gt;
+            &lt;a class="z-menu-item"&gt;MENU 2&lt;/a&gt;
+            &lt;div class="z-menu-head"&gt;
+                MENU 3
+                &lt;div class="z-sub-menu"&gt;
+                    &lt;a class="z-menu-item"&gt;ONE&lt;/a&gt;
+                    &lt;a class="z-menu-item"&gt;TWO&lt;/a&gt;
+                    &lt;a class="z-menu-item"&gt;THREE&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+        </section>
+
+        <h4>Grouping</h4>
+        <section>
+            <div class="example">
+                <div>
+                    <div class="z-dropdown">
+                        <div class="z-dropdown-trigger" >
+                            Dropdown
+                            <i class="fa fa-caret-down"></i>
+                        </div>
+                        <div class="z-dropdown-menu">
+                            <div class="z-menu-label">US</div>
+                            <a class="z-menu-item">New York</a>
+                            <a class="z-menu-item">Washington</a>
+                            <div class="z-dropdown-divider"></div>
+                            <div class="z-menu-label">China</div>
+                            <a class="z-menu-item">Beijing</a>
+                            <a class="z-menu-item">Shanhai</a>
+                            <a class="z-menu-item">Shenzhen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre><code class="html">    &lt;div class="z-dropdown"&gt;
+        &lt;div class="z-dropdown-trigger" &gt;
+            Dropdown
+            &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="z-dropdown-menu"&gt;
+            &lt;div class="z-menu-label"&gt;US&lt;/div&gt;
+            &lt;a class="z-menu-item"&gt;New York&lt;/a&gt;
+            &lt;a class="z-menu-item"&gt;Washington&lt;/a&gt;
+            &lt;div class="z-dropdown-divider"&gt;&lt;/div&gt;
+            &lt;div class="z-menu-label"&gt;China&lt;/div&gt;
+            &lt;a class="z-menu-item"&gt;Beijing&lt;/a&gt;
+            &lt;a class="z-menu-item"&gt;Shanhai&lt;/a&gt;
+            &lt;a class="z-menu-item"&gt;Shenzhen&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+        </section>
+
+        <h4>Selectable</h4>
+        <section>
+            <div class="example">
+                <p>And class name<mark>.selectable</mark>to make the dropdown selectable.</p>
+                <br>
+                <div class="z-dropdown">
+                    <button class="z-btn-outline default z-dropdown-trigger selectable">
+                        Please Select
+                    </button>
+                    <div class="z-dropdown-menu">
+                        <a class="z-menu-item">
+                            <img src="./img/qq.jpg">ITEM 1
+                        </a class="z-menu-item">
+                        <a class="z-menu-item">
+                            <img src="./img/phone.png">ITEM 2
+                        </a>
+                        <a class="z-menu-item">
+                            <img src="./img/film.jpg">ITEM 3
+                        </a>
+                    </div>
+                </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="z-dropdown">
+                    <a class="z-dropdown-trigger selectable">Please Select</a>
+                    <div class="z-dropdown-menu">
+                        <a class="z-menu-item">
+                            <img src="./img/qq.jpg">ITEM 1
+                        </a class="z-menu-item">
+                        <a class="z-menu-item">
+                            <img src="./img/phone.png">ITEM 2
+                        </a>
+                        <a class="z-menu-item">
+                            <img src="./img/film.jpg">ITEM 3
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <pre><code class="html">    &lt;div class="z-dropdown"&gt;
+        &lt;button class="z-btn-outline default z-dropdown-trigger selectable"&gt;
+            Please Select
+        &lt;/button&gt;
+        &lt;div class="z-dropdown-menu"&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-dropdown"&gt;
+        &lt;a class="z-dropdown-trigger selectable"&gt;
+            Please Select
+        &lt;/a&gt;
+        &lt;div class="z-dropdown-menu"&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+        </section>
+
+        <h4>Direction</h4>
+        <section>
+            <div class="example">
+                <div class="z-dropdown" style="margin-right:150px;">
+                    <a class="z-dropdown-trigger">top-right</a>
+                    <div class="z-dropdown-menu top-right">
+                        <div class="z-menu-head">
+                            ONE
+                            <div class="z-sub-menu">
+                                <a class="z-menu-item">ONE</a>
+                                <a class="z-menu-item">TWO</a>
+                                <a class="z-menu-item">THREE</a>
+                            </div>
+                        </div>
+                        <a class="z-menu-item">TWO</a>
+                        <a class="z-menu-item">THREE</a>
+                    </div>
+                </div>
+
+                <div class="z-dropdown" style="margin-right:150px;">
+                    <a class="z-dropdown-trigger">top-left</a>
+                    <div class="z-dropdown-menu top-left">
+                        <a class="z-menu-item">ONE</a>
+                        <div class="z-menu-head">
+                            TWO
+                            <div class="z-sub-menu">
+                                <a class="z-menu-item">ONE</a>
+                                <a class="z-menu-item">TWO</a>
+                                <a class="z-menu-item">THREE</a>
+                            </div>
+                        </div>
+                        <a class="z-menu-item">THREE</a>
+                    </div>
+                </div>
+
+                <div class="z-dropdown">
+                    <a class="z-dropdown-trigger">bottom-left</a>
+                    <div class="z-dropdown-menu bottom-left">
+                        <a class="z-menu-item">ONE</a>
+                        <a class="z-menu-item">TWO</a>
+                        <div class="z-menu-head">
+                            THREE
+                            <div class="z-sub-menu">
+                                <a class="z-menu-item">ONE</a>
+                                <a class="z-menu-item">TWO</a>
+                                <a class="z-menu-item">THREE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <pre><code class="html">    &lt;div class="z-dropdown"&gt;
+        &lt;a class="z-dropdown-trigger">top-right&lt;/a&gt;
+        &lt;div class="z-dropdown-menu top-right"&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-dropdown"&gt;
+        &lt;a class="z-dropdown-trigger">top-left&lt;/a&gt;
+        &lt;div class="z-dropdown-menu top-left"&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;  
+
+    &lt;div class="z-dropdown"&gt;
+        &lt;a class="z-dropdown-trigger">bottom-left&lt;/a&gt;
+        &lt;div class="z-dropdown-menu bottom-left"&gt;
+            ...
+        &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+        </section>
+
+        <h4>Javascript</h4>
+        <section>
+            <div class="example">
+                <p>If dropdown is created dynamicly, you need javascript to initialize it.</p>
+            </div>
+            <pre><code class="javascript">    $('#some-trigger').dropdown();</code></pre>
+        </section>
+
+        <h4>Javascript Methods</h4>
+        <section>
+            <div class="example">
+                <p>Open or close the dropdown menu:</p>
+            </div>
+            <pre><code class="javascript">    $('#trigger1').dropdown('open'); 
+    $('#trigger1').dropdown('close');</code></pre>
+        </section>
+
+        <script>
+          $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+              hljs.highlightBlock(block);
+            });
+          });
+        $('#trigger1').dropdown();
+        $('#trigger2').dropdown({hover:true});
+        </script>
+    </body>
+</html>

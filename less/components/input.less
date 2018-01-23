@@ -1,0 +1,334 @@
+//
+// Input & Select & Textarea
+// --------------------------------------------------
+
+
+@input-width-default: 188px;
+@input-line-height: @font-size-base + 4;
+@input-padding-x: 10px;
+@input-padding-y-base: (@input-height-base - 2 - @input-line-height) / 2;
+@input-padding-y-small: (@input-height-small - 2 - @input-line-height) / 2;
+@input-padding-y-large: (@input-height-large - 2 - @input-line-height) / 2;
+@placeholder-color: #999;
+@input-border-color: #bcbcbc;
+@input-border-color-focus: darken(@input-border-color, 15%);
+
+input::-webkit-input-placeholder {
+  color: @placeholder-color;
+}
+
+// input::-moz-placeholder {  /* Firefox 19+ */
+//   color: @placeholder-color;
+// }
+
+input:-ms-input-placeholder {
+  color: @placeholder-color;
+}
+
+.z-input,
+.z-textarea {
+    color: @text-color-base;
+    font-size: @font-size-base;
+    font-weight: 400;
+    font-family: @font-family-base;
+    background-color: #fff;
+    border: 1px solid @input-border-color;
+    border-radius: @border-radius-base;
+    outline: none;
+
+    &:focus {
+        border-color: @input-border-color-focus;
+    }
+
+    &[readonly] {
+        cursor: default;
+    }
+
+    &[disabled],
+    &:disabled {
+        background-color: #f7f7f7 !important;
+        color: @text-color-disabled !important;
+        cursor: default;
+    }
+
+    &.light {
+        padding-left: 0;
+        padding-right: 0;
+        border-color: transparent;
+        border-bottom-color: @input-border-color;
+        border-radius: 0;
+
+        &:focus {
+            border-bottom-color: @input-border-color-focus;
+        }
+    }
+
+    &.square {
+        border-radius: 0;
+    }
+
+    &.round {
+        padding-left: @input-padding-x + 5;
+        padding-right: @input-padding-x + 5;
+        border-radius: @input-round-radius;
+    }
+
+    &.shadow {
+        box-shadow: @input-shadow;
+    }
+
+    &.gray {
+        background-color: #f5f5f7;
+    }
+
+    &.success {
+        background-color: @state-success-bg;
+        color: @state-success-color;
+        border-color: @color-success;
+    }
+
+    &.error {
+        background-color: @state-error-bg;
+        color: @state-error-color;
+        border-color: @color-error;
+    }
+
+    &.warning {
+        background-color: @state-warning-bg;
+        color: @state-warning-color;
+        border-color: @color-warning;
+    }
+
+    &.inverted {
+        color: #fff;
+        border-color: #fff;
+        background-color: transparent;
+
+        &:focus {
+            border-color: #fff;
+        }
+    }
+
+    &.block {
+        display: block;
+        width: 100%;
+    }
+}
+
+.z-input {
+    width: @input-width-default;
+    height: @input-height-base;
+    padding: @input-padding-y-base @input-padding-x;
+    line-height: @input-line-height;
+
+    &.small {
+        height: @input-height-small;
+        padding-top: @input-padding-y-small;
+        padding-bottom: @input-padding-y-small;
+    }
+
+    &.large {
+        height: @input-height-large;
+        padding-top: @input-padding-y-large;
+        padding-bottom: @input-padding-y-large;
+    }
+}
+
+.z-input.bold {
+    border-width: 2px;
+    padding: @input-padding-y-base - 1 @input-padding-x;
+
+    &.small {
+        padding: @input-padding-y-small - 1 @input-padding-x;
+    }
+
+    &.large {
+        padding: @input-padding-y-large - 1 @input-padding-x;
+    }
+}
+
+.z-textarea {
+    width: auto;
+    min-height: 90px;
+    padding: @input-padding-x - 2 @input-padding-x;
+    line-height: @line-height-base;
+}
+
+.z-input-file {
+    position: relative;
+    display: inline-flex;
+
+    > [type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 0;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    > .z-input {
+        width: 200px;
+        margin-left: 4px;
+        padding-right: 20px;
+    }
+
+    > .z-remove-file {
+        display: none;
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 1;
+        color: #999;
+        cursor: pointer;
+
+        &:hover {
+            color: #777;
+        }
+    }
+}
+
+.z-input-wrapper {
+	position: relative;
+    display: inline-block;
+    width: @input-width-default;
+
+    > .z-input {
+    	width: 100%;
+
+		&:first-child {
+			padding-right: 30px;
+		}
+
+    	&:not(:first-child) {
+    		padding-left: 30px;
+    	}
+    }
+
+    > i {
+        display: inline-block;
+        position: absolute;
+        width: 32px;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 1;
+        text-align: center;
+    	color: @icon-color-default;
+    	font-size: @font-size-base + 2;
+
+        &:first-child {
+            left: 1px;
+        }
+
+        &:not(:first-child) {
+            right: 1px;
+        }
+    }
+
+    &.light {
+        > .z-input {
+            &:first-child {
+                padding-right: 22px;
+            }
+
+            &:not(:first-child) {
+                padding-left: 22px;
+            }
+        }
+
+        > i {
+            width: 20px;
+
+            &:first-child {
+                text-align: left;
+            }
+
+            &:not(:first-child) {
+                text-align: right;
+            }
+        }
+    }
+
+    &.inverted > i {
+        color: #fff;
+    }
+}
+
+.z-input-group {
+    position: relative;
+    display: inline-flex;
+
+	> .z-input,
+    > .z-input-addon,
+    > .z-select,
+    > .z-btn,
+    > .z-btn-outline,
+    > .z-select-wrapper {
+        position: relative;
+
+        &:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:not(:last-child) {
+            border-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+    }
+
+    > .z-input {
+        flex: 1 1 auto;
+    }
+
+    > .z-input-addon {
+        height: @input-height-base;
+        padding: 0 10px;
+        line-height: @input-height-base - 2;
+        background-color: #f2f2f2;
+        color: @text-color-base;
+        font-size: @font-size-base;
+        font-weight: 400;
+        border: 1px solid @input-border-color;
+        border-radius: @border-radius-base;
+
+        > i {
+            color: @icon-color-default;
+        }
+
+        &.small {
+            height: @input-height-small;
+            line-height: @input-height-small - 2;
+        }
+
+        &.large {
+            height: @input-height-large;
+            line-height: @input-height-large - 2;
+        }
+    }
+
+    > .z-select-wrapper {
+        &:last-child > .z-select-trigger {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:not(:last-child) > .z-select-trigger {
+            border-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        &:not(:first-child):not(:last-child) > .z-select-trigger {
+            border-radius: 0;
+        }
+    }
+}

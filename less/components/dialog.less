@@ -1,0 +1,90 @@
+//
+// Dialog
+// --------------------------------------------------
+
+
+@dialog-padding-x: 20px;
+
+.z-body-dlg-open {
+    overflow: hidden;
+}
+
+#z-dlg-blocker {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: -10000px;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity .3s;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.54);
+    overflow-y: auto;
+
+    &.open {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+.z-dlg-container {
+    padding: 12px 0;
+}
+
+.z-dlg {
+    position: relative;
+    width: 50%;
+    min-width: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: @border-radius-base;
+    transform: translateY(-20px);
+    will-change: transform;
+    transition: transform .2s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 20px, rgba(0, 0, 0, 0.22) 0px 10px 18px;
+
+    &.open {
+        transform: translateY(0px);
+    }
+}
+
+.z-dlg-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    color: #999;
+    cursor: pointer;
+
+    &:hover {
+        color: #555;
+    }
+}
+
+.z-dlg-title {
+    padding: 11px @dialog-padding-x;
+    border-bottom: 1px solid #ccc;
+    font-size: @font-size-base + 4;
+}
+
+.z-dlg-content {
+    padding: 18px @dialog-padding-x;
+}
+
+.z-dlg-close + .z-dlg-content {
+    padding-top: 28px;
+}
+
+.z-dlg-foot {
+    padding: 8px @dialog-padding-x;
+    background-color: #f9f9f9;
+    text-align: right;
+    border-top: 1px solid #ccc;
+    border-bottom-left-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
+}
+
+.z-dlg-action-wrapper {
+    display: inline-block;
+    margin-left: 12px;
+}

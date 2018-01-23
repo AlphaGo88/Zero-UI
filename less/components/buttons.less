@@ -1,0 +1,334 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+@btn-height-base: @input-height-base;
+@btn-height-small: @input-height-small;
+@btn-height-large: @input-height-large;
+@btn-padding-x-base: 12px;
+@btn-padding-x-small: @btn-padding-x-base - 4;
+@btn-padding-x-large: @btn-padding-x-base + 4;
+@btn-icon-color-dark: #888;
+
+
+.btn-size(@height; @padding-x) {
+    height: @height;
+    padding: 0 @padding-x;
+
+    &.circle {
+        width: @height;
+    }
+
+    &.labeled {
+        padding-left: @padding-x + @height - 4;
+
+        > i {
+            width: @height - 4;
+            height: @height;
+            line-height: @height;
+        }
+    }
+
+    &.labeled.right {
+        padding-left: @padding-x;
+        padding-right: @padding-x + @height - 4;
+    }
+}
+
+.btn-color(@bg-color) {
+    background-color: @bg-color;
+    border-color: @bg-color;
+    color: #fff;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: darken(@bg-color, 10%);
+        border-color: darken(@bg-color, 10%);
+    }
+
+    &:active {
+        box-shadow: 0 0 0 2px fade(@bg-color, 60%);
+    }
+
+    &.labeled > i {
+        background-color: darken(@bg-color, 8%);
+    }
+
+    &.labeled:hover > i,
+    &.labeled:focus > i {
+        background-color: darken(@bg-color, 16%);
+    }
+}
+
+.btn-outline-color(@border-color, @color, @hover-bg) {
+    background-color: transparent;
+    color: @color;
+    border-color: @border-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: @hover-bg;
+    }
+
+    &:active {
+        box-shadow: 0 0 0 2px fade(@border-color, 40%);
+    }
+}
+
+.z-btn,
+.z-btn-outline {
+    display: inline-block;
+    position: relative;
+    line-height: @line-height-base;
+    text-align: center;
+    font-size: @font-size-base;
+    font-weight: 400;
+    font-family: @font-family-base;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    border-radius: @border-radius-base;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    transition: all .2s;
+
+    &.loading,
+    &[disabled],
+    &:disabled,
+    &.disabled {
+        -ms-pointer-events: none;
+        pointer-events: none;
+        cursor: default;
+        opacity: 0.6;
+    }
+
+    .btn-size(@btn-height-base; @btn-padding-x-base);
+
+    &.small {
+        .btn-size(@btn-height-small; @btn-padding-x-small);
+    }
+
+    &.large {
+        .btn-size(@btn-height-large; @btn-padding-x-large);
+    }
+
+    &.square {
+        border-radius: 0;
+    }
+
+    &.round {
+        border-radius: @input-round-radius;
+    }
+
+    &.circle {
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 50%;
+    }
+
+    &.shadow {
+        box-shadow: @input-shadow;
+    }
+
+    &.block {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+}
+
+.z-btn {
+    &.labeled > i {
+        display: inline-block;
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        margin: 0;
+        text-align: center;
+        transition: background-color .2s;
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+    }
+
+    &.labeled.right > i {
+        left: auto;
+        right: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
+}
+
+a.z-btn,
+a.z-btn-outline {
+    line-height: @btn-height-base - 2;
+
+    &.small {
+        line-height: @btn-height-small - 2;
+    }
+
+    &.large {
+        line-height: @btn-height-large - 2;
+    }
+}
+
+.z-btn.default {
+    background-color: #f5f5f5;
+    border-color: #bcbcbc;
+    color: @text-color-base;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: darken(#f5f5f5, 6%);
+    }
+
+    &:active {
+        box-shadow: 0 0 0 2px fade(#bcbcbc, 60%);
+    }
+
+    > i {
+        color: @btn-icon-color-dark;
+    }
+}
+
+.z-btn.gray {
+    background-color: #e0e1e2;
+    border-color: #e0e1e2;
+    color: @text-color-base;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: darken(#e0e1e2, 8%);
+        border-color: darken(#e0e1e2, 8%);
+    }
+
+    &:active {
+        box-shadow: 0 0 0 2px #e0e1e2;
+    }
+
+    > i {
+        color: @btn-icon-color-dark;
+    }
+
+    &.labeled > i {
+        background-color: darken(#e0e1e2, 4%);
+    }
+
+    &.labeled:hover > i,
+    &.labeled:focus > i {
+        background-color: darken(#e0e1e2, 12%);
+    }
+}
+
+.z-btn.primary {
+    .btn-color(@primary-color);
+}
+
+.z-btn.green {
+    .btn-color(@green);
+}
+
+.z-btn.red {
+    .btn-color(@red);
+}
+
+.z-btn.teal {
+    .btn-color(@teal);
+}
+
+.z-btn.yellow {
+    .btn-color(@yellow);
+}
+
+.z-btn.purple {
+    .btn-color(@purple);
+}
+
+.z-btn.inverted {
+    background-color: #fff;
+    color: @text-color-base;
+    border-color: #fff;
+
+    > i {
+        color: @btn-icon-color-dark;
+    }
+}
+
+.z-btn-outline.default {
+    .btn-outline-color(#999, @text-color-base, #f5f5f5);
+
+    > i {
+        color: @btn-icon-color-dark;
+    }
+}
+
+.z-btn-outline.primary {
+    .btn-outline-color(@primary-color, @primary-color, fade(@primary-color, 8%));
+}
+
+.z-btn-outline.green {
+    .btn-outline-color(@green, @green, fade(@green, 8%));
+}
+
+.z-btn-outline.red {
+    .btn-outline-color(@red, @red, fade(@red, 8%));
+}
+
+.z-btn-outline.teal {
+    .btn-outline-color(@teal, @teal, fade(@teal, 8%));
+}
+
+.z-btn-outline.yellow {
+    .btn-outline-color(@yellow, @yellow, fade(@yellow, 8%));
+}
+
+.z-btn-outline.purple {
+    .btn-outline-color(@purple, @purple, fade(@purple, 8%));
+}
+
+.z-btn-outline.inverted {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: #fff;
+        color: @text-color-base;
+
+        > i {
+            color: @btn-icon-color-dark;
+        }
+    }
+}
+
+.z-btn-group {
+    position: relative;
+    display: inline-flex;
+    line-height: 1; // prevent inherited line height
+
+    > .z-btn,
+    > .z-btn-outline {
+        &:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:not(:last-child) {
+            border-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+              
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+    }
+}

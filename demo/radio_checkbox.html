@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" href="../dist/zui.css">
+		<link rel="stylesheet" href="./css/demo-common.css">
+		<link rel="stylesheet" href="./css/atom-one-light.css">
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/highlight.pack.js"></script>
+		<script src="../dist/zui.js"></script>
+		<style>
+			p{margin-bottom: 10px;}
+		</style>
+	</head>
+	<body>
+		<h3>Radio&Checkbox</h3>
+
+		<h4>Radio</h4>
+		<section>
+			<div class="example">
+				<p>
+					<label class="z-radio">
+						<input type="radio" name="fruit1" value="apple" checked></input>
+						<span>Apple</span>
+					</label>
+				</p>
+				<p>
+					<label class="z-radio">
+						<input type="radio" name="fruit1" value="orange"></input>
+						<span>Orange</span>
+					</label>
+				</p>
+				<p>
+					<label class="z-radio">
+						<input type="radio" name="fruit1" value="grape"></input>
+						<span>Grape</span>
+					</label>
+				</p>
+				<p>
+					<label class="z-radio">
+						<input type="radio" name="fruit1" value="banana" disabled></input>
+						<span>Banana</span>
+					</label>
+				</p>
+			</div>
+			<pre><code>
+	&lt;p&gt;
+		&lt;label class="z-radio"&gt;
+			&lt;input type="radio" name="fruit1" value="apple" checked/&gt;
+			&lt;span&gt;Apple&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		&lt;label class="z-radio"&gt;
+			&lt;input type="radio" name="fruit1" value="orange"/&gt;
+			&lt;span&gt;Orange&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		&lt;label class="z-radio"&gt;
+			&lt;input type="radio" name="fruit1" value="grape"/&gt;
+			&lt;span&gt;Grape&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		&lt;label class="z-radio"&gt;
+			&lt;input type="radio" name="fruit1" value="banana" disabled/&gt;
+			&lt;span&gt;Banana&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/p&gt;
+			</code></pre>
+		</section>
+
+		<h4>Radio Group</h4>
+		<section>
+			<div class="example">
+				<p>Use class<mark>.z-radio-group</mark>to create a group of radios.</p>
+				<div class="z-radio-group">
+					<label class="z-radio">
+						<input type="radio" name="fruit2" value="apple" checked></input>
+						<span>Apple</span>
+					</label>
+					<label class="z-radio">
+						<input type="radio" name="fruit2" value="orange"></input>
+						<span>Orange</span>
+					</label>
+					<label class="z-radio">
+						<input type="radio" name="fruit2" value="grape"></input>
+						<span>Grape</span>
+					</label>
+					<label class="z-radio">
+						<input type="radio" name="fruit2" value="banana" disabled></input>
+						<span>Banana</span>
+					</label>
+				</div>
+			</div>
+			<pre><code>
+	&lt;div class="z-radio-group"&gt;
+		&lt;label class="z-radio"&gt;
+			&lt;input type="radio" name="fruit2" value="apple" checked/&gt;
+			&lt;span&gt;Apple&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-radio"&gt;
+			&lt;input type="radio" name="fruit2" value="orange"/&gt;
+			&lt;span&gt;Orange&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-radio"&gt;
+			&lt;input type="radio" name="fruit2" value="grape"/&gt;
+			&lt;span&gt;Grape&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-radio"&gt;
+			&lt;input type="radio" name="fruit2" value="banana" disabled/&gt;
+			&lt;span&gt;Banana&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/div&gt;
+			</code></pre>
+		</section>
+
+		<h4>Text-like Radio Group</h4>
+		<section>
+			<div class="example">
+				<div class="z-radio-light-group">
+					<label class="z-radio-light">
+						<input type="radio" name="fruit6" value="apple" checked></input>
+						<span>Apple</span>
+					</label>
+					<label class="z-radio-light">
+						<input type="radio" name="fruit6" value="orange"></input>
+						<span>Orange</span>
+					</label>
+					<label class="z-radio-light">
+						<input type="radio" name="fruit6" value="banana" disabled></input>
+						<span>Banana</span>
+					</label>
+				</div>
+			</div>
+			<pre><code>	&lt;div class="z-radio-light-group"&gt;
+		&lt;label class="z-radio-light"&gt;
+			&lt;input type="radio" name="fruit6" value="apple" checked&gt;&lt;/input&gt;
+			&lt;span&gt;Apple&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-radio-light"&gt;
+			&lt;input type="radio" name="fruit6" value="orange"&gt;&lt;/input&gt;
+			&lt;span&gt;Orange&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-radio-light"&gt;
+			&lt;input type="radio" name="fruit6" value="banana" disabled&gt;&lt;/input&gt;
+			&lt;span&gt;Banana&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/div&gt;</code></pre>
+		</section>
+
+		<h4>Button-like Radio Group</h4>
+		<section>
+			<div class="example">
+				<div class="z-radio-btn-group small">
+					<label class="z-radio-btn">
+						<input type="radio" name="fruit3" value="apple" checked></input>
+						<span>Apple</span>
+					</label>
+					<label class="z-radio-btn">
+						<input type="radio" name="fruit3" value="orange"></input>
+						<span>Orange</span>
+					</label>
+					<label class="z-radio-btn">
+						<input type="radio" name="fruit3" value="banana" disabled></input>
+						<span>Banana</span>
+					</label>
+				</div>
+				<br>
+				<div class="z-radio-btn-group">
+					<label class="z-radio-btn">
+						<input type="radio" name="fruit4" value="apple" checked></input>
+						<span>Apple</span>
+					</label>
+					<label class="z-radio-btn">
+						<input type="radio" name="fruit4" value="orange"></input>
+						<span>Orange</span>
+					</label>
+					<label class="z-radio-btn">
+						<input type="radio" name="fruit4" value="banana" disabled></input>
+						<span>Banana</span>
+					</label>
+				</div>
+				<br>
+				<div class="z-radio-btn-group large">
+					<label class="z-radio-btn">
+						<input type="radio" name="fruit5" value="apple" checked></input>
+						<span>Apple</span>
+					</label>
+					<label class="z-radio-btn">
+						<input type="radio" name="fruit5" value="orange"></input>
+						<span>Orange</span>
+					</label>
+					<label class="z-radio-btn">
+						<input type="radio" name="fruit5" value="banana" disabled></input>
+						<span>Banana</span>
+					</label>
+				</div>
+			</div>
+			<pre><code>
+				
+			</code></pre>
+		</section>
+
+		<h4>Checkbox</h4>
+		<section>
+			<div class="example">
+				<p>
+					<label class="z-checkbox">
+						<input type="checkbox"></input>
+						<span>checkbox</span>
+					</label>
+				</p>
+				<p>
+					<label class="z-checkbox">
+						<input type="checkbox" disabled></input>
+						<span>disabled</span>
+					</label>
+				</p>
+			</div>
+			<pre><code>
+	&lt;p&gt;
+		&lt;label class="z-checkbox"&gt;
+			&lt;input type="checkbox"&gt;&lt;/input&gt;
+			&lt;span&gt;checkbox&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		&lt;label class="z-checkbox"&gt;
+			&lt;input type="checkbox" disabled&gt;&lt;/input&gt;
+			&lt;span&gt;disabled&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/p&gt;
+			</code></pre>
+		</section>
+
+		<h4>Checkbox Group</h4>
+		<section>
+			<div class="example">
+				<div class="z-checkbox-group">
+					<label class="z-checkbox">
+						<input type="checkbox"></input>
+						<span>Apple</span>
+					</label>
+					<label class="z-checkbox">
+						<input type="checkbox"></input>
+						<span>Orange</span>
+					</label>
+					<label class="z-checkbox">
+						<input type="checkbox"></input>
+						<span>Banana</span>
+					</label>
+				</div>
+			</div>
+			<pre><code>
+	&lt;div class="z-checkbox-group"&gt;
+		&lt;label class="z-checkbox"&gt;
+			&lt;input type="checkbox"&gt;&lt;/input&gt;
+			&lt;span&gt;Apple&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-checkbox"&gt;
+			&lt;input type="checkbox"&gt;&lt;/input&gt;
+			&lt;span&gt;Orange&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-checkbox"&gt;
+			&lt;input type="checkbox"&gt;&lt;/input&gt;
+			&lt;span&gt;Banana&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/div&gt;
+			</code></pre>
+		</section>
+
+		<script>
+		  $(document).ready(function() {
+		    $('pre code').each(function(i, block) {
+		      hljs.highlightBlock(block);
+		    });
+		  });
+		</script>
+	</body>
+</html>

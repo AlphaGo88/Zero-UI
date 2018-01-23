@@ -1,0 +1,388 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../dist/zui.css">
+    <link rel="stylesheet" href="./css/demo-common.css">
+    <link rel="stylesheet" href="./css/atom-one-light.css">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/highlight.pack.js"></script>
+    <script src="../dist/zui.js"></script>
+  </head>
+  <body>
+    <h3>Button</h3>
+
+    <h4>Button Type and Color</h4>
+    <section>
+      <div class="example">
+        <h5>Default</h5>
+        <p>
+          Use class name<mark>.z-btn</mark>to create buttons with default style.
+          <br>
+          Here are buttons with all available colors:
+        </p>
+        <br>
+        <button class="z-btn primary">Primary</button>
+        <button class="z-btn default">Default</button>
+        <button class="z-btn green">Green</button>
+        <button class="z-btn red">Red</button>
+        <button class="z-btn teal">Teal</button>
+        <button class="z-btn yellow">Yellow</button>
+        <button class="z-btn purple">Purple</button>
+        <button class="z-btn gray">Gray</button>
+      </div>
+      <pre><code>
+  &lt;button class="z-btn primary"&gt;Primary&lt;/button&gt;
+  &lt;button class="z-btn default"&gt;Default&lt;/button&gt;
+  &lt;button class="z-btn green"&gt;Green&lt;/button&gt;
+  &lt;button class="z-btn red"&gt;Red&lt;/button&gt;
+  &lt;button class="z-btn teal"&gt;Teal&lt;/button&gt;
+  &lt;button class="z-btn yellow"&gt;Yellow&lt;/button&gt;
+  &lt;button class="z-btn purple"&gt;Purple&lt;/button&gt;
+  &lt;button class="z-btn gray"&gt;Gray&lt;/button&gt;
+      </code></pre>
+      <div class="example" style="border-top: 1px solid #ccc">
+        <h5>Outline</h5>
+        <p>Use class name<mark>.z-btn-outline</mark>to create buttons with outline style.</p>
+        <br>
+        <button class="z-btn-outline primary">Primary</button>
+        <button class="z-btn-outline default">Default</button>
+        <button class="z-btn-outline green">Green</button>
+        <button class="z-btn-outline red">Red</button>
+        <button class="z-btn-outline teal">Teal</button>
+        <button class="z-btn-outline yellow">Yellow</button>
+        <button class="z-btn-outline purple">Purple</button>
+      </div>
+      <pre><code>
+  &lt;button class="z-btn-outline primary"&gt;Primary&lt;/button&gt;
+  &lt;button class="z-btn-outline default"&gt;Default&lt;/button&gt;
+  &lt;button class="z-btn-outline green"&gt;Green&lt;/button&gt;
+  &lt;button class="z-btn-outline red"&gt;Red&lt;/button&gt;
+  &lt;button class="z-btn-outline teal"&gt;Teal&lt;/button&gt;
+  &lt;button class="z-btn-outline yellow"&gt;Yellow&lt;/button&gt;
+  &lt;button class="z-btn-outline purple"&gt;Purple&lt;/button&gt;
+      </code></pre>
+      <div class="example" style="border-top:1px solid #ccc">
+        <h5>Inverted</h5>
+        <p>A inverted button is used in dark background.</p>
+        <p><b>Note:</b> <mark>inverted</mark>is not a type but a color.</p>
+        <br>
+        <div style="padding:20px;background-color:grey">
+          <button class="z-btn inverted">Inverted</button>
+          <button class="z-btn-outline inverted">Inverted</button>
+        </div>
+      </div>
+      <pre class="html"><code>
+  &lt;button class="z-btn inverted"&gt;Inverted&lt;/button&gt;
+  &lt;button class="z-btn-outline inverted"&gt;Inverted&lt;/button&gt;
+      </code></pre>
+    </section>
+
+    <h4>Size</h4>
+    <section>
+      <div class="example">
+        <p>
+          Use<mark>.small</mark>to create small buttons.
+          <br>
+          Use<mark>.large</mark>to create large buttons.
+        </p>
+        <br>
+        <div>
+          <button class="z-btn primary small">Small</button>
+          <button class="z-btn primary">Default</button>
+          <button class="z-btn primary large">Large</button>
+        </div>
+      </div>
+      <pre><code>
+  &lt;button class="z-btn primary small">Small&lt;/button&gt;
+  &lt;button class="z-btn primary">Default&lt;/button&gt;
+  &lt;button class="z-btn primary large">Large&lt;/button&gt;
+      </code></pre>
+    </section>
+
+    <h4>Styles</h4>
+    <section>
+      <div class="example">
+        <p>
+          z-ui provides additional classes for volatile styles.
+          <br>
+          These are available: <mark>square</mark>, <mark>roud</mark>, <mark>shadow</mark>
+        </p>
+        <br>
+        &nbsp;
+        <button class="z-btn-outline primary square">Search</button>
+        &nbsp;
+        <button class="z-btn teal round">Search</button>
+        &nbsp;
+        <button class="z-btn primary shadow">Search</button>
+      </div>
+      <pre><code>
+  &lt;button class="z-btn-outline primary square"&gt;Search&lt;/button&gt;
+  &lt;button class="z-btn teal round"&gt;Search&lt;/button&gt;
+  &lt;button class="z-btn primary shadow"&gt;Search&lt;/button&gt;
+      </code></pre>
+    </section>
+
+    <h4>Icon</h4>
+    <section>
+      <div class="example">
+        <div>
+          <button class="z-btn primary">
+              <i class="fa fa-cloud"></i>
+              Button
+          </button>
+          <button class="z-btn default">
+              <i class="fa fa-cloud"></i>
+              Button
+          </button>
+          <button class="z-btn-outline primary">
+              <i class="fa fa-cloud"></i>
+              Button
+          </button>
+          <button class="z-btn-outline red">
+              <i class="fa fa-cloud"></i>
+              Button
+          </button>
+          <button class="z-btn gray">
+              <i class="fa fa-cloud"></i>
+              Button
+          </button>
+        </div>
+      </div>
+      <pre><code>
+    &lt;button class="z-btn primary"&gt;
+        &lt;i class="fa fa-cloud"&gt;&lt;/i&gt;
+        Button
+    &lt;/button&gt;
+    &lt;button class="z-btn default"&gt;
+        &lt;i class="fa fa-cloud"&gt;&lt;/i&gt;
+        Button
+    &lt;/button&gt;
+    &lt;button class="z-btn-outline primary"&gt;
+        &lt;i class="fa fa-cloud"&gt;&lt;/i&gt;
+        Button
+    &lt;/button&gt;
+    &lt;button class="z-btn-outline red"&gt;
+        &lt;i class="fa fa-cloud"&gt;&lt;/i&gt;
+        Button
+    &lt;/button&gt;
+    &lt;button class="z-btn gray"&gt;
+        &lt;i class="fa fa-cloud"&gt;&lt;/i&gt;
+        Button
+    &lt;/button&gt;
+      </code></pre>
+      <div class="example" style="border-top:1px solid #ccc">
+        <p>Add class name<mark>.labeled</mark>to the button with label like icon.</p>
+        <p>If the icon is on the right, <mark>.right</mark>is needed.</p>
+        <br>
+        <button class="z-btn primary labeled">
+            <i class="fa fa-heart"></i>
+            Button
+        </button>
+        <button class="z-btn green labeled">
+            <i class="fa fa-pause"></i>
+            Button
+        </button>
+        <button class="z-btn gray labeled right">
+            Button
+            <i class="fa fa-arrow-right"></i>
+        </button>
+      </div>
+      <pre><code>
+    &lt;button class="z-btn primary labeled"&gt;
+        &lt;i class="fa fa-heart"&gt;&lt;/i&gt;
+        Button
+    &lt;/button&gt;
+    &lt;button class="z-btn green labeled"&gt;
+        &lt;i class="fa fa-pause"&gt;&lt;/i&gt;
+        Button
+    &lt;/button&gt;
+    &lt;button class="z-btn gray labeled right"&gt;
+        Button
+        &lt;i class="fa fa-arrow-right"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+      </code></pre>
+      <div class="example" style="border-top:1px solid #ccc">
+        <p>Use<mark>.circle</mark>to create circular icon button.</p>
+        <br>
+        <button class="z-btn circle primary">
+            <i class="fa fa-search"></i>
+        </button>
+        <button class="z-btn-outline circle primary">
+            <i class="fa fa-search"></i>
+        </button>
+        <button class="z-btn circle default">
+            <i class="fa fa-search"></i>
+        </button>
+      </div>
+      <pre><code>
+  &lt;button class="z-btn circle primary"&gt;
+      &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;button class="z-btn-outline circle primary"&gt;
+      &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;button class="z-btn circle default"&gt;
+      &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+  &lt;/button&gt;
+      </code></pre>
+      <div class="example" style="border-top:1px solid #ccc">
+        <p>A button can refers to a link, you can use<mark>&lt;a&gt;</mark>instead of<mark>&lt;button&gt;</mark>.</p>
+        <br>
+        <a href="http://www.qq.com/" class="z-btn circle primary">
+            <i class="fa fa-qq"></i>
+        </a>
+        <a href="https://wx.qq.com/" class="z-btn circle green">
+            <i class="fa fa-weixin"></i>
+        </a>
+        <a href="https://weibo.com/" class="z-btn circle red">
+            <i class="fa fa-weibo"></i>
+        </a>
+      </div>
+      <pre><code>
+  &lt;a href="http://www.qq.com/" class="z-btn circle primary"&gt;
+      &lt;i class="fa fa-qq"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;a href="https://wx.qq.com/" class="z-btn circle green"&gt;
+      &lt;i class="fa fa-weixin"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;a href="https://weibo.com/" class="z-btn circle red"&gt;
+      &lt;i class="fa fa-weibo"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+      </code></pre>
+    </section>
+
+    <h4>Disabled</h4>
+    <section>
+      <div class="example">
+        <button class="z-btn primary" disabled>Search</button>
+        <button class="z-btn default" disabled>Search</button>
+        <button class="z-btn-outline primary" disabled>Search</button>
+      </div>
+      <pre><code>
+  &lt;button class="z-btn primary" disabled&gt;Search&lt;/button&gt;
+  &lt;button class="z-btn default" disabled&gt;Search&lt;/button&gt;
+  &lt;button class="z-btn-outline primary" disabled&gt;Search&lt;/button&gt;
+      </code></pre>
+    </section>
+
+    <h4>Loading Status</h4>
+    <section>
+      <div class="example">
+        <p>Add class<mark>.loading</mark>to display loading status, and the button will be unclickable.</p>
+        <br>
+        <button class="z-btn primary loading">
+          <i class="fa fa-refresh fa-spin"></i>
+          Loading
+        </button>
+        <button class="z-btn default loading">
+          <i class="fa fa-spinner fa-spin"></i>
+          Loading
+        </button>
+      </div>
+      <pre><code>
+  &lt;button class="z-btn primary loading"&gt;
+      &lt;i class="fa fa-refresh fa-spin"&gt;&lt;/i&gt;
+      Loading
+  &lt;/button&gt;
+  &lt;button class="z-btn default loading"&gt;
+      &lt;i class="fa fa-spinner fa-spin"&gt;&lt;/i&gt;
+      Loading
+  &lt;/button&gt;
+      </code></pre>
+    </section>
+
+    <h4>Block level Button</h4>
+    <section>
+      <div class="example">
+        <p>Add class<mark>.block</mark> and the button will render like a block.</p>
+        <br>
+        <button class="z-btn block primary large">SUBMIT</button>
+      </div>
+      <pre><code>
+  &lt;button class="z-btn block primary large"&gt;SUBMIT&lt;/button&gt;     
+      </code></pre>
+    </section>
+
+    <h4>Button Group</h4>
+    <section>
+      <div class="example">
+          <p>Use a wrapper tag and add the class<mark>.z-btn-group</mark>.</p>
+          <br>
+          <div class="z-btn-group">
+            <button class="z-btn default">Left</button>
+            <button class="z-btn default">Middle</button>
+            <button class="z-btn default">Right</button>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="z-btn-group">
+            <button class="z-btn-outline green">YES</button>
+            <button class="z-btn-outline red">NO</button>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="z-btn-group">
+            <button class="z-btn primary small">
+              <i class="fa fa-angle-left"></i>
+            </button>
+            <button class="z-btn primary small">
+              <i class="fa fa-angle-right"></i>
+            </button>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="z-btn-group">
+            <button class="z-btn-outline small default"><i class="fa fa-plus"></i></button>
+            <button class="z-btn-outline small default"><i class="fa fa-minus"></i></button>
+            <button class="z-btn-outline small default"><i class="fa fa-upload"></i></button>
+            <button class="z-btn-outline small default"><i class="fa fa-download"></i></button>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="z-btn-group">
+            <button class="z-btn gray">Cancel</button>
+            <button class="z-btn green">Save</button>
+          </div>
+      </div>
+      <pre><code>
+    &lt;div class="z-btn-group"&gt;
+        &lt;button class="z-btn default"&gt;Left&lt;/button&gt;
+        &lt;button class="z-btn default"&gt;Middle&lt;/button&gt;
+        &lt;button class="z-btn default"&gt;Right&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-btn-group"&gt;
+        &lt;button class="z-btn-outline green"&gt;YES&lt;/button&gt;
+        &lt;button class="z-btn-outline red"&gt;NO&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-btn-group"&gt;
+        &lt;button class="z-btn primary small"&gt;
+            &lt;i class="fa fa-angle-left"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;button class="z-btn primary small"&gt;
+            &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-btn-group"&gt;
+      &lt;button class="z-btn-outline small default"&gt;&lt;i class="fa fa-plus"&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;button class="z-btn-outline small default"&gt;&lt;i class="fa fa-minus"&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;button class="z-btn-outline small default"&gt;&lt;i class="fa fa-upload"&gt;&lt;/i&gt;&lt;/button&gt;
+      &lt;button class="z-btn-outline small default"&gt;&lt;i class="fa fa-download"&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-btn-group"&gt;
+      &lt;button class="z-btn gray"&gt;Cancel&lt;/button&gt;
+      &lt;button class="z-btn green"&gt;Save&lt;/button&gt;
+    &lt;/div&gt;
+      </code></pre>
+    </section>
+    
+    <script>
+      $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../dist/zui.css">
+        <link rel="stylesheet" href="./css/demo-common.css">
+        <link rel="stylesheet" href="./css/atom-one-light.css">
+        <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script src="../dist/zui.js"></script>
+    <style>
+        .size {
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+  </head>
+  <body>
+    <h3>Process进度条</h3>
+
+    <h4>基本实例</h4>
+    <section>
+        <div class="example">
+            <p>基本的进度条</p>
+            <br>
+            <div class="z-process-bar">
+                <div class="z-process" style="width: 30%" id="process1">30%</div>
+            </div>
+            <br>
+            <div>
+                <button class="z-btn-outline default" onclick="backward()"><i class="fa fa-minus"></i></button>
+                <button class="z-btn-outline green" onclick="forward()"><i class="fa fa-plus"></i></button>
+            </div>
+        </div>
+        <pre class="html"><code>
+    &lt;div class="z-process-bar"&gt;
+        &lt;div class="z-process" style="width: 30%"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+        </code></pre>
+    </section>
+
+    <h4>不同粗细的进度条</h4>
+    <section>
+        <div class="example">
+            <span class="size">Large</span>
+            <div class="z-process-bar large">
+                <div class="z-process" style="width: 40%">40%</div>
+            </div>
+            <br>
+            <span class="size">Default</span>
+            <div class="z-process-bar">
+                <div class="z-process" style="width: 60%">60%</div>
+            </div>
+            <br>
+            <span class="size">Small</span>
+            <div class="z-process-bar small">
+                <div class="z-process" style="width: 50%"></div>
+            </div>
+            <br>
+            <span class="size">Mini</span>
+            <div class="z-process-bar mini">
+                <div class="z-process" style="width: 70%"></div>
+            </div>
+        </div>
+        <pre class="html"><code>
+    &lt;div class="z-process-bar large"&gt;
+        &lt;div class="z-process" style="width: 40%"&gt;60%&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-process-bar"&gt;
+        &lt;div class="z-process" style="width: 60%"&gt;60%&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-process-bar small"&gt;
+        &lt;div class="z-process" style="width: 50%"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-process-bar mini"&gt;
+        &lt;div class="z-process" style="width: 70%"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+        </code></pre>
+    </section>
+
+    <h4>不同颜色的进度条</h4>
+    <section>
+        <div class="example">
+            <div class="z-process-bar green">
+                <div class="z-process" style="width: 40%">40%</div>
+            </div>
+            <br>
+            <div class="z-process-bar red">
+                <div class="z-process" style="width: 60%">60%</div>
+            </div>
+            <br>
+            <div class="z-process-bar teal">
+                <div class="z-process" style="width: 50%">50%</div>
+            </div>
+            <br>
+            <div class="z-process-bar yellow">
+                <div class="z-process" style="width: 70%">70%</div>
+            </div>
+            <br>
+            <div class="z-process-bar purple">
+                <div class="z-process" style="width: 50%">50%</div>
+            </div>
+        </div>
+        <pre class="html"><code>
+    &lt;div class="z-process-bar green"&gt;
+        &lt;div class="z-process" style="width: 40%"&gt;40%&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-process-bar red"&gt;
+        &lt;div class="z-process" style="width: 60%"&gt;60%&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-process-bar teal"&gt;
+        &lt;div class="z-process" style="width: 50%"&gt;50%&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="z-process-bar yellow"&gt;
+        &lt;div class="z-process" style="width: 70%"&gt;70%&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="z-process-bar purple"&gt;
+        &lt;div class="z-process" style="width: 50%"&gt;50%&lt;/div&gt;
+    &lt;/div&gt;
+        </code></pre>
+    </section>
+
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+
+        function forward() {
+            var oldPercent = parseInt($('#process1')[0].style.width);
+            var diff = parseInt(Math.random() * 18) + 8;
+            var percent = oldPercent + diff > 100 ? 100 : oldPercent + diff;
+            var pct = percent + '%';
+
+            $('#process1').css('width', pct).text(pct);
+        }
+        function backward() {
+            var oldPercent = parseInt($('#process1')[0].style.width);
+            var diff = parseInt(Math.random() * 18) + 8;
+            var percent = oldPercent - diff < 0 ? 0 : oldPercent - diff;
+            var pct = percent + '%';
+
+            $('#process1').css('width', pct).text(pct);
+        }
+    </script>
+  </body>
+</html>

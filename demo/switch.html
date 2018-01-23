@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" href="../dist/zui.css">
+		<link rel="stylesheet" href="./css/demo-common.css">
+		<link rel="stylesheet" href="./css/atom-one-light.css">
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/highlight.pack.js"></script>
+		<script src="../dist/zui.js"></script>
+		<style>
+			p{margin-bottom: 10px;}
+		</style>
+	</head>
+	<body>
+		<h3>On-off</h3>
+
+		<section>
+			<div class="example">
+				<!-- On-off -->
+				<p>
+					<label class="z-on-off">
+						<input type="checkbox">
+						<span class="z-on-off-lever"></span>
+					</label>
+					&nbsp;&nbsp;
+					<span>On-off</span>
+				</p>
+				<br>
+				<!-- Disabled On-off -->
+				<p>
+					<label class="z-on-off">
+						<input disabled type="checkbox">
+						<span class="z-on-off-lever"></span>
+					</label>
+					&nbsp;&nbsp;
+					<label class="z-on-off">
+						<input disabled type="checkbox" checked>
+						<span class="z-on-off-lever"></span>
+					</label>
+					&nbsp;&nbsp;
+					<span>Disabled</span>
+				</p>
+				<br>
+				<p>
+					<label class="z-on-off small">
+						<input type="checkbox">
+						<span class="z-on-off-lever"></span>
+					</label>
+					&nbsp;&nbsp;
+					<span>Small</span>
+				</p>
+				<br>
+				<h4>Colors</h4>
+				<p>
+					<label class="z-on-off green">
+						<input type="checkbox" checked>
+						<span class="z-on-off-lever"></span>
+					</label>
+					&nbsp;&nbsp;
+					<label class="z-on-off red">
+						<input type="checkbox" checked>
+						<span class="z-on-off-lever"></span>
+					</label>
+					&nbsp;&nbsp;
+					<label class="z-on-off teal">
+						<input type="checkbox" checked>
+						<span class="z-on-off-lever"></span>
+					</label>
+					&nbsp;&nbsp;
+					<label class="z-on-off yellow">
+						<input type="checkbox" checked>
+						<span class="z-on-off-lever"></span>
+					</label>
+					&nbsp;&nbsp;
+					<label class="z-on-off purple">
+						<input type="checkbox" checked>
+						<span class="z-on-off-lever"></span>
+					</label>
+				</p>
+			</div>
+			<pre class="html"><code>
+	&lt;p&gt;
+		&lt;!-- On-off --&gt;
+		&lt;label class="z-on-off"&gt;
+			&lt;input type="checkbox"&gt;
+			&lt;span class="z-on-off-lever"&gt;&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/p&gt;
+	&lt;br&gt;
+	&lt;p&gt;
+		&lt;!-- Disabled On-off --&gt;
+		&lt;label class="z-on-off"&gt;
+			&lt;input disabled type="checkbox"&gt;
+			&lt;span class="z-on-off-lever"&gt;&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+		&lt;!-- Colors --&gt;
+		&lt;label class="z-on-off green"&gt;
+			&lt;input type="checkbox" checked&gt;
+			&lt;span class="z-on-off-lever"&gt;&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-on-off red"&gt;
+			&lt;input type="checkbox" checked&gt;
+			&lt;span class="z-on-off-lever"&gt;&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-on-off teal"&gt;
+			&lt;input type="checkbox" checked&gt;
+			&lt;span class="z-on-off-lever"&gt;&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-on-off yellow"&gt;
+			&lt;input type="checkbox" checked&gt;
+			&lt;span class="z-on-off-lever"&gt;&lt;/span&gt;
+		&lt;/label&gt;
+		&lt;label class="z-on-off purple"&gt;
+			&lt;input type="checkbox" checked&gt;
+			&lt;span class="z-on-off-lever"&gt;&lt;/span&gt;
+		&lt;/label&gt;
+	&lt;/p&gt;
+			</code></pre>
+		</section>
+
+		<script>
+		$(document).ready(function() {
+		$('pre code').each(function(i, block) {
+		hljs.highlightBlock(block);
+		});
+		});
+		</script>
+	</body>
+</html>

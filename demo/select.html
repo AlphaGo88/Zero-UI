@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" href="../dist/zui.css">
+		<link rel="stylesheet" href="./css/demo-common.css">
+		<link rel="stylesheet" href="./css/atom-one-light.css">
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/highlight.pack.js"></script>
+		<script src="../dist/zui.js"></script>
+	<style>
+		input, select{width:175px;}
+		#select14{width: 120px;}
+		select,input,button,.select-wrapper{vertical-align: middle}
+	</style>
+</head>
+<body>
+	<h3>Select下拉选择</h3>
+	<p>Select是对浏览器原生select的美化和增强。原先的<mark>select</mark>或<mark>input</mark>将被隐藏，选项的值可以通过原先的元素的<mark>value</mark>属性取得。</p>
+	<br>
+	<h4>初始化</h4>
+	<p>你必须使用javascript初始化下拉选择。</p>
+	<section>
+	<pre style="border-top:0"><code>    
+	$('select').select();
+	</code></pre>
+	</section>
+	<section>
+		<div class="example">
+			<h4>通过html生成选项</h4>
+			<select id="select1">
+			  <option value="1"><i class="fa fa-apple"></i>苹果</option>
+			  <option value="2">橘子</option>
+			  <option value="3" disabled>香蕉</option>
+			  <option value="4">bb</option>
+			</select>
+		</div>
+	<pre><code>	&lt;!-- html --&gt;
+	&lt;select id="select1"&gt;
+		&lt;option value="1"&gt;苹果&lt;/option&gt;
+		&lt;option value="2"&gt;橘子&lt;/option&gt;
+		&lt;option value="3" disabled&gt;香蕉&lt;/option&gt;
+		&lt;option value="4"&gt;bb&lt;/option&gt;
+	&lt;/select&gt;</code></pre>
+	<pre><code>	// javascript
+	$('#select1').select();</code></pre>
+	</section>
+
+	<section>
+		<div class="example">
+			<h4>通过js生成选项</h4>
+			<p>通过js生成选项时，也可以使用<mark>&lt;input&gt;</mark>元素。</p>
+			<br>
+			<input type="text" id="select2">
+		</div>
+		<pre><code>	&lt;!-- html --&gt;
+	&lt;input type="text" id="select2"&gt;</code></pre>
+		<pre><code>	// javascript
+	$('#select2').select({
+		data: [
+			{ value: 1, text: 'apple' },
+			{ value: 2, text: 'orange' },
+			{ value: 3, text: 'banana' },
+			{ value: 4, text: 'tomato', disabled: true }
+		]
+	});</code></pre>
+	</section>
+
+	<section>
+		<div class="example">
+			<h4>分组 通过html生成选项</h4>
+			<select id="select3">
+				<optgroup label="水果">
+					<option value="1">苹果</option>
+					<option value="2">橘子</option>
+					<option value="3">bb</option>
+				</optgroup>
+				<optgroup label="运动">
+					<option value="4">足球</option>
+					<option value="5">游泳</option>
+					<option value="6">网球</option>
+				</optgroup>
+			</select>
+		</div>
+		<pre><code>	&lt;!-- html --&gt;
+	&lt;select id="select3"&gt;
+		&lt;optgroup label="水果"&gt;
+			&lt;option value="1"&gt;苹果&lt;/option&gt;
+			&lt;option value="2"&gt;橘子&lt;/option&gt;
+			&lt;option value="3"&gt;bb&lt;/option&gt;
+		&lt;/optgroup&gt;
+		&lt;optgroup label="运动"&gt;
+			&lt;option value="4"&gt;足球&lt;/option&gt;
+			&lt;option value="5"&gt;游泳&lt;/option&gt;
+			&lt;option value="6"&gt;网球&lt;/option&gt;
+		&lt;/optgroup&gt;
+	&lt;/select&gt;</code></pre>
+		<pre><code>	// javascript
+	$('#select3').select();</code></pre>
+	</section>
+
+	<section>
+		<div class="example">
+			<h4>分组 通过js生成选项</h4>
+			<input type="text" id="select4">
+		</div>
+		<pre><code>	&lt;!-- html --&gt;
+	&lt;select id="select4"&gt;</code></pre>
+		<pre><code>	// javascript
+	$('#select4').select({
+		data: {
+			'fruit': [
+				{ value: 7, text: 'apple' },
+				{ value: 8, text: 'orange' },
+				{ value: 9, text: 'banana' }
+			],
+			'sport': [
+				{ value: 9, text: 'football' },
+				{ value: 10, text: 'swim' },
+				{ value: 11, text: 'tennis' }
+			]
+		}
+	});</code></pre>
+	</section>
+
+	<section>
+		<div class="example">
+			<h4>多选</h4>
+			<input type="text" id="select5">
+		</div>
+		<pre><code>	&lt;!-- html --&gt;
+	&lt;select id="select5"&gt;</code></pre>
+		<pre><code>	// javascript
+	$('#select5').select({
+		multiple: true,
+		data: [ ... ]
+	});</code></pre>
+	</section>
+
+	<section>
+		<div class="example">
+			<h4>通过js指定初始值</h4>
+			<input type="text" id="select6">
+			<input type="text" id="select7">
+			<input type="text" id="select8">
+		</div>
+		<pre><code>	&lt;!-- html --&gt;
+	&lt;select id="select6"&gt;
+	&lt;select id="select7"&gt;
+	&lt;select id="select8"&gt;</code></pre>
+		<pre><code>	// javascript
+
+	// 通过initialValue指定初始值
+	$('#select6').select({
+		initialValue: 2,
+		data: [
+			{ value: 1, text: 'apple' },
+			{ value: 2, text: 'orange' },
+			{ value: 3, text: 'banana' },
+			{ value: 4, text: 'tomato' }
+		]
+	});
+
+	// 通过data指定初始值
+	$('#select7').select({
+		data: [
+			{ value: 1, text: 'apple' },
+			{ value: 2, text: 'orange' },
+			{ value: 3, text: 'banana', selected: true },
+			{ value: 4, text: 'tomato' }
+		]
+	});
+
+	// 多选，指定初始值
+	$('#select8').select({
+		multiple: true,
+		data: [
+			{ value: 1, text: 'apple', selected: true },
+			{ value: 2, text: 'orange' },
+			{ value: 3, text: 'banana', selected: true },
+			{ value: 4, text: 'tomato' }
+		]
+	});</code></pre>
+	</section>
+
+	<h4>禁用状态</h4>
+	<section>
+		<div class="example">
+			<input type="text" id="select9">
+		</div>
+	</section>
+
+	<h4>大小</h4>
+	<section>
+		<div class="example">
+			<select id="select14" class="small">
+			  <option value="1">苹果</option>
+			  <option value="2">橘子</option>
+			  <option value="3">香蕉</option>
+			</select>
+			&nbsp;
+			<select id="select15">
+			  <option value="1">苹果</option>
+			  <option value="2">橘子</option>
+			  <option value="3">香蕉</option>
+			</select>
+			&nbsp;
+			<select id="select16" class="large">
+			  <option value="1">苹果</option>
+			  <option value="2">橘子</option>
+			  <option value="3">香蕉</option>
+			</select>
+		</div>
+		<pre><code>	&lt;!-- html --&gt;
+	&lt;select class="small"&gt;
+		...
+	&lt;/select&gt;
+
+	&lt;select&gt;
+		...
+	&lt;/select&gt;
+	
+	&lt;select class="large"&gt;
+		...	
+	&lt;/select&gt;</code></pre>
+	</section>
+
+	<h4>向上</h4>
+	<section>
+		<div class="example">
+			<select id="select17">
+			  <option value="1">苹果</option>
+			  <option value="2">橘子</option>
+			  <option value="3">香蕉</option>
+			</select>
+		</div>
+		<pre><code class="javascript">    $('#select17').select({position: 'up'});</code></pre>
+	</section>
+
+	<h4>配置项</h4>
+	<table class="z-table doc-table">
+	    <thead>
+	        <tr>
+	            <th>名称</th>
+	            <th>类型</th>
+	            <th>默认值</th>
+	            <th>描述</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	    	<tr>
+	    	    <td>position</td>
+	    	    <td>String</td>
+	    	    <td>''</td>
+	    	    <td>下拉列表的方向，'up'为向上</td>
+	    	</tr>
+	        <tr>
+	            <td>multiple</td>
+	            <td>Boolean</td>
+	            <td>false</td>
+	            <td>是否多选</td>
+	        </tr>
+	        <tr>
+	            <td>data</td>
+	            <td>Array/Object</td>
+	            <td>[]</td>
+	            <td>Select的选项</td>
+	        </tr>
+	        <tr>
+	            <td>initialValue</td>
+	            <td>String</td>
+	            <td>空</td>
+	            <td>初始值</td>
+	        </tr>
+	        <tr>
+	            <td>onChange</td>
+	            <td>Function</td>
+	            <td>function(value, text) {}</td>
+	            <td>
+	            	选中项目改变时触发
+	            	<br>
+	            	参数1：value: 选中项目的值
+	            	<br>
+	            	参数2：text: 选中项目的文本
+	            </td>
+	        </tr>
+	    </tbody>
+	</table>
+
+	<h4>API</h4>
+	<section>
+		<div class="example">
+			<h4>禁用 & 启用</h4>
+			<br>
+			<div>
+				<select id="select10">
+					<option value="1">苹果</option>
+					<option value="2">橘子</option>
+					<option value="3" disabled>香蕉</option>
+					<option value="4">bb</option>
+				</select>&nbsp;&nbsp;
+				<button class="z-btn primary" id="disable">禁用</button>
+				<button class="z-btn primary" id="enable">启用</button>
+			</div>
+		</div>
+		<pre><code>	$('#select10').select('disable');  // 禁用
+	$('#select10').select('enable');  // 启用</code></pre>
+	</section>
+
+	<section>
+		<div class="example">
+			<h4>通过javascript选择项</h4>
+			<br>
+			<div>
+				<select id="select12">
+					<option value="1">苹果</option>
+					<option value="2">橘子</option>
+					<option value="3">香蕉</option>
+					<option value="4">西瓜</option>
+				</select>&nbsp;&nbsp;
+				<button class="z-btn primary" id="setvalue">选择橘子</button>
+			</div>
+		</div>
+		<pre><code>	$('#select12').select('setValue', 2);
+		</code></pre>
+	</section>
+
+	<section>
+		<div class="example">
+			<h4>重新设置选项</h4>
+			<br>
+			<div>
+				<select id="select11">
+					<option value="1">苹果</option>
+					<option value="2">橘子</option>
+					<option value="3" disabled>香蕉</option>
+					<option value="4">bb</option>
+				</select>&nbsp;&nbsp;
+				<button class="z-btn primary" id="setdata">重新设置选项</button>
+			</div>
+		</div>
+		<pre><code>	$('#select11').select('setData', [
+		{ value:1, text:'football', selected:true },
+		{ value:2, text:'swim' }
+	]);</code></pre>
+	</section>
+
+	<script>
+		$(document).ready(function() {
+		    $('pre code').each(function(i, block) {
+		        hljs.highlightBlock(block);
+		    });
+		});
+		$('#select1').select();
+		$('#select2').select({
+			data: [
+				{value:1,text:'apple'},
+				{value:2,text:'orange'},
+				{value:3,text:'banana'},
+				{value:4,text:'tomato',disabled:true}
+			]
+		});
+		$('#select3').select();
+		$('#select4').select({
+		  data: {
+		      'fruit': [
+		          {value:1,text:'apple'},
+		          {value:2,text:'orange'},
+		          {value:3,text:'banana'}
+		      ],
+		      'sport': [
+		          {value:9,text:'football'},
+		          {value:10,text:'swim'},
+		          {value:11,text:'tennis'}
+		      ]
+		  }
+		});
+		$('#select5').select({
+		  multiple: true,
+		  data: [
+		  	{value:1,text:'1'},
+		  	{value:2,text:'2'},
+		  	{value:3,text:'3'},
+		  	{value:4,text:'4'},
+		  	{value:5,text:'5'},
+		  	{value:6,text:'6'},
+		  	{value:7,text:'7'},
+		  	{value:8,text:'8'},
+		  	{value:9,text:'9'},
+		  	{value:10,text:'10'},
+		  	{value:11,text:'11'},
+		  	{value:12,text:'12'},
+		  ]
+		});
+		$('#select6').select({
+		  initialValue: 2,
+		  data: [
+		  	{value:1,text:'apple'},
+		  	{value:2,text:'orange'},
+		  	{value:3,text:'banana'},
+		  	{value:4,text:'tomato'}
+		  ]
+		});
+		$('#select7').select({
+		  data: [
+		  	{value:1,text:'apple'},
+		  	{value:2,text:'orange'},
+		  	{value:3,text:'banana',selected:true},
+		  	{value:4,text:'tomato'}
+		  ]
+		});
+		$('#select8').select({
+			multiple: true,
+			data: [
+				{value:1,text:'apple',selected:true},
+				{value:2,text:'orange'},
+				{value:3,text:'banana',selected:true},
+				{value:4,text:'tomato'}
+			]
+		});
+		$('#select9').select({
+			data: [
+				{value:1,text:'apple',selected:true},
+				{value:2,text:'orange'},
+				{value:3,text:'banana'},
+				{value:4,text:'tomato'}
+			]
+		})
+		$('#select9').select('disable');
+
+		$('#select10').select();
+		$('#select11').select();
+		$('#select12').select();
+		$('#select14').select();
+		$('#select15').select();
+		$('#select16').select();
+		$('#select17').select({position: 'top'});
+
+		$('#enable').on('click', function(event) {
+			$('#select10').select('enable');
+		});
+		$('#disable').on('click', function(event) {
+			$('#select10').select('disable');
+		});
+		$('#setvalue').on('click', function(event) {
+			$('#select12').select('setValue', 2);
+		});
+		$('#setdata').on('click', function(event) {
+			$('#select11').select('setData', [
+				{value:1,text:'football',selected:true},
+				{value:2,text:'swim'}
+			]);
+		});
+	</script>
+</body>
+</html>

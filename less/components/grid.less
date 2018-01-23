@@ -1,0 +1,43 @@
+//
+// Grid
+// --------------------------------------------------
+
+
+@grid-columns: 12;
+
+.z-row {
+    position: relative;
+    display: flex;
+}
+
+.make-grid-columns() {
+    .col(@index) {
+        @item: ~".z-col-@{index}";
+        .col((@index + 1), @item);
+    }
+    .col(@index, @list) when (@index =< @grid-columns) {
+        @item: ~".z-col-@{index}";
+        .col((@index + 1), ~"@{list}, @{item}");
+    }
+    .col(@index, @list) when (@index > @grid-columns) { // terminal
+        @{list} {
+            position: relative;
+            flex: 1 1 auto;
+        }
+    }
+    .col(1);
+}
+
+// Width and offset of grid columns
+.loop-grid-columns(@index) when (@index =< @grid-columns) {
+    .z-col-@{index} {
+        width: percentage((@index / @grid-columns)) !important;
+    }
+    .z-offset-@{index} {
+        margin-left: percentage((@index / @grid-columns)) !important;
+    }
+    .loop-grid-columns(@index + 1)
+}
+
+.make-grid-columns();
+.loop-grid-columns(1);

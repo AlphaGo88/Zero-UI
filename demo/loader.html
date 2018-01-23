@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../dist/zui.css">
+        <link rel="stylesheet" href="./css/demo-common.css">
+        <link rel="stylesheet" href="./css/atom-one-light.css">
+        <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script src="../dist/zui.js"></script>
+  </head>
+  <body>
+    <h3>Loader载入</h3>
+    <section>
+        <div class="example">
+        	<div>
+        		<button class="z-btn gray" onClick="show()">显示载入</button>
+        		<button class="z-btn gray" onClick="show1()">显示深色载入</button>
+        		<button class="z-btn gray" onClick="hide()">隐藏载入</button>
+        	</div>
+        	<br>
+        	<div id="demo1" style="border: 1px solid #ccc;padding: 20px">
+        		<p>这是一段文字。</p>
+        		<p>这是一段文字。</p>
+        		<p>这是一段文字。</p>
+        	</div>
+        </div>
+        <pre><code>
+    // 显示载入
+    $('#demo1').load({
+    	content: '加载中...'
+    });
+
+    // 显示深色载入
+    $('#demo1').load({
+    	content: '数据加载中...',
+    	color: 'dark'
+    });
+
+    // 隐藏载入
+    $('#demo1').unLoad();
+        </code></pre>
+    </section>
+
+    <script>
+    $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+    });
+    function show () {
+    	$('#demo1').load();
+    }
+    function show1 () {
+    	$('#demo1').load({
+    		content: '数据加载中...',
+    		color: 'dark'
+    	});
+    }
+    function hide () {
+    	$('#demo1').unLoad();
+    }
+    </script>
+  </body>
+</html>

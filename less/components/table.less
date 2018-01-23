@@ -1,0 +1,149 @@
+//
+// Table
+// --------------------------------------------------
+
+
+@thead-bg: #f9f9f9;
+@table-bg-hover: #f2f2f2;
+@table-bg-selected: #e6f7ff;
+@table-bg-accent: #f9f9f9;
+@table-border-color: @border-color-base;
+@table-cell-padding: 10px 12px;
+@table-condensed-cell-padding: 6px 10px;
+
+
+caption {
+    padding: 10px 0;
+}
+
+.z-table {
+    width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid @table-border-color;
+
+    > thead, 
+    > tfoot {
+        background-color: @thead-bg;
+
+        &.light {
+            background-color: #fff;
+        }
+    }
+
+    tr {
+        transition: background-color 400ms;
+
+        &.selected {
+            background-color: @table-bg-selected;
+        }
+    }
+
+    th, td {
+        padding: @table-cell-padding;
+        text-align: left;
+        color: @text-color-base;
+        font-weight: 400;
+        border-top: 1px solid @table-border-color;
+    }
+
+    th, 
+    tfoot td {
+        padding: 6px 12px;
+    }
+
+    th {
+        font-weight: 600;
+        color: @text-color-light;
+    }
+
+    tr.success > td,
+    td.success {
+        background-color: @state-success-bg !important;
+        color: @state-success-color !important;
+    }
+
+    tr.warning > td,
+    td.warning {
+        background-color: @state-warning-bg !important;
+        color: @state-warning-color !important;
+    }
+
+    tr.error > td,
+    td.error {
+        background-color: @state-error-bg !important;
+        color: @state-error-color !important;
+    }
+}
+
+.z-table.collapsed {
+    width: auto;
+}
+
+.z-table.condensed {
+    th, td {
+        padding: @table-condensed-cell-padding;
+    }
+}
+
+.z-table.no-border {
+    border: none;
+
+    tr:first-child > th {
+        border-top: none;
+    }
+
+    th:first-child,
+    td:first-child {
+        border-left: none;
+    }
+
+    th:last-child,
+    td:last-child {
+        border-right: none;
+    }
+}
+
+.z-table.lined {
+    th, td {
+        border-left: 1px solid @table-border-color;
+        border-right: 1px solid @table-border-color;
+    }
+}
+
+.z-table.stripped {
+    > tbody > tr:nth-child(even) {
+        background-color: @table-bg-accent;
+    }
+}
+
+.z-table.hover {
+    > tbody > tr:hover {
+        background-color: @table-bg-hover;
+    }
+}
+
+.z-table-sort {
+    display: inline-block;
+    margin-left: 6px;
+    vertical-align: middle;
+
+    > i {
+        display: block;
+        height: 8px;
+        font-size: 12px;
+        line-height: 8px;
+        color: #afafaf;
+        cursor: pointer;
+
+        &:hover {
+            color: #666;
+        }
+
+        &.on {
+            color: #666;
+        }
+    }
+}

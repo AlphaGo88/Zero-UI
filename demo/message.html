@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../dist/zui.css">
+        <link rel="stylesheet" href="./css/demo-common.css">
+        <link rel="stylesheet" href="./css/atom-one-light.css">
+        <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script src="../dist/zui.js"></script>
+        <style>
+            a{cursor: pointer;}
+        </style>
+  </head>
+  <body>
+    <h3>Message</h3>
+    <p>Use this API to show a message pop-up. Normally, the message pop-up close itself automatically. There are 4 types of messages which are listed below.</p>
+
+    <h4>Simple API</h4>
+    <section>
+        <div class="example">
+            <p>We provide simple API to call 4 types of meassges.</p>
+            <br>
+            <div>
+                <a id="msg1">Normal</a>&nbsp;&nbsp;
+                <a id="msg2">Success</a>&nbsp;&nbsp;
+                <a id="msg3">Warning</a>&nbsp;&nbsp;
+                <a id="msg4">Error</a>&nbsp;&nbsp;
+            </div>
+        </div>
+        <pre><code class="javascript">
+    Z.Message.msg('Normal message');
+
+    Z.Message.success('Success message');
+
+    Z.Message.warning('Warning message');
+
+    Z.Message.error('Error message');
+        </code></pre>
+    </section>
+
+    <h4>Full API</h4>
+    <section>
+        <div class="example">
+            <p>You can also call the full API<mark>Z.Message.show()</mark>for precise control.</p>
+            <p>You can customize the message's duration: <a id="msg5">RUN</a></p>
+            <p>You can make the message not close itslef: <a id="msg6">RUN</a></p>
+        </div>
+        <pre><code class="javascript">
+    Z.Message.show({
+        type: 'msg', // ['msg', 'success', 'warning', 'error']
+        content: 'Close after 10s',
+        duration: 10000 // milliseconds
+    });
+
+    Z.Message.show({
+        type: 'success',
+        content: "Don't auto close",
+        autoClose: false
+    });
+        </code></pre>
+    </section>
+
+    <h4>Global loading message</h4>
+    <section>
+        <div class="example">
+            <div>
+                A global loading message is a pop-up in the center of the page with a spinning loading icon. It's used when some action is waiting to complete e.g. an ajax request.
+            </div>
+            <br>
+            <div>
+                <a id="load">Show</a>&nbsp;&nbsp;
+                <a id="unload">Hide</a>
+            </div>
+        </div>
+        <pre><code>
+    // Show Loading
+    Z.Message.loading('Loading...');
+
+    // Hide Loading
+    Z.Message.unLoading();
+        </code></pre>
+    </section>
+
+    <script>
+    $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+    });
+    $('#msg1').on('click', function(e) {
+        Z.Message.msg('Normal message');
+    });
+    $('#msg2').on('click', function(e) {
+        Z.Message.success('Success message');
+    });
+    $('#msg3').on('click', function(e) {
+        Z.Message.warning('Warning message');
+    });
+    $('#msg4').on('click', function(e) {
+        Z.Message.error('Error message');
+    });
+    $('#msg5').on('click', function(e) { 
+        Z.Message.show({
+            type: 'msg',
+            content: 'Close after 10s',
+            duration: 10000
+        })
+    });
+    $('#msg6').on('click', function(e) {
+        Z.Message.show({
+            type: 'success',
+            content: "Don't auto close",
+            autoClose: false
+        })
+    });
+    $('#load').on('click', function(e) {
+        Z.Message.loading('Loading...');
+    });
+    $('#unload').on('click', function(e) {
+        Z.Message.unLoading();
+    });
+    </script>
+  </body>
+</html>

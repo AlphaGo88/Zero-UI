@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../dist/zui.css">
+        <link rel="stylesheet" href="./css/demo-common.css">
+        <link rel="stylesheet" href="./css/atom-one-light.css">
+        <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script src="../dist/zui.js"></script>
+    </head>
+    <body>
+        <h3>Pagination分页</h3>
+        <h4>基本样式</h4>
+        <section>
+            <div class="example">
+                <div class="z-pagination">
+                    <div class="z-pages">
+                        <a class="z-page-first disabled">
+                            <i class="fa fa-angle-double-left"></i>
+                        </a>
+                        <a class="z-page-prev disabled">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="active">1</a>
+                        <a>2</a>
+                        <a>3</a>
+                        <a>4</a>
+                        <a>5</a>
+                        <a>6</a>
+                        <a>7</a>
+                        <a class="z-page-next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <a class="z-page-last">
+                            <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <pre class="html"><code>    
+    &lt;div class="z-pagination"&gt;
+        &lt;div class="z-pages"&gt;
+            &lt;a class="z-page-first disabled"&gt;
+                &lt;i class="fa fa-angle-double-left"&gt;&lt;/i&gt;
+            &lt;/a&gt;
+            &lt;a class="z-page-prev disabled"&gt;
+                &lt;i class="fa fa-angle-left"&gt;&lt;/i&gt;
+            &lt;/a&gt;
+            &lt;a class="z-page-active"&gt;1&lt;/a&gt;
+            &lt;a&gt;2&lt;/a&gt;
+            &lt;a&gt;3&lt;/a&gt;
+            &lt;a&gt;4&lt;/a&gt;
+            &lt;a&gt;5&lt;/a&gt;
+            &lt;a&gt;6&lt;/a&gt;
+            &lt;a&gt;7&lt;/a&gt;
+            &lt;a class="z-page-next"&gt;
+                &lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;
+            &lt;/a&gt;
+            &lt;a class="z-page-last"&gt;
+                &lt;i class="fa fa-angle-double-right"&gt;&lt;/i&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+            </code></pre>
+        </section>
+
+        <h4>动态生成</h4>
+        <section>
+            <div class="example">
+                <div id="my-div"></div>
+            </div>
+            <pre><code>    &lt;!-- html --&gt;
+    &lt;div id="my-div"&gt;&lt;/div&gt;</code></pre>
+            <pre><code>    // javascript
+    $('#my-div').pagination({
+        total: 140
+    });</code></pre>
+        </section>
+
+        <h4>快速跳转</h4>
+        <section>
+            <div class="example">
+                <div id="my-div1"></div>
+            </div>
+            <pre><code>    &lt;!-- html --&gt;
+    &lt;div id="my-div1"&gt;&lt;/div&gt;</code></pre>
+            <pre><code>    // javascript
+    $('#my-div1').pagination({
+        total: 140,
+        showJumper: true
+    });</code></pre>
+        </section>
+
+        <h4>改变每页显示条数</h4>
+        <section>
+            <div class="example">
+                <div id="my-div2"></div>
+            </div>
+            <pre><code>    &lt;!-- html --&gt;
+    &lt;div id="my-div"&gt;&lt;/div&gt;</code></pre>
+            <pre><code>    // javascript
+    $('#my-div2').pagination({
+        total: 140,
+        showSizer: true
+    });</code></pre>
+        </section>
+
+        <h4>回调</h4>
+        <section>
+            <div class="example">
+                <div id="my-div3"></div>
+            </div>
+            <pre><code>    &lt;!-- html --&gt;
+    &lt;div id="my-div1"&gt;&lt;/div&gt;</code></pre>
+            <pre><code>    // javascript
+    $('#my-div3').pagination({
+        total: 356,
+        onPageChange: function(pageNo, pageSize) {
+            alert('第' + pageNo + '页');
+        }
+    });</code></pre>
+        </section>
+
+        <h4>配置项</h4>
+        <table class="z-table lined doc-table">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>pageSize</td>
+                    <td>Number</td>
+                    <td>10</td>
+                    <td>每页显示几条记录</td>
+                </tr>
+                <tr>
+                    <td>pageDisplay</td>
+                    <td>Number</td>
+                    <td>10</td>
+                    <td>同时显示的页码数</td>
+                </tr>
+                <tr>
+                    <td>total</td>
+                    <td>Number</td>
+                    <td>0</td>
+                    <td>数据的总条数，页码总数的依据</td>
+                </tr>
+                <tr>
+                    <td>current</td>
+                    <td>Number</td>
+                    <td>1</td>
+                    <td>当前页</td>
+                </tr>
+                <tr>
+                    <td>showJumper</td>
+                    <td>Boolean</td>
+                    <td>false</td>
+                    <td>是否显示快速跳转</td>
+                </tr>
+                <tr>
+                    <td>showSizer</td>
+                    <td>Boolean</td>
+                    <td>false</td>
+                    <td>是否显示每页条数选择</td>
+                </tr>
+                <tr>
+                    <td>pageSizeOptions</td>
+                    <td>Array</td>
+                    <td>[10, 20, 30]</td>
+                    <td>每页条数选项</td>
+                </tr>
+                <tr>
+                    <td>onPageChange</td>
+                    <td>Function</td>
+                    <td>function(pageNo, pageSize) {}</td>
+                    <td>
+                        当前页改变或每页显示条数改变时触发
+                        <br>
+                        参数：pageNo 新的当前页码
+                        <br>
+                        参数：pageSize 新的每页显示条数
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+        $('#my-div').pagination({
+            total: 140
+        });
+        $('#my-div1').pagination({
+            total: 140,
+            showJumper: true
+        });
+        $('#my-div2').pagination({
+            total: 140,
+            showSizer: true
+        });
+        $('#my-div3').pagination({
+            total: 356,
+            onPageChange: function(pageNo) {
+               alert('第' + pageNo + '页');
+            }
+        });
+        </script>
+    </body>
+</html>

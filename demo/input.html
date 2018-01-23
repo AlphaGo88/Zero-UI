@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" href="../dist/zui.css">
+		<link rel="stylesheet" href="./css/demo-common.css">
+		<link rel="stylesheet" href="./css/atom-one-light.css">
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/highlight.pack.js"></script>
+		<script src="../dist/zui.js"></script>
+	</head>
+	<body>
+		<h3>Input</h3>
+		<h4>Styles</h4>
+		<section>
+			<div class="example">
+				<p>Class name<mark>.z-input</mark>is required.</p>
+				<br>
+				<div>
+					<input type="text" class="z-input small" placeholder="small">
+					&nbsp;&nbsp;
+					<input type="text" class="z-input" placeholder="default">
+					&nbsp;&nbsp;
+					<input type="text" class="z-input large" placeholder="large">
+					&nbsp;&nbsp;
+				</div>
+				<br>
+				<div>
+					<input type="text" class="z-input" placeholder="default">
+					&nbsp;&nbsp;
+					<input type="text" class="z-input" value="readonly" readonly>
+					&nbsp;&nbsp;
+					<input type="text" class="z-input" value="disabled" disabled>
+				</div>
+				<br>
+				<div>
+					<input type="text" class="z-input warning" placeholder="warning">
+					&nbsp;&nbsp;
+					<input type="text" class="z-input success" placeholder="success">
+					&nbsp;&nbsp;
+					<input type="text" class="z-input error" placeholder="error">
+				</div>
+				<br>
+				<div>
+					<input type="text" class="z-input gray" placeholder="gray">
+					&nbsp;&nbsp;
+					<input type="text" class="z-input bold" placeholder="bold">
+					&nbsp;&nbsp;
+					<input type="text" class="z-input round" placeholder="round">
+				</div>
+				<br>
+				<div>
+					<input type="text" class="z-input light" placeholder="light">
+				</div>
+			</div>
+			<pre class="html"><code>
+	&lt;div&gt;
+		&lt;input type="text" class="z-input small" placeholder="small"&gt;
+		&lt;input type="text" class="z-input" placeholder="default"&gt;
+		&lt;input type="text" class="z-input large" placeholder="large"&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;input type="text" class="z-input" placeholder="default"&gt;
+		&lt;input type="text" class="z-input" value="readonly" readonly&gt;
+		&lt;input type="text" class="z-input" value="disabled" disabled&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;input type="text" class="z-input warning" placeholder="warning"&gt;
+		&lt;input type="text" class="z-input success" placeholder="success"&gt;
+		&lt;input type="text" class="z-input error" placeholder="error"&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;input type="text" class="z-input gray" placeholder="gray"&gt;
+		&lt;input type="text" class="z-input bold" placeholder="bold"&gt;
+		&lt;input type="text" class="z-input round" placeholder="round"&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;input type="text" class="z-input light" placeholder="light"&gt;
+	&lt;/div&gt;
+			</code></pre>
+		</section>
+
+		<h4>Icon</h4>
+		<section>
+			<div class="example">
+				<p>To use icons, you must use<mark>.z-input-wrapper</mark>to wrap<mark>&lt;input&gt;</mark>.</p>
+				<br>
+				<div>
+					<span class="z-input-wrapper">
+						<i class="fa fa-user"></i>
+						<input type="text" class="z-input" placeholder="User">
+					</span>
+					&nbsp;&nbsp;
+					<span class="z-input-wrapper">
+						<i class="fa fa-lock"></i>
+						<input type="password" class="z-input" placeholder="Password">
+					</span>
+					&nbsp;&nbsp;
+					<span class="z-input-wrapper">
+						<input type="text" class="z-input" placeholder="Date">
+						<i class="fa fa-calendar"></i>
+					</span>
+				</div>
+				<br>
+				<div>
+					<span class="z-input-wrapper">
+						<i class="fa fa-envelope"></i>
+						<input type="text" class="z-input small" placeholder="small">
+					</span>
+					&nbsp;&nbsp;
+					<span class="z-input-wrapper">
+						<i class="fa fa-envelope"></i>
+						<input type="text" class="z-input large" placeholder="large">
+					</span>
+					&nbsp;&nbsp;
+					<span class="z-input-wrapper light">
+						<i class="fa fa-envelope"></i>
+						<input type="text" class="z-input light" placeholder="light">
+					</span>
+				</div>
+			</div>
+			<pre class="html"><code>
+	&lt;div&gt;
+		&lt;span class="z-input-wrapper"&gt;
+			&lt;i class="fa fa-user"&gt;&lt;/i&gt;
+			&lt;input type="text" class="z-input" placeholder="User"&gt;
+		&lt;/span&gt;
+		&lt;span class="z-input-wrapper"&gt;
+			&lt;i class="fa fa-lock"&gt;&lt;/i&gt;
+			&lt;input type="password" class="z-input" placeholder="Password"&gt;
+		&lt;/span&gt;
+		&lt;span class="z-input-wrapper"&gt;
+			&lt;input type="text" class="z-input" placeholder="Date"&gt;
+			&lt;i class="fa fa-calendar"&gt;&lt;/i&gt;
+		&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;span class="z-input-wrapper"&gt;
+			&lt;i class="fa fa-envelope"&gt;&lt;/i&gt;
+			&lt;input type="text" class="z-input small" placeholder="small"&gt;
+		&lt;/span&gt;
+		&lt;span class="z-input-wrapper"&gt;
+			&lt;i class="fa fa-envelope"&gt;&lt;/i&gt;
+			&lt;input type="text" class="z-input large" placeholder="large"&gt;
+		&lt;/span&gt;
+		&lt;span class="z-input-wrapper light"&gt;
+			&lt;i class="fa fa-envelope"&gt;&lt;/i&gt;
+			&lt;input type="text" class="z-input light" placeholder="light"&gt;
+		&lt;/span&gt;
+	&lt;/div&gt;
+			</code></pre>
+		</section>
+
+		<h4>Input Group</h4>
+		<section>
+			<div class="example">
+				<div>
+					<div class="z-input-group">
+						<input type="text" class="z-input" value="China" style="width:100px">
+						<input type="text" class="z-input" value="Beijing" style="width:100px">
+						<input type="text" class="z-input" value="Haidian" style="width:100px">
+					</div>
+					&nbsp;&nbsp;
+					<div class="z-input-group">
+						<input type="text" class="z-input">
+						<button class="z-btn primary medium">
+							<i class="fa fa-search"></i>
+							Search
+						</button>
+					</div>
+				</div>
+				<br>
+				<div>
+					<div class="z-input-group">
+						<span class="z-input-addon"><i class="fa fa-user"></i></span>
+						<input type="text" class="z-input" style="width:120px">
+					</div>
+					&nbsp;&nbsp;
+					<div class="z-input-group">
+						<input type="text" class="z-input" value="300" style="width:80px">
+						<span class="z-input-addon">kg</span>
+					</div>
+					&nbsp;&nbsp;
+					<div class="z-input-group">
+						<select id="my-select2" style="width: 86px">
+							<option value="http">http://</option>
+							<option value="https">https://</option>
+						</select>
+						<input type="text" class="z-input" style="width: 160px">
+					</div>
+				</div>
+				<br>
+				<div>
+					<div class="z-input-group">
+						<span class="z-input-addon small">86</span>
+						<input type="text" class="z-input small" style="width:120px">
+					</div>
+					&nbsp;&nbsp;
+					<div class="z-input-group">
+						<span class="z-input-addon">86</span>
+						<input type="text" class="z-input" style="width:120px">
+					</div>
+					&nbsp;&nbsp;
+					<div class="z-input-group">
+						<span class="z-input-addon large">86</span>
+						<input type="text" class="z-input large" style="width:120px">
+					</div>
+				</div>
+			</div>
+			<pre class="html"><code>
+	&lt;div class="z-input-group"&gt;
+		&lt;input type="text" class="z-input" value="China" style="width:100px"&gt;
+		&lt;input type="text" class="z-input" value="Beijing" style="width:100px"&gt;
+		&lt;input type="text" class="z-input" value="Haidian" style="width:100px"&gt;
+	&lt;/div&gt;
+	&lt;div class="z-input-group"&gt;
+		&lt;input type="text" class="z-input"&gt;
+		&lt;button class="z-btn primary medium"&gt;
+			&lt;i class="fa fa-search"&gt;&lt;/i&gt;
+			Search
+		&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class="z-input-group"&gt;
+		&lt;span class="z-input-addon"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;input type="text" class="z-input" style="width:120px"&gt;
+	&lt;/div&gt;
+	&lt;div class="z-input-group"&gt;
+		&lt;span class="z-input-addon"&gt;86&lt;/span&gt;
+		&lt;input type="text" class="z-input" style="width:120px"&gt;
+	&lt;/div&gt;
+	&lt;div class="z-input-group"&gt;
+		&lt;input type="text" class="z-input" value="300" style="width:80px"&gt;
+		&lt;span class="z-input-addon"&gt;kg&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="z-input-group"&gt;
+		&lt;select id="my-select2" style="width: 86px"&gt;
+			&lt;option value="http"&gt;http://&lt;/option&gt;
+			&lt;option value="https"&gt;https://&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;input type="text" class="z-input" style="width: 160px"&gt;
+	&lt;/div&gt;
+			</code></pre>
+		</section>
+
+		<h4>File Input</h4>
+		<section>
+			<div class="example">
+				<p>File input is to prettify the browser's default file input. You can use the stucture below. The<mark>[type=file]</mark>element is hidden.</p>
+				<br>
+				<div class="z-input-file">
+					<button class="z-btn primary">File</button>
+					<input type="text" class="z-input light">
+					<input type="file">
+					<i class="fa fa-close z-remove-file"></i>
+				</div>
+			</div>
+			<pre class="html"><code>
+	&lt;div class="z-input-file"&gt;
+		&lt;button class="z-btn primary"&gt;File&lt;/button&gt;
+		&lt;input type="text" class="z-input light"&gt;
+		&lt;input type="file"&gt;
+		&lt;i class="fa fa-close z-remove-file">&lt;/i&gt;
+	&lt;/div&gt;
+			</code></pre>
+			<div class="example" style="border-top: 1px solid #ccc">
+				<p>Add attribute<mark>multiple</mark>on the<mark>[type=file]</mark>element for multi-upload.</p>
+				<br>
+				<div class="z-input-file">
+					<button class="z-btn-outline primary">Select...</button>
+					<input type="text" class="z-input light">
+					<input type="file" multiple>
+					<i class="fa fa-close z-remove-file"></i>
+				</div>
+			</div>
+			<pre class="html"><code>
+	&lt;div class="z-input-file"&gt;
+		&lt;button class="z-btn-outline primary"&gt;Select...&lt;/button&gt;
+		&lt;input type="text" class="z-input light"&gt;
+		&lt;input type="file" multiple&gt;
+		&lt;i class="fa fa-close z-remove-file">&lt;/i&gt;
+	&lt;/div&gt;
+			</code></pre>
+		</section>
+
+		<h4>Textarea</h4>
+		<section>
+			<div class="example">
+				<div>
+					<textarea class="z-textarea" rows="6" cols="40"></textarea>
+				</div>
+			</div>
+			<pre class="html"><code>  &lt;textarea class="z-textarea" rows="6" cols="40">&lt;/textarea&gt;</code></pre>
+		</section>
+
+		<script>
+			$(document).ready(function() {
+			$('pre code').each(function(i, block) {
+			 	hljs.highlightBlock(block);
+			});
+			});
+			$('#my-select').select();
+			$('#my-select1').select();
+			$('#my-select2').select();
+			$('#my-select3').select();
+			$('#date').datetimepicker();
+		</script>
+	</body>
+</html>

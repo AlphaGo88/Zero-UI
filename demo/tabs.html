@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../dist/zui.css">
+        <link rel="stylesheet" href="./css/demo-common.css">
+        <link rel="stylesheet" href="./css/atom-one-light.css">
+        <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script src="../dist/zui.js"></script>
+    </head>
+    <body>
+        <h3>Tabs选项卡</h3>
+
+        <h4>默认样式</h4>
+        <section>
+            <div class="example">
+                <p>使用类名<mark>.tabs</mark>和<mark>.tab</mark>创建Tabs。</p>
+                <p>使用类名<mark>.tab-content</mark>和<mark>.tab-pane</mark>创建选项卡对应的内容。</p>
+                <p>将<mark>tab</mark>的<mark>data-content</mark>属性指向对应内容的id。</p>
+                <p>给活动的标签和内容添加类名<mark>.active</mark>。</p>
+                <br/>
+                <div class="z-tabs-default">
+                    <div data-content="#con1" class="z-tab active">Tab1</div>
+                    <div data-content="#con2" class="z-tab"><i class="fa fa-apple"></i>Tab2</div>
+                    <div data-content="#con3" class="z-tab">Tab3</div>
+                    <div data-content="#con4" class="z-tab disabled">Tab4</div>
+                    <a href="http://www.baidu.com" class="z-tab">百度</a>
+                </div>
+                <div class="z-tab-content">
+                    <div class="z-tab-pane active" id="con1">content1</div>
+                    <div class="z-tab-pane" id="con2">content2</div>
+                    <div class="z-tab-pane" id="con3">content3</div>
+                    <div class="z-tab-pane" id="con4">content4</div>
+                </div>
+            </div>
+            <pre><code class="html">
+    &lt;div class="z-tabs-default"&gt;
+        &lt;div data-content="#con1" class="z-tab active"&gt;Tab1&lt;/div&gt;
+        &lt;div data-content="#con2" class="z-tab"&gt;&lt;i class="fa fa-apple"&gt;&lt;/i&gt;Tab2&lt;/div&gt;
+        &lt;div data-content="#con3" class="z-tab"&gt;Tab3&lt;/div&gt;
+        &lt;div data-content="#con4" class="z-tab disabled"&gt;Tab4&lt;/div&gt;
+        &lt;a href="http://www.baidu.com" class="z-tab"&gt;百度&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="z-tab-content"&gt;
+        &lt;div class="z-tab-pane active" id="con1"&gt;content1&lt;/div&gt;
+        &lt;div class="z-tab-pane" id="con2"&gt;content2&lt;/div&gt;
+        &lt;div class="z-tab-pane" id="con3"&gt;content3&lt;/div&gt;
+        &lt;div class="z-tab-pane" id="con4"&gt;content4&lt;/div&gt;
+    &lt;/div&gt;
+            </code></pre>
+        </section>
+        
+        <h4>卡片</h4>
+        <section>
+            <div class="example">
+                <div class="z-tabs-card">
+                    <div data-content="#d1" class="z-tab active">Tab1</div>
+                    <div data-content="#d2" class="z-tab">Tab2</div>
+                    <div data-content="#d3" class="z-tab">Tab3</div>
+                </div>
+                <div class="z-tab-content">
+                    <div class="z-tab-pane active" id="d1">content1</div>
+                    <div class="z-tab-pane" id="d2">content2</div>
+                    <div class="z-tab-pane" id="d3">content3</div>
+                </div>
+            </div>
+            <pre><code class="html">    &lt;!-- html --&gt;
+    &lt;div class="z-tabs-card"&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class="z-tab-content"&gt;
+        ...
+    &lt;/div&gt;</code></pre>
+        </section>
+
+        <h4>带边框的卡片</h4>
+        <section>
+            <div class="example">
+                <p>给tab-content添加类<mark>bordered</mark>。</p>
+                <br>
+                <div class="z-tabs-card">
+                    <div data-content="#e1" class="z-tab active">Tab1</div>
+                    <div data-content="#e2" class="z-tab">Tab2</div>
+                    <div data-content="#e3" class="z-tab">Tab3</div>
+                </div>
+                <div class="z-tab-content bordered">
+                    <div class="z-tab-pane active" id="e1">content1</div>
+                    <div class="z-tab-pane" id="e2">content2</div>
+                    <div class="z-tab-pane" id="e3">content3</div>
+                    <div class="z-tab-pane" id="e4">content4</div>
+                </div>
+            </div>
+            <pre><code class="html">    &lt;!-- html --&gt;
+    &lt;div class="z-tabs-card"&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class="z-tab-content bordered"&gt;
+        ...
+    &lt;/div&gt;</code></pre>
+        </section>
+
+        <h4>Size</h4>
+        <section>
+            <div class="example">
+                <div class="z-tabs-default small">
+                    <div class="z-tab active">Tab1</div>
+                    <div class="z-tab">Tab2</div>
+                    <div class="z-tab">Tab3</div>
+                </div>
+                <br>
+                <div class="z-tabs-default">
+                    <div class="z-tab active">Tab1</div>
+                    <div class="z-tab">Tab2</div>
+                    <div class="z-tab">Tab3</div>
+                </div>
+                <br>
+                <div class="z-tabs-default large">
+                    <div class="z-tab active">Tab1</div>
+                    <div class="z-tab">Tab2</div>
+                    <div class="z-tab">Tab3</div>
+                </div>
+                <br><br>
+                <div class="z-tabs-card small">
+                    <div class="z-tab active">Tab1</div>
+                    <div class="z-tab">Tab2</div>
+                    <div class="z-tab">Tab3</div>
+                </div>
+                <br>
+                <div class="z-tabs-card">
+                    <div class="z-tab active">Tab1</div>
+                    <div class="z-tab">Tab2</div>
+                    <div class="z-tab">Tab3</div>
+                </div>
+                <br>
+                <div class="z-tabs-card large">
+                    <div class="z-tab active">Tab1</div>
+                    <div class="z-tab">Tab2</div>
+                    <div class="z-tab">Tab3</div>
+                </div>
+                <br>
+            </div>
+        </section>
+
+        <script>
+        $(document).ready(function() {
+          $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+        </script>
+    </body>
+</html>

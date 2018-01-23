@@ -1,0 +1,79 @@
+//
+// Forms
+// --------------------------------------------------
+
+@form-row-spacing: 12px;
+
+.z-form-row {
+    display: flex;
+    margin-top: @form-row-spacing;
+    font-size: @font-size-base;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.z-form-label,
+.z-form-text {
+    height: @input-height-base;
+    line-height: @input-height-base;
+
+    &.small {
+        height: @input-height-small;
+        line-height: @input-height-small;
+    }
+
+    &.large {
+        height: @input-height-large;
+        line-height: @input-height-large;
+    }
+}
+
+.z-form-label {
+    padding-right: 12px;
+    text-align: right;
+
+    &.required:before {
+        display: inline-block;
+        margin-right: 4px;
+        content: "*";
+        font-family: SimSun;
+        line-height: 1;
+        color: red;
+    }
+}
+
+.z-form-control-wrapper {
+    display: block;
+    position: relative;
+
+    > .error {
+        display: block;
+        margin: 0;
+        color: @color-error;
+    }
+}
+
+.z-form-control {
+    display: flex;
+    width: 100%;
+}
+
+.z-form-help {
+    display: block;
+    margin-top: 2px;
+    color: #777;
+}
+
+.z-form-action {
+    display: flex;
+    margin-top: @form-row-spacing;
+
+    .z-btn,
+    .z-btn-outline {
+        &:not(:last-child) {
+            margin-right: 8px;
+        }
+    }
+}

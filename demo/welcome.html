@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" href="../dist/zui.css">
+		<link rel="stylesheet" href="./css/demo-common.css">
+		<link rel="stylesheet" href="./css/atom-one-light.css">
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/highlight.pack.js"></script>
+		<script src="../dist/zui.js"></script>
+		<style>
+			html, body {
+				height: 100%;
+				min-width: 680px;
+				min-height: 480px;
+			}
+			body {
+				background: url('./img/bg.jpg');
+				background-size: cover;
+			}
+			.mask {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, 0.38);
+			}
+			.login-box {
+				position: absolute;
+				height: 322px;
+				width: 562px;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+				padding-left: 320px;
+				background-color: #fff;
+				border: 1px solid #fff;
+				box-shadow: 0 2px 56px rgba(0, 0, 0, 0.46);
+			}
+			.login-box .img-wrapper {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.login-box img {
+				height: 320px;
+			}
+			.login-box .title {
+				padding: 40px 0 40px 0;
+				font-size: 16px;
+				font-weight: 600;
+			}
+			.login-box .z-input-wrapper,
+			#login-btn {
+				width: 194px;
+			}
+			.login-box .z-input-label {
+				color: #888;
+			}
+/*			.login-box .input-wrapper i {
+				color: #aaa;
+			}*/
+			.login-box .err-msg {
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    height: 32px;
+			    line-height: 32px;
+			    color: rgb(235, 87, 87);
+			    transition: all 400ms;
+			    transform: translateX(10px);
+			    opacity: 0;
+			}
+			.login-box .err-msg.show {
+			    transform: translateX(0px);
+			    opacity: 1;
+			}
+			#login-btn {
+				margin-top: 26px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mask"></div>
+		<div class="login-box">
+			<div class="img-wrapper">
+				<img src="./img/bg1.jpg" alt="">
+			</div>
+			<div class="title text-teal">Welcome to BDMP</div>
+			<div class="sub-title"></div>
+			<div class="z-input-label">User ID</div>
+			<div>
+				<span class="z-input-wrapper light">
+					<i class="fa fa-user"></i>
+					<span class="err-msg" id="user-err-msg"></span>
+					<input type="text" id="username" class="z-input light">
+				</span>
+			</div>
+			<br>
+			<div class="z-input-label">Password</div>
+			<div>
+				<span class="z-input-wrapper light">
+					<i class="fa fa-lock"></i>
+					<span class="err-msg" id="pw-err-msg"></span>
+					<input type="password" id="password" class="z-input light">
+				</span>
+			</div>
+			<div>
+				<button class="z-btn teal large" id="login-btn">Sign in</button>
+			</div>
+		</div>
+		<script>
+			$('input').on('focus', function(event) {
+				$(this).siblings('.err-msg').removeClass('show');
+			});
+
+			$('input').on('keydown', function(event) {
+				$(this).siblings('.err-msg').removeClass('show');
+				if (event.which === 13 || event.keyCode === 13) {
+					checkLogin();
+				}
+			});
+
+			$('#login-btn').on('click', checkLogin);
+
+			function checkLogin(event) {
+				var username = $('#username').val().trim();
+				var password = $('#password').val();
+
+				if (username === '') {
+					$('#user-err-msg').text('Required').addClass('show');
+				}
+				if (password === '') {
+					$('#pw-err-msg').text('Required').addClass('show');
+				}
+				if (username === '' || password === '') {
+					return;
+				}
+
+				$.post('/user/login', {
+					username: username,
+					password: password
+				}, function(res) {
+					if (res.success) {
+						location.href = '/';
+					} else {
+						$('#user-err-msg').text(res.errorMsg).addClass('show');
+						$('#pw-err-msg').text(res.errorMsg).addClass('show');
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

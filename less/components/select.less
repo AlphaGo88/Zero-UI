@@ -1,0 +1,141 @@
+//
+// Select
+// --------------------------------------------------
+
+
+.z-select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.z-select-trigger {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-left: @input-padding-x;
+    padding-right: 24px;
+    transition: border-color 200ms;
+}
+
+.z-select-caret {
+    position: absolute;
+    top: -4px;
+    right: 11px;
+    bottom: 0;
+    margin: auto 0;
+    width: 8px;
+    height: 8px;
+    border-right: 1px solid #777;
+    border-bottom: 1px solid #777;
+    transform: rotate(45deg);
+    transition: top 200ms, transform 200ms;
+}
+
+.z-select-trigger.open + .z-select-caret {
+    top: 4px;
+    transform: rotate(225deg);
+}
+
+.z-select-options {
+    width: 100%;
+    max-height: 300px;
+    padding: 0;
+    background-color: #fff;
+    overflow: auto;
+    border: none;
+}
+
+.z-select-group-label,
+.z-select-option {
+    height: @input-height-base;
+    line-height: @input-height-base;
+    padding-left: @input-padding-x + 1;
+    color: @text-color-base;
+    font-size: @font-size-base;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.z-select-group-label {
+    font-weight: 600;
+}
+
+.z-select-option {
+    font-weight: 400;
+    cursor: pointer;
+
+    &:hover {
+        background-color: @menu-hover-bg;
+    }
+
+    &.selected {
+        background-color: @primary-color;
+        color: #fff;
+    }
+
+    &.disabled {
+        background-color: #fff;
+        color: @text-color-disabled;
+        cursor: default;
+    }
+    
+    &.group-option {
+        padding-left: 30px;
+    }
+}
+
+.z-select-wrapper.small {
+    width: 120px;
+
+    > .z-select-trigger {
+        height: @input-height-small;
+        padding-top: @input-padding-y-small;
+        padding-bottom: @input-padding-y-small;
+    }
+
+    > .z-select-options > .z-select-group-label,
+    > .z-select-options > .z-select-option {
+        height: @input-height-small;
+        line-height: @input-height-small;
+    }
+}
+
+.z-select-wrapper.large {
+    width: 120px;
+
+    > .z-select-trigger {
+        height: @input-height-large;
+        padding-top: @input-padding-y-large;
+        padding-bottom: @input-padding-y-large;
+    }
+
+    > .z-select-options > .z-select-group-label,
+    > .z-select-options > .z-select-option {
+        height: @input-height-large;
+        line-height: @input-height-large;
+    }
+}
+
+.z-select-wrapper.round {
+    border-radius: @input-round-radius;
+
+    > .z-select-trigger {
+        border-radius: @input-round-radius;
+    }
+
+    > .z-select-options {
+        border-radius: 12px;
+    }
+}
+
+.z-select-wrapper.shadow {
+    > .z-select-trigger {
+        box-shadow: @input-shadow;
+    }
+
+    > .z-select-options {
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.34);
+    }
+}

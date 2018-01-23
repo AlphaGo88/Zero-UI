@@ -1,0 +1,32 @@
+{
+  "name": "Zero-UI",
+  "version": "1.0.0",
+  "description": "A powerful web UI component framework.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AlphaGo88/Zero-UI.git"
+  },
+  "author": "AlphaGo88(zhao xin)",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-clean-css": "^3.0.x",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0"
+  },
+  "browserslist": [
+    "last 1 major version",
+    ">= 1%",
+    "Chrome >= 45",
+    "Firefox >= 38",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ]
+}

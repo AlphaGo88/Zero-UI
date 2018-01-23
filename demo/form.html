@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../dist/zui.css">
+        <link rel="stylesheet" href="./css/demo-common.css">
+        <link rel="stylesheet" href="./css/atom-one-light.css">
+        <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script src="../dist/zui.js"></script>
+        <script src="./js/jquery.validate.js"></script>
+    </head>
+    <body>
+        <h3>Form表单</h3>
+
+        <h4>基本实例</h4>
+        <section>
+            <div class="example">
+                <p><mark>.z-form-row</mark>代表表单的行。</p>
+                <p>给文本框等元素添加类名<mark>.z-form-control</mark>。</p>
+                <p>将表单元素置于<mark>.z-form-control-wrapper</mark>内。</p>
+                <p>给<mark>.z-form-label</mark>添加类<mark>.required</mark>以显示必填星号。</p>
+                <p><mark>&lt;form&gt;</mark>标签不是必须的。如果想避免表单自动提交，请将<mark>.z-form-action</mark>置于<mark>&lt;form&gt;</mark>之外。</p>
+                <br>
+                <p>如果不使用栅格布局，你需要通过内联样式或外部css使表单元素对齐。</p>
+                <br>
+                <form>
+                    <div class="z-form-row">
+                        <label class="z-form-label" style="width: 100px">Name:</label>
+                        <span class="z-form-text">Jim Green</span>
+                    </div>
+                    <div class="z-form-row">
+                        <label class="z-form-label required" style="width: 100px">Age:</label>
+                        <div class="z-form-control-wrapper" style="width: 280px">
+                            <input type="text" name="age" class="z-input z-form-control">
+                            <span class="z-form-help">Here is some help text.</span>
+                        </div>
+                    </div>
+                    <div class="z-form-row">
+                        <label class="z-form-label small required" style="width: 100px">Gender:</label>
+                        <div class="z-form-control-wrapper">
+                            <div class="z-radio-group">
+                                <label class="z-radio">
+                                    <input type="radio" name="sex" value="m">
+                                    <span>Male</span>
+                                </label>
+                                <label class="z-radio">
+                                    <input type="radio" name="sex" value="w">
+                                    <span>Female</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="z-form-row">
+                        <label class="z-form-label" style="width: 100px">Address:</label>
+                        <div class="z-form-control-wrapper" style="width: 280px">
+                            <textarea name="addr" class="z-textarea z-form-control"></textarea>
+                        </div>
+                    </div>
+                </form>
+                <div class="z-form-action">
+                    <button class="z-btn primary medium" style="margin-left: 100px">Submit</button>
+                </div>
+            </div>
+            <pre class="html"><code>
+    &lt;form&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label" style="width: 100px"&gt;Name:&lt;/label&gt;
+            &lt;span class="z-form-text"&gt;Jim Green&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label required" style="width: 100px"&gt;Age:&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper" style="width: 280px"&gt;
+                &lt;input type="text" name="age" class="z-input z-form-control"&gt;
+                &lt;span class="z-form-help"&gt;Here is some help text.&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label small required" style="width: 100px"&gt;Gender:&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper"&gt;
+                &lt;div class="z-radio-group"&gt;
+                    &lt;label class="z-radio"&gt;
+                        &lt;input type="radio" name="sex" value="m"&gt;
+                        &lt;span&gt;Male&lt;/span&gt;
+                    &lt;/label&gt;
+                    &lt;label class="z-radio"&gt;
+                        &lt;input type="radio" name="sex" value="w"&gt;
+                        &lt;span&gt;Female&lt;/span&gt;
+                    &lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label" style="width: 100px"&gt;Address:&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper" style="width: 280px"&gt;
+                &lt;textarea name="addr" class="z-textarea z-form-control"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt; 
+    &lt;div class="z-form-action"&gt;
+        &lt;button class="z-btn primary medium" style="margin-left: 100px"&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;        
+            </code></pre>
+        </section>
+
+        <h4>栅格布局</h4>
+        <section>
+            <div class="example">
+                <p>你可以在表单内使用栅格布局。</p>
+                <br>
+                <form style="width: 400px">
+                    <div class="z-form-row">
+                        <label class="z-form-label z-col-3">Name:</label>
+                        <span class="z-form-text z-col-9">Jim Green</span>
+                    </div>
+                    <div class="z-form-row">
+                        <label class="z-form-label z-col-3 required">Age:</label>
+                        <div class="z-form-control-wrapper z-col-9">
+                            <input type="text" name="age" class="z-input z-form-control">
+                        </div>
+                    </div>
+                    <div class="z-form-row">
+                        <label class="z-form-label z-col-3">Address:</label>
+                        <div class="z-form-control-wrapper z-col-9">
+                            <textarea name="addr" class="z-textarea z-form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="z-form-row">
+                        <div class="z-form-control-wrapper z-col-9 z-offset-3">
+                            <label class="z-checkbox">
+                                <input type="checkbox" name="agree">
+                                <span>I have read the agreements.</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="z-form-action z-col-9 z-offset-3">
+                        <input type="reset" class="z-btn default medium" value="Reset">
+                        <button class="z-btn primary medium">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <pre><code>
+    &lt;form style="width: 400px"&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label z-col-3"&gt;Name:&lt;/label&gt;
+            &lt;span class="z-form-text z-col-9"&gt;Jim Green&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label z-col-3 required"&gt;Age:&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper z-col-9"&gt;
+                &lt;input type="text" name="age" class="z-input z-form-control"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label z-col-3"&gt;Address:&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper z-col-9"&gt;
+                &lt;textarea name="addr" class="z-textarea z-form-control"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;div class="z-form-control-wrapper z-col-9 z-offset-3"&gt;
+                &lt;label class="z-checkbox"&gt;
+                    &lt;input type="checkbox" name="agree"&gt;
+                    &lt;span&gt;I have read the agreements.&lt;/span&gt;
+                &lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-action z-col-9 z-offset-3"&gt;
+            &lt;input type="reset" class="z-btn default medium" value="Reset"&gt;
+            &lt;button class="z-btn primary medium"&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+            </code></pre>
+        </section>
+
+        <h4>多列表单</h4>
+        <section>
+            <div class="example">
+                <form style="width: 600px">
+                    <div class="z-form-row">
+                        <label class="z-form-label z-col-2">Name:</label>
+                        <span class="z-form-text z-col-4">Jim Green</span>
+                        <label class="z-form-label z-col-2">Age:</label>
+                        <div class="z-form-control-wrapper z-col-4">
+                            <input type="text" name="age" class="z-input z-form-control">
+                        </div>
+                    </div>
+                    <div class="z-form-row">
+                        <label class="z-form-label z-col-2">Birth:</label>
+                        <div class="z-form-control-wrapper z-col-4">
+                            <span class="z-input-wrapper z-form-control">
+                                <input type="text" name="birth" id="birth" class="z-input">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                        </div>
+                        <label class="z-form-label z-col-2">Phone:</label>
+                        <div class="z-form-control-wrapper z-col-4">
+                            <span class="z-input-group z-form-control">
+                                <input type="text" class="z-input" value="010" style="width:30%" readonly>
+                                <input type="text" class="z-input" style="width:70%">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="z-form-row">
+                        <label class="z-form-label z-col-2">Address:</label>
+                        <div class="z-form-control-wrapper z-col-10">
+                            <textarea name="addr" class="z-textarea z-form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="z-form-action z-col-10 z-offset-2">
+                        <button class="z-btn primary medium">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <pre class="html"><code>
+    &lt;form style="width: 600px"&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label z-col-2"&gt;Name:&lt;/label&gt;
+            &lt;span class="z-form-text z-col-4"&gt;Jim Green&lt;/span&gt;
+            &lt;label class="z-form-label z-col-2"&gt;Age:&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper z-col-4"&gt;
+                &lt;input type="text" name="age" class="z-input z-form-control"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label z-col-2"&gt;Birth:&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper z-col-4"&gt;
+                &lt;span class="z-input-wrapper z-form-control"&gt;
+                    &lt;input type="text" name="birth" id="birth" class="z-input"&gt;
+                    &lt;i class="fa fa-calendar"&gt;&lt;/i&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;label class="z-form-label z-col-2"&gt;Phone:&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper z-col-4"&gt;
+                &lt;span class="z-input-group z-form-control"&gt;
+                    &lt;input type="text" class="z-input" value="010" style="width:30%" readonly&gt;
+                    &lt;input type="text" class="z-input" style="width:70%"&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label z-col-2"&gt;Address:&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper z-col-10"&gt;
+                &lt;textarea name="addr" class="z-textarea z-form-control"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-action z-col-10 z-offset-2"&gt;
+            &lt;button class="z-btn primary medium"&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+            </code></pre>
+        </section>
+
+        <h4>表单校验</h4>
+        <section>
+            <div class="example">
+                <p>你可以使用 <a href="https://jqueryvalidation.org/">jQuery-Validate</a> 插件进行表单校验。</p>
+                <p>注意：MUI不包括jQuery-Validate，如果需要使用请单独引入。</p>
+                <br>
+                <form id="my-form" style="width: 300px">
+                    <div class="z-form-row">
+                        <label class="z-form-label required z-col-3">姓名：</label>
+                        <div class="z-form-control-wrapper z-col-9" style="width: 280px">
+                            <input type="text" name="name" class="z-input z-form-control">
+                        </div>
+                    </div>
+                    <div class="z-form-row">
+                        <label class="z-form-label required z-col-3">年龄：</label>
+                        <div class="z-form-control-wrapper z-col-9" style="width: 280px">
+                            <input type="text" name="age" class="z-input z-form-control">
+                        </div>
+                    </div>
+                    <div class="z-form-action z-col-9 z-offset-3">
+                        <button class="z-btn primary medium" id="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        <pre class="html"><code>    &lt;!-- html --&gt;
+    &lt;form id="my-form" style="width: 300px"&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label required z-col-3"&gt;姓名：&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper z-col-9" style="width: 280px"&gt;
+                &lt;input type="text" name="name" class="z-input z-form-control"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-row"&gt;
+            &lt;label class="z-form-label required z-col-3"&gt;年龄：&lt;/label&gt;
+            &lt;div class="z-form-control-wrapper z-col-9" style="width: 280px"&gt;
+                &lt;input type="text" name="age" class="z-input z-form-control"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-action z-col-9 z-offset-3"&gt;
+            &lt;button class="z-btn primary medium" id="submit"&gt;提交&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;</code></pre>
+            <pre class="javascript"><code>    // javascript
+    var validator = $('#my-form').validate({
+        rules: {
+            name: 'required',
+            age: 'required'
+        },
+        messages: {
+            name: {
+                required: '请输入姓名'
+            },
+            age: {
+                required: '请输入年龄'
+            }
+        }
+    });
+
+    $('#submit').on('click', function(e) {
+        validator.form();
+    });</code></pre>
+        </section>
+
+        <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+
+        $('#birth').datetimepicker();
+
+        var validator = $('#my-form').validate({
+                rules: {
+                name: 'required',
+                age: 'required'
+            },
+            messages: {
+                name: {
+                    required: '请输入姓名',
+                },
+                age: {
+                    required: '请输入年龄',
+                }
+            }
+        });
+
+        $('#submit').on('click', function(e) {
+            validator.form();
+        });
+        </script>
+    </body>
+</html>
