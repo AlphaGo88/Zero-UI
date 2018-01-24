@@ -2,7 +2,6 @@
 	Initialize components	
 */
 
-
 (function($) {
 	'use strict';
 
