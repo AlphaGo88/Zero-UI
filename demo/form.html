@@ -12,20 +12,17 @@
         <script src="./js/jquery.validate.js"></script>
     </head>
     <body>
-        <h3>Form表单</h3>
+        <h3>Form</h3>
 
-        <h4>基本实例</h4>
+        <h4>Basic</h4>
         <section>
             <div class="example">
-                <p><mark>.z-form-row</mark>代表表单的行。</p>
-                <p>给文本框等元素添加类名<mark>.z-form-control</mark>。</p>
-                <p>将表单元素置于<mark>.z-form-control-wrapper</mark>内。</p>
-                <p>给<mark>.z-form-label</mark>添加类<mark>.required</mark>以显示必填星号。</p>
-                <p><mark>&lt;form&gt;</mark>标签不是必须的。如果想避免表单自动提交，请将<mark>.z-form-action</mark>置于<mark>&lt;form&gt;</mark>之外。</p>
+                <p><mark>&lt;form&gt;</mark>is not necessary.</p>
+                <p><mark>.z-form-row</mark>represents a form row.</p>
+                <p>Add class<mark>.z-form-control</mark>on the elements like<mark>input</mark>.</p>
+                <p>Use<mark>.z-form-control-wrapper</mark>to wrap the form elements.</p>
                 <br>
-                <p>如果不使用栅格布局，你需要通过内联样式或外部css使表单元素对齐。</p>
-                <br>
-                <form>
+                <div>
                     <div class="z-form-row">
                         <label class="z-form-label" style="width: 100px">Name:</label>
                         <span class="z-form-text">Jim Green</span>
@@ -58,13 +55,13 @@
                             <textarea name="addr" class="z-textarea z-form-control"></textarea>
                         </div>
                     </div>
-                </form>
-                <div class="z-form-action">
-                    <button class="z-btn primary medium" style="margin-left: 100px">Submit</button>
+                    <div class="z-form-action">
+                        <button class="z-btn primary medium" style="margin-left: 100px">Submit</button>
+                    </div>
                 </div>
             </div>
             <pre class="html"><code>
-    &lt;form&gt;
+    &lt;div&gt;
         &lt;div class="z-form-row"&gt;
             &lt;label class="z-form-label" style="width: 100px"&gt;Name:&lt;/label&gt;
             &lt;span class="z-form-text"&gt;Jim Green&lt;/span&gt;
@@ -97,17 +94,17 @@
                 &lt;textarea name="addr" class="z-textarea z-form-control"&gt;&lt;/textarea&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-    &lt;/form&gt; 
-    &lt;div class="z-form-action"&gt;
-        &lt;button class="z-btn primary medium" style="margin-left: 100px"&gt;Submit&lt;/button&gt;
+        &lt;div class="z-form-action"&gt;
+            &lt;button class="z-btn primary medium" style="margin-left: 100px"&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
     &lt;/div&gt;        
             </code></pre>
         </section>
 
-        <h4>栅格布局</h4>
+        <h4>Grid</h4>
         <section>
             <div class="example">
-                <p>你可以在表单内使用栅格布局。</p>
+                <p>You can use grid layout in the form.</p>
                 <br>
                 <form style="width: 400px">
                     <div class="z-form-row">
@@ -174,7 +171,7 @@
             </code></pre>
         </section>
 
-        <h4>多列表单</h4>
+        <h4>Multiple columns</h4>
         <section>
             <div class="example">
                 <form style="width: 600px">
@@ -252,69 +249,6 @@
             </code></pre>
         </section>
 
-        <h4>表单校验</h4>
-        <section>
-            <div class="example">
-                <p>你可以使用 <a href="https://jqueryvalidation.org/">jQuery-Validate</a> 插件进行表单校验。</p>
-                <p>注意：MUI不包括jQuery-Validate，如果需要使用请单独引入。</p>
-                <br>
-                <form id="my-form" style="width: 300px">
-                    <div class="z-form-row">
-                        <label class="z-form-label required z-col-3">姓名：</label>
-                        <div class="z-form-control-wrapper z-col-9" style="width: 280px">
-                            <input type="text" name="name" class="z-input z-form-control">
-                        </div>
-                    </div>
-                    <div class="z-form-row">
-                        <label class="z-form-label required z-col-3">年龄：</label>
-                        <div class="z-form-control-wrapper z-col-9" style="width: 280px">
-                            <input type="text" name="age" class="z-input z-form-control">
-                        </div>
-                    </div>
-                    <div class="z-form-action z-col-9 z-offset-3">
-                        <button class="z-btn primary medium" id="submit">提交</button>
-                    </div>
-                </form>
-            </div>
-        <pre class="html"><code>    &lt;!-- html --&gt;
-    &lt;form id="my-form" style="width: 300px"&gt;
-        &lt;div class="z-form-row"&gt;
-            &lt;label class="z-form-label required z-col-3"&gt;姓名：&lt;/label&gt;
-            &lt;div class="z-form-control-wrapper z-col-9" style="width: 280px"&gt;
-                &lt;input type="text" name="name" class="z-input z-form-control"&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class="z-form-row"&gt;
-            &lt;label class="z-form-label required z-col-3"&gt;年龄：&lt;/label&gt;
-            &lt;div class="z-form-control-wrapper z-col-9" style="width: 280px"&gt;
-                &lt;input type="text" name="age" class="z-input z-form-control"&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class="z-form-action z-col-9 z-offset-3"&gt;
-            &lt;button class="z-btn primary medium" id="submit"&gt;提交&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/form&gt;</code></pre>
-            <pre class="javascript"><code>    // javascript
-    var validator = $('#my-form').validate({
-        rules: {
-            name: 'required',
-            age: 'required'
-        },
-        messages: {
-            name: {
-                required: '请输入姓名'
-            },
-            age: {
-                required: '请输入年龄'
-            }
-        }
-    });
-
-    $('#submit').on('click', function(e) {
-        validator.form();
-    });</code></pre>
-        </section>
-
         <script>
         $(document).ready(function() {
             $('pre code').each(function(i, block) {
@@ -323,25 +257,6 @@
         });
 
         $('#birth').datetimepicker();
-
-        var validator = $('#my-form').validate({
-                rules: {
-                name: 'required',
-                age: 'required'
-            },
-            messages: {
-                name: {
-                    required: '请输入姓名',
-                },
-                age: {
-                    required: '请输入年龄',
-                }
-            }
-        });
-
-        $('#submit').on('click', function(e) {
-            validator.form();
-        });
         </script>
     </body>
 </html>

@@ -50,4 +50,4 @@ gulp.task('js-watch', function() {
 
 gulp.task('dev', ['less-watch', 'js-watch']);
 
-gulp.task('default', ['css', 'js']);
+gulp.task('default', ['less', 'css', 'js-concat', 'js']);

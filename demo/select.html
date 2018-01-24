@@ -16,11 +16,11 @@
 	</style>
 </head>
 <body>
-	<h3>Select下拉选择</h3>
-	<p>Select是对浏览器原生select的美化和增强。原先的<mark>select</mark>或<mark>input</mark>将被隐藏，选项的值可以通过原先的元素的<mark>value</mark>属性取得。</p>
+	<h3>Select</h3>
+	<p>Select is a replacement of browser's default<mark>select</mark>. The original<mark>select</mark>or<mark>input</mark>will be hidden, and the selected value can be read from its<mark>value</mark>.</p>
 	<br>
-	<h4>初始化</h4>
-	<p>你必须使用javascript初始化下拉选择。</p>
+	<h4>Initialize</h4>
+	<p>You must initialize<mark>select</mark>manually.</p>
 	<section>
 	<pre style="border-top:0"><code>    
 	$('select').select();
@@ -28,20 +28,21 @@
 	</section>
 	<section>
 		<div class="example">
-			<h4>通过html生成选项</h4>
+			<h4>Generate options via html</h4>
+			<br>
 			<select id="select1">
-			  <option value="1"><i class="fa fa-apple"></i>苹果</option>
-			  <option value="2">橘子</option>
-			  <option value="3" disabled>香蕉</option>
-			  <option value="4">bb</option>
+			  <option value="1"><i class="fa fa-apple"></i>Apple</option>
+			  <option value="2">Orange</option>
+			  <option value="3" disabled>Banana</option>
+			  <option value="4">Grape</option>
 			</select>
 		</div>
 	<pre><code>	&lt;!-- html --&gt;
 	&lt;select id="select1"&gt;
-		&lt;option value="1"&gt;苹果&lt;/option&gt;
-		&lt;option value="2"&gt;橘子&lt;/option&gt;
-		&lt;option value="3" disabled&gt;香蕉&lt;/option&gt;
-		&lt;option value="4"&gt;bb&lt;/option&gt;
+		&lt;option value="1"&gt;Apple&lt;/option&gt;
+		&lt;option value="2"&gt;Orange&lt;/option&gt;
+		&lt;option value="3" disabled&gt;Banana&lt;/option&gt;
+		&lt;option value="4"&gt;Grape&lt;/option&gt;
 	&lt;/select&gt;</code></pre>
 	<pre><code>	// javascript
 	$('#select1').select();</code></pre>
@@ -49,8 +50,8 @@
 
 	<section>
 		<div class="example">
-			<h4>通过js生成选项</h4>
-			<p>通过js生成选项时，也可以使用<mark>&lt;input&gt;</mark>元素。</p>
+			<h4>Generate options via javascript</h4>
+			<p>When the options are generated via javascript, you can also use<mark>&lt;input&gt;</mark>as the trigger element.</p>
 			<br>
 			<input type="text" id="select2">
 		</div>
@@ -69,31 +70,31 @@
 
 	<section>
 		<div class="example">
-			<h4>分组 通过html生成选项</h4>
+			<h4>Grouping</h4>
 			<select id="select3">
-				<optgroup label="水果">
-					<option value="1">苹果</option>
-					<option value="2">橘子</option>
-					<option value="3">bb</option>
+				<optgroup label="Fruits">
+					<option value="1">Apple</option>
+					<option value="2">Orange</option>
+					<option value="3">Grape</option>
 				</optgroup>
-				<optgroup label="运动">
-					<option value="4">足球</option>
-					<option value="5">游泳</option>
-					<option value="6">网球</option>
+				<optgroup label="Sports">
+					<option value="4">Football</option>
+					<option value="5">Swimming</option>
+					<option value="6">Tennis</option>
 				</optgroup>
 			</select>
 		</div>
 		<pre><code>	&lt;!-- html --&gt;
 	&lt;select id="select3"&gt;
-		&lt;optgroup label="水果"&gt;
-			&lt;option value="1"&gt;苹果&lt;/option&gt;
-			&lt;option value="2"&gt;橘子&lt;/option&gt;
-			&lt;option value="3"&gt;bb&lt;/option&gt;
+		&lt;optgroup label="Fruits"&gt;
+			&lt;option value="1"&gt;Apple&lt;/option&gt;
+			&lt;option value="2"&gt;Orange&lt;/option&gt;
+			&lt;option value="3"&gt;Grape&lt;/option&gt;
 		&lt;/optgroup&gt;
-		&lt;optgroup label="运动"&gt;
-			&lt;option value="4"&gt;足球&lt;/option&gt;
-			&lt;option value="5"&gt;游泳&lt;/option&gt;
-			&lt;option value="6"&gt;网球&lt;/option&gt;
+		&lt;optgroup label="Sports"&gt;
+			&lt;option value="4"&gt;Football&lt;/option&gt;
+			&lt;option value="5"&gt;Swimming&lt;/option&gt;
+			&lt;option value="6"&gt;Tennis&lt;/option&gt;
 		&lt;/optgroup&gt;
 	&lt;/select&gt;</code></pre>
 		<pre><code>	// javascript
@@ -102,7 +103,7 @@
 
 	<section>
 		<div class="example">
-			<h4>分组 通过js生成选项</h4>
+			<h4>Grouping</h4>
 			<input type="text" id="select4">
 		</div>
 		<pre><code>	&lt;!-- html --&gt;
@@ -126,7 +127,7 @@
 
 	<section>
 		<div class="example">
-			<h4>多选</h4>
+			<h4>Multiple</h4>
 			<input type="text" id="select5">
 		</div>
 		<pre><code>	&lt;!-- html --&gt;
@@ -140,7 +141,8 @@
 
 	<section>
 		<div class="example">
-			<h4>通过js指定初始值</h4>
+			<h4>Set initial value via javascript</h4>
+			<br>
 			<input type="text" id="select6">
 			<input type="text" id="select7">
 			<input type="text" id="select8">
@@ -151,7 +153,7 @@
 	&lt;select id="select8"&gt;</code></pre>
 		<pre><code>	// javascript
 
-	// 通过initialValue指定初始值
+	// Set initial value
 	$('#select6').select({
 		initialValue: 2,
 		data: [
@@ -162,7 +164,7 @@
 		]
 	});
 
-	// 通过data指定初始值
+	// Set initial value - the other way
 	$('#select7').select({
 		data: [
 			{ value: 1, text: 'apple' },
@@ -172,7 +174,7 @@
 		]
 	});
 
-	// 多选，指定初始值
+	// Multiple - Set initial value
 	$('#select8').select({
 		multiple: true,
 		data: [
@@ -184,32 +186,32 @@
 	});</code></pre>
 	</section>
 
-	<h4>禁用状态</h4>
+	<h4>Disabled</h4>
 	<section>
 		<div class="example">
 			<input type="text" id="select9">
 		</div>
 	</section>
 
-	<h4>大小</h4>
+	<h4>Size</h4>
 	<section>
 		<div class="example">
 			<select id="select14" class="small">
-			  <option value="1">苹果</option>
-			  <option value="2">橘子</option>
-			  <option value="3">香蕉</option>
+			  <option value="1">Apple</option>
+			  <option value="2">Orange</option>
+			  <option value="3">Banana</option>
 			</select>
 			&nbsp;
 			<select id="select15">
-			  <option value="1">苹果</option>
-			  <option value="2">橘子</option>
-			  <option value="3">香蕉</option>
+			  <option value="1">Apple</option>
+			  <option value="2">Orange</option>
+			  <option value="3">Banana</option>
 			</select>
 			&nbsp;
 			<select id="select16" class="large">
-			  <option value="1">苹果</option>
-			  <option value="2">橘子</option>
-			  <option value="3">香蕉</option>
+			  <option value="1">Apple</option>
+			  <option value="2">Orange</option>
+			  <option value="3">Banana</option>
 			</select>
 		</div>
 		<pre><code>	&lt;!-- html --&gt;
@@ -226,26 +228,26 @@
 	&lt;/select&gt;</code></pre>
 	</section>
 
-	<h4>向上</h4>
+	<h4>Up</h4>
 	<section>
 		<div class="example">
 			<select id="select17">
-			  <option value="1">苹果</option>
-			  <option value="2">橘子</option>
-			  <option value="3">香蕉</option>
+			  <option value="1">Apple</option>
+			  <option value="2">Orange</option>
+			  <option value="3">Banana</option>
 			</select>
 		</div>
 		<pre><code class="javascript">    $('#select17').select({position: 'up'});</code></pre>
 	</section>
 
-	<h4>配置项</h4>
+	<h4>Options</h4>
 	<table class="z-table doc-table">
 	    <thead>
 	        <tr>
-	            <th>名称</th>
-	            <th>类型</th>
-	            <th>默认值</th>
-	            <th>描述</th>
+	            <th>Name</th>
+	            <th>Type</th>
+	            <th>Default</th>
+	            <th>Desc</th>
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -253,36 +255,36 @@
 	    	    <td>position</td>
 	    	    <td>String</td>
 	    	    <td>''</td>
-	    	    <td>下拉列表的方向，'up'为向上</td>
+	    	    <td>Direction of the options</td>
 	    	</tr>
 	        <tr>
 	            <td>multiple</td>
 	            <td>Boolean</td>
 	            <td>false</td>
-	            <td>是否多选</td>
+	            <td>Multiple or not</td>
 	        </tr>
 	        <tr>
 	            <td>data</td>
 	            <td>Array/Object</td>
-	            <td>[]</td>
-	            <td>Select的选项</td>
+	            <td>null</td>
+	            <td>Data for select's options</td>
 	        </tr>
 	        <tr>
 	            <td>initialValue</td>
 	            <td>String</td>
-	            <td>空</td>
-	            <td>初始值</td>
+	            <td>''</td>
+	            <td>Initial value</td>
 	        </tr>
 	        <tr>
 	            <td>onChange</td>
 	            <td>Function</td>
 	            <td>function(value, text) {}</td>
 	            <td>
-	            	选中项目改变时触发
+	            	Fires when an item is selected
 	            	<br>
-	            	参数1：value: 选中项目的值
+	            	param1: value - the selected item's value
 	            	<br>
-	            	参数2：text: 选中项目的文本
+	            	param2: text - the selected item's text
 	            </td>
 	        </tr>
 	    </tbody>
@@ -291,35 +293,35 @@
 	<h4>API</h4>
 	<section>
 		<div class="example">
-			<h4>禁用 & 启用</h4>
+			<h4>Diable & Enable</h4>
 			<br>
 			<div>
 				<select id="select10">
-					<option value="1">苹果</option>
-					<option value="2">橘子</option>
-					<option value="3" disabled>香蕉</option>
-					<option value="4">bb</option>
+					<option value="1">Apple</option>
+					<option value="2">Orange</option>
+					<option value="3" disabled>Banana</option>
+					<option value="4">Grape</option>
 				</select>&nbsp;&nbsp;
-				<button class="z-btn primary" id="disable">禁用</button>
-				<button class="z-btn primary" id="enable">启用</button>
+				<button class="z-btn primary" id="disable">Diable</button>
+				<button class="z-btn primary" id="enable">Enable</button>
 			</div>
 		</div>
-		<pre><code>	$('#select10').select('disable');  // 禁用
-	$('#select10').select('enable');  // 启用</code></pre>
+		<pre><code>	$('#select10').select('disable');  // Diable
+	$('#select10').select('enable');  // Enable</code></pre>
 	</section>
 
 	<section>
 		<div class="example">
-			<h4>通过javascript选择项</h4>
+			<h4>Select a item</h4>
 			<br>
 			<div>
 				<select id="select12">
-					<option value="1">苹果</option>
-					<option value="2">橘子</option>
-					<option value="3">香蕉</option>
+					<option value="1">Apple</option>
+					<option value="2">Orange</option>
+					<option value="3">Banana</option>
 					<option value="4">西瓜</option>
 				</select>&nbsp;&nbsp;
-				<button class="z-btn primary" id="setvalue">选择橘子</button>
+				<button class="z-btn primary" id="setvalue">Select Orange</button>
 			</div>
 		</div>
 		<pre><code>	$('#select12').select('setValue', 2);
@@ -328,16 +330,16 @@
 
 	<section>
 		<div class="example">
-			<h4>重新设置选项</h4>
+			<h4>Reset options</h4>
 			<br>
 			<div>
 				<select id="select11">
-					<option value="1">苹果</option>
-					<option value="2">橘子</option>
-					<option value="3" disabled>香蕉</option>
-					<option value="4">bb</option>
+					<option value="1">Apple</option>
+					<option value="2">Orange</option>
+					<option value="3" disabled>Banana</option>
+					<option value="4">Grape</option>
 				</select>&nbsp;&nbsp;
-				<button class="z-btn primary" id="setdata">重新设置选项</button>
+				<button class="z-btn primary" id="setdata">Reset options</button>
 			</div>
 		</div>
 		<pre><code>	$('#select11').select('setData', [

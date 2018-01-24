@@ -11,8 +11,8 @@
         <script src="../dist/zui.js"></script>
     </head>
     <body>
-        <h3>Pagination分页</h3>
-        <h4>基本样式</h4>
+        <h3>Pagination</h3>
+        <h4>Basic</h4>
         <section>
             <div class="example">
                 <div class="z-pagination">
@@ -66,7 +66,7 @@
             </code></pre>
         </section>
 
-        <h4>动态生成</h4>
+        <h4>Generated via javascript</h4>
         <section>
             <div class="example">
                 <div id="my-div"></div>
@@ -79,7 +79,7 @@
     });</code></pre>
         </section>
 
-        <h4>快速跳转</h4>
+        <h4>Quick jump</h4>
         <section>
             <div class="example">
                 <div id="my-div1"></div>
@@ -93,7 +93,7 @@
     });</code></pre>
         </section>
 
-        <h4>改变每页显示条数</h4>
+        <h4>Sizer</h4>
         <section>
             <div class="example">
                 <div id="my-div2"></div>
@@ -107,7 +107,7 @@
     });</code></pre>
         </section>
 
-        <h4>回调</h4>
+        <h4>Callback</h4>
         <section>
             <div class="example">
                 <div id="my-div3"></div>
@@ -118,19 +118,19 @@
     $('#my-div3').pagination({
         total: 356,
         onPageChange: function(pageNo, pageSize) {
-            alert('第' + pageNo + '页');
+            alert('Go to page ' + pageNo);
         }
     });</code></pre>
         </section>
 
-        <h4>配置项</h4>
+        <h4>Options</h4>
         <table class="z-table lined doc-table">
             <thead>
                 <tr>
-                    <th>名称</th>
-                    <th>类型</th>
-                    <th>默认值</th>
-                    <th>描述</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Desc</th>
                 </tr>
             </thead>
             <tbody>
@@ -138,54 +138,54 @@
                     <td>pageSize</td>
                     <td>Number</td>
                     <td>10</td>
-                    <td>每页显示几条记录</td>
+                    <td>Count per page</td>
                 </tr>
                 <tr>
                     <td>pageDisplay</td>
                     <td>Number</td>
                     <td>10</td>
-                    <td>同时显示的页码数</td>
+                    <td>How many pages are displayed</td>
                 </tr>
                 <tr>
                     <td>total</td>
                     <td>Number</td>
                     <td>0</td>
-                    <td>数据的总条数，页码总数的依据</td>
+                    <td>Total count of the data</td>
                 </tr>
                 <tr>
                     <td>current</td>
                     <td>Number</td>
                     <td>1</td>
-                    <td>当前页</td>
+                    <td>Current page</td>
                 </tr>
                 <tr>
                     <td>showJumper</td>
                     <td>Boolean</td>
                     <td>false</td>
-                    <td>是否显示快速跳转</td>
+                    <td>Show quick jump or not</td>
                 </tr>
                 <tr>
                     <td>showSizer</td>
                     <td>Boolean</td>
                     <td>false</td>
-                    <td>是否显示每页条数选择</td>
+                    <td>Show sizer or not</td>
                 </tr>
                 <tr>
                     <td>pageSizeOptions</td>
                     <td>Array</td>
                     <td>[10, 20, 30]</td>
-                    <td>每页条数选项</td>
+                    <td>Options for the sizer</td>
                 </tr>
                 <tr>
                     <td>onPageChange</td>
                     <td>Function</td>
                     <td>function(pageNo, pageSize) {}</td>
                     <td>
-                        当前页改变或每页显示条数改变时触发
+                        Fires when the page is changed
                         <br>
-                        参数：pageNo 新的当前页码
+                        param: pageNo - the new page number
                         <br>
-                        参数：pageSize 新的每页显示条数
+                        param: pageSize - the new page size
                     </td>
                 </tr>
             </tbody>
@@ -211,7 +211,7 @@
         $('#my-div3').pagination({
             total: 356,
             onPageChange: function(pageNo) {
-               alert('第' + pageNo + '页');
+               alert('Go to page ' + pageNo);
             }
         });
         </script>

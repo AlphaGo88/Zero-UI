@@ -1477,7 +1477,7 @@
         data = $this.data('datetimepicker'),
         options = typeof option === 'object' && option;
       if (!data) {
-        $this.data('datetimepicker', (data = new Datetimepicker(this, $.extend({}, $.fn.datetimepicker.defaults, options))));
+        $this.data('datetimepicker', (data = new Datetimepicker(this, $.extend({}, $.fn.datetimepicker.defaults, {language: Z.locale}, options))));
       }
       if (typeof option === 'string' && typeof data[option] === 'function') {
         internal_return = data[option].apply(data, args);
@@ -1493,7 +1493,6 @@
   };
 
   $.fn.datetimepicker.defaults = {
-    language: Z.locale,
     minView: 2,
     format: 'yyyy-mm-dd'
   };
