@@ -1,7 +1,5 @@
 /*
     Loader
-    author: zhao xin
-    date: 2017.5
 */
 
 

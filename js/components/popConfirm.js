@@ -1,7 +1,5 @@
 /*
     Pop Confirm
-    author: zhao xin
-    date: 2017.4
 */
 
 

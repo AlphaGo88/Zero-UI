@@ -11,39 +11,41 @@
         <script src="../dist/zui.js"></script>
   </head>
   <body>
-    <h3>PopConfirm弹出确认</h3>
-    <p>在执行某项操作时使用，常用于删除操作。</p>
+    <h3>PopConfirm</h3>
+    <p>A PopConfirm is a pop-up with an ok button and a cancel button. It's used when you are executing an action that requires confirmation.</p>
     <br>
 
-    <h4>基本实例</h4>
+    <h4>Example</h4>
     <section>
         <div class="example">
-            <button class="z-btn gray" id="my-btn1">向下</button>
-            <button class="z-btn gray" id="my-btn2">向上</button>
-            <button class="z-btn gray" id="my-btn3">向左</button>
-            <button class="z-btn gray" id="my-btn4">向右</button>
+            <p>You must use javascript to open a<mark>popconfirm</mark>.</p>
+            <br>
+            <button class="z-btn gray" id="my-btn1">Bottom</button>&nbsp;&nbsp;
+            <button class="z-btn gray" id="my-btn2">Up</button>&nbsp;&nbsp;
+            <button class="z-btn gray" id="my-btn3">Left</button>&nbsp;&nbsp;
+            <button class="z-btn gray" id="my-btn4">Right</button>&nbsp;&nbsp;
         </div>
         <pre class="javascript"><code>
 	$('#my-btn').on('click', function(e) {
 	    $(this).popConfirm({
-	    	content: '确认删除这条记录吗？',
+	    	content: 'Delete this record?',
 	    	onOK: function() {
 	    		// Your code goes here...
-	    		Z.Message.success('删除成功！');
+	    		Z.Message.success('Successfully deleted');
 	    	}
 	    })
 	});
         </code></pre>
     </section>
 
-    <h4>配置项</h4>
-    <table class="table table-bordered doc-table">
+    <h4>Options</h4>
+    <table class="z-table doc-table">
         <thead>
             <tr>
-                <th>名称</th>
-                <th>类型</th>
-                <th>默认值</th>
-                <th>描述</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Desc</th>
             </tr>
         </thead>
         <tbody>
@@ -52,22 +54,22 @@
                 <td>String</td>
                 <td>'bottom'</td>
                 <td>
-                	弹出框的显示方位
+                	The position of the pop-up
                 	<br>
-                	有效值：'top'，'bottom'，'left'，'right'
+                	Values: 'top', 'bottom', 'left', 'right'
                 </td>
             </tr>
             <tr>
                 <td>content</td>
                 <td>String</td>
-                <td>空</td>
-                <td>弹出框的文字</td>
+                <td>''</td>
+                <td>The text of the pop-up</td>
             </tr>
             <tr>
                 <td>onOK</td>
                 <td>Function</td>
                 <td>function() {}</td>
-                <td>点击确认后执行</td>
+                <td>Fires when the 'OK' button is clicked</td>
             </tr>
         </tbody>
     </table>
@@ -80,37 +82,37 @@
     });
     $('#my-btn1').on('click', function(e) {
         $(this).popConfirm({
-        	content: '确认删除这条记录吗？',
-        	onOK: function() {
-        		Z.Message.success('删除成功！');
-        	}
+            content: 'Delete this record?',
+            onOK: function() {
+                Z.Message.success('Successfully deleted');
+            }
         })
     });
     $('#my-btn2').on('click', function(e) {
         $(this).popConfirm({
         	position: 'top',
-        	content: '确认删除这条记录吗？',
-        	onOK: function() {
-        		Z.Message.success('删除成功！');
-        	}
+            content: 'Delete this record?',
+            onOK: function() {
+                Z.Message.success('Successfully deleted');
+            }
         })
     });
     $('#my-btn3').on('click', function(e) {
         $(this).popConfirm({
         	position: 'left',
-        	content: '确认删除这条记录吗？',
-        	onOK: function() {
-        		Z.Message.success('删除成功！');
-        	}
+            content: 'Delete this record?',
+            onOK: function() {
+                Z.Message.success('Successfully deleted');
+            }
         })
     });
     $('#my-btn4').on('click', function(e) {
         $(this).popConfirm({
         	position: 'right',
-        	content: '确认删除这条记录吗？',
-        	onOK: function() {
-        		Z.Message.success('删除成功！');
-        	}
+            content: 'Delete this record?',
+            onOK: function() {
+                Z.Message.success('Successfully deleted');
+            }
         })
     });
     </script>

@@ -11,34 +11,32 @@
         <script src="../dist/zui.js"></script>
   </head>
   <body>
-    <h3>Loader载入</h3>
+    <h3>Loader</h3>
     <section>
         <div class="example">
         	<div>
-        		<button class="z-btn gray" onClick="show()">显示载入</button>
-        		<button class="z-btn gray" onClick="show1()">显示深色载入</button>
-        		<button class="z-btn gray" onClick="hide()">隐藏载入</button>
+        		<button class="z-btn gray" onClick="show()">Show loader</button>
+        		<button class="z-btn gray" onClick="show1()">Show dark loader</button>
+        		<button class="z-btn gray" onClick="hide()">Hide loading status</button>
         	</div>
         	<br>
         	<div id="demo1" style="border: 1px solid #ccc;padding: 20px">
-        		<p>这是一段文字。</p>
-        		<p>这是一段文字。</p>
-        		<p>这是一段文字。</p>
+        		<p>Some text.</p>
+        		<p>Some text.</p>
+        		<p>Some text.</p>
         	</div>
         </div>
         <pre><code>
-    // 显示载入
-    $('#demo1').load({
-    	content: '加载中...'
-    });
+    // Show loader
+    $('#demo1').load();
 
-    // 显示深色载入
+    // Show dark loader
     $('#demo1').load({
-    	content: '数据加载中...',
+    	content: 'Loading...',
     	color: 'dark'
     });
 
-    // 隐藏载入
+    // Hide loading status
     $('#demo1').unLoad();
         </code></pre>
     </section>
@@ -54,7 +52,7 @@
     }
     function show1 () {
     	$('#demo1').load({
-    		content: '数据加载中...',
+    		content: 'Loading...',
     		color: 'dark'
     	});
     }

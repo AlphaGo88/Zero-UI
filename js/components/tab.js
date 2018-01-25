@@ -1,7 +1,5 @@
 /*
     Dropdown
-    author: zhao xin
-    date: 2017.2
 */
 
 ! function($) {

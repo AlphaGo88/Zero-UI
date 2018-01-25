@@ -1511,7 +1511,7 @@ Z.guid = function() {
         data = $this.data('datetimepicker'),
         options = typeof option === 'object' && option;
       if (!data) {
-        $this.data('datetimepicker', (data = new Datetimepicker(this, $.extend({}, $.fn.datetimepicker.defaults, options))));
+        $this.data('datetimepicker', (data = new Datetimepicker(this, $.extend({}, $.fn.datetimepicker.defaults, {language: Z.locale}, options))));
       }
       if (typeof option === 'string' && typeof data[option] === 'function') {
         internal_return = data[option].apply(data, args);
@@ -1527,7 +1527,6 @@ Z.guid = function() {
   };
 
   $.fn.datetimepicker.defaults = {
-    language: Z.locale,
     minView: 2,
     format: 'yyyy-mm-dd'
   };
@@ -2019,8 +2018,6 @@ Z.guid = function() {
 
 /*
     Dialog
-    author: zhao xin
-    date: 2016.9
 */
 
 
@@ -2187,8 +2184,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Dropdown
-    author: zhao xin
-    date: 2016.9
 */
 
 
@@ -2269,8 +2264,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Loader
-    author: zhao xin
-    date: 2017.5
 */
 
 
@@ -2305,8 +2298,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Message
-    author: zhao xin
-    date: 2016.9
 */
 
 
@@ -2411,8 +2402,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Pagination
-    author: zhao xin
-    date: 2016.7
 */
 
 
@@ -2579,8 +2568,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Pop Confirm
-    author: zhao xin
-    date: 2017.4
 */
 
 
@@ -2673,8 +2660,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Select
-    author: zhao xin
-    date: 2016.9
 */
 
 ! function($) {
@@ -3035,8 +3020,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Side Navigation
-    author: zhao xin
-    date: 2017.4
 */
 
 
@@ -3055,8 +3038,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Step
-    author: zhao xin
-    date: 2017.5
 */
 
 
@@ -3105,8 +3086,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Dropdown
-    author: zhao xin
-    date: 2017.2
 */
 
 ! function($) {
@@ -3171,8 +3150,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Tooltip
-    author: zhao xin
-    date: 2017.4
 */
 
 
@@ -3239,8 +3216,6 @@ Z.guid = function() {
 }(jQuery);
 /*
     Upload
-    author: zhao xin
-    date: 2017.4
 */
 
 

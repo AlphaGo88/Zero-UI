@@ -1,7 +1,5 @@
 /*
     Pagination
-    author: zhao xin
-    date: 2016.7
 */
 
 

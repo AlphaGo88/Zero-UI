@@ -1,7 +1,5 @@
 /*
     Dropdown
-    author: zhao xin
-    date: 2016.9
 */
 
 

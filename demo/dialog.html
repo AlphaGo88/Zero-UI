@@ -13,21 +13,21 @@
   <body>
     <div>
         <h3>Dialog</h3>
-        <p>通过javascript创建对话框。</p>
+        <p>You must use javascript to create a dialog.</p>
         <br>
 
         <h4>Default</h4>
         <section>
             <div class="example">
-                <p>注意：对话框只允许同时打开１个。</p>
+                <p><b>Note:</b>  Only 1 dialog can be opened at the same time.</p>
                 <br>
                 <a id="btn0" href="javascript: void 0">Open Dialog</a>
             </div>
             <pre><code>
-    var content = '与我境遇相似或更不如的当不在少数，梨梦湖与西子湖，同是一滴眼泪，给你的颈根与胸膛一半日的自由，对着这不完全，是怨，再也忍不住的你技痒？流，比方说，流入妩媚的阿诺河去……并且你不但不须应伴，也不能给我们利益，但已往的教训，(一九二五年七月)新近有一天晚上，但我不仅不能尽我的责任，不是寡恩，今天已是壮年；昨天腮边还带着圆润的笑涡，一则因为这道是你自愿才来走的，但我们，在这道上遭受的，与他一样，身影似的不可解脱。我猜想，莱因河与扬子江，可以恣尝鲜味，许是怨，谁不曾在他生命的经途中葛德说的和着悲哀吞他的饭，正像是去赴一个美的宴会，比你住久的，你便在旁边乖乖的坐着静听，是贝德花芬是槐格纳你就爱，没福见着你的父亲，也不能给我们利益，与自然同在一个脉搏里跳动，稍稍疏泄我的积愫，你也不必带书。';
+    var content = 'Zero-UI is a powerfull UI component framework which includes some global styles and a set of components. Some of Zero-UI's components use flexbox layout. Mainframe browsers and IE10+ are supported. Zero-UI uses font-awesome as icon fonts. v4.7 is recommended. If you don't include it, some components may not display properly. Zero-UI's javascript components require jQuery. v3.0+ is recommended.';
     $('#btn1').on('click', function(e) {
         Z.dialog({
-            title: '标题',
+            title: 'Title',
             content: content
         });
     });
@@ -53,7 +53,7 @@
             </div>
             <pre><code class="javascript">
     Z.dialog({
-        title: '标题',
+        title: 'Title',
         content: content,
         cancelButton: false,
         okButton: false
@@ -64,13 +64,13 @@
         <h4>No cancel button</h4>
         <section>
             <div class="example">
-                <p>你可以在回调函数内调用API关闭Dialog。</p>
+                <p>You can call the close api in the call back function.</p>
                 <br>
                 <div><a id="btn4" href="javascript: void 0">Open Dialog</a></div>
             </div>
             <pre><code class="javascript">
     Z.dialog({
-        title: '标题',
+        title: 'Title',
         content: content,
         cancelButton: false,
         onOK: function(dlg) {
@@ -85,22 +85,23 @@
             <div class="example">
                 <div><a id="btn5" href="javascript: void 0">Open Dialog</a></div>
                 <br>
-                <p>你可以自定义按钮，按如下格式把它们添加到actions数组中。</p>
-                <p>Dialog对象会被传给自定义按钮的onClick函数。</p>
+                <p>You can customize the buttons with the<mark>actions</mark>option. </p>
+                <p>The<mark>actions</mark>must be an array.</p>
+                <p>The Dialog instance will be passed as the parameter of the onClick function.</p>
             </div>
             <pre><code class="javascript">
     Z.dialog({
-        title: '标题',
+        title: 'Title',
         content: content,
         actions: [{
-            tmplt: '&lt;button class="z-btn primary">按钮1&lt;/button&gt;',
+            tmplt: '&lt;button class="z-btn primary">Button1&lt;/button&gt;',
             onClick: function(dlg) {
-                alert('你点击了按钮1！')
+                alert('You clicked button1！')
             }
         }, {
-            tmplt: '&lt;button class="z-btn default"&gt;按钮2&lt;/button&gt;',
+            tmplt: '&lt;button class="z-btn default"&gt;Button2&lt;/button&gt;',
             onClick: function(dlg) {
-                alert('你点击了按钮2！')
+                alert('You clicked button2！')
             }
         }, {
             tmplt: '&lt;button class="z-btn red"&gt;关闭&lt;/button&gt;',
@@ -117,28 +118,28 @@
             <div class="example">
                 <div><a id="btn6" href="javascript: void 0">Open Dialog</a></div>
                 <br>
-                <p>通过html生成对话框的内容。</p>
-                <p>如果对话框中包含其他组件，请在<mark>onOpen()</mark>函数中初始化，通过<mark>dlg.el</mark>访问对话框的jQuery对象。</p>
+                <p>Generate the dialog's content from html.</p>
+                <p>If the dialog contains other components, you can initialize them in the<mark>onOpen()</mark>function. You can access the jquery object of the dialog content via<mark>dlg.el</mark>.</p>
             </div>
             <pre class="html"><code>    &lt;!-- html --&gt;
     &lt;div id="form" style="display: none"&gt;
         &lt;form class="form" style="margin-left: -35px"&gt;
             &lt;div class="form-row"&gt;
-                &lt;label class="form-label col-2"&gt;姓名：&lt;/label&gt;
+                &lt;label class="form-label col-2"&gt;Name:&lt;/label&gt;
                 &lt;div class="form-control-wrapper col-4"&gt;
                     &lt;input type="text" name="name" class="form-control"&gt;
                 &lt;/div&gt;
-                &lt;label class="form-label col-2"&gt;邮箱：&lt;/label&gt;
+                &lt;label class="form-label col-2"&gt;Email:&lt;/label&gt;
                 &lt;div class="form-control-wrapper col-4"&gt;
                     &lt;input type="text" name="email" class="form-control"&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
             &lt;div class="form-row"&gt;
-                &lt;label class="form-label col-2"&gt;生日：&lt;/label&gt;
+                &lt;label class="form-label col-2"&gt;Birth:&lt;/label&gt;
                 &lt;div class="form-control-wrapper col-4"&gt;
                     &lt;input type="text" name="birth" class="form-control"&gt;
                 &lt;/div&gt;
-                &lt;label class="form-label col-2"&gt;住址：&lt;/label&gt;
+                &lt;label class="form-label col-2"&gt;Address:&lt;/label&gt;
                 &lt;div class="form-control-wrapper col-4"&gt;
                     &lt;input type="text" name="addr" class="form-control"&gt;
                 &lt;/div&gt;
@@ -148,7 +149,7 @@
     &lt;/div&gt;</code></pre>
             <pre><code class="javascript">    // javascript
     Z.dialog({
-        title: '标题',
+        title: 'Title',
         width: 600,
         content: $('#form').html(),
         onOpen: function(dlg) {
@@ -161,19 +162,20 @@
        <h4>Events</h4>
        <section>
            <div class="example">
-               <p>回调函数的第一个参数是实例化的Dialog对象。</p>
+               <p>The call back funtions will be called at different phases of the dialog's life circle.</p>
+               <p>The Dialog instance will be passed as the parameter of the function.</p>
                <br>
                <a id="btn3" href="javascript: void 0">Open Dialog</a>
            </div>
            <pre><code class="javascript">
    Z.dialog({
-       title: '标题',
+       title: 'Title',
        content: content,
        onOpen: function(dlg) {
-           alert('对话框将显示！')
+           alert('The dialog will open')
        },
        onOK: function(dlg) {
-           alert('你点击了确认按钮！')
+           alert('You clicked OK!')
        }
    });
            </code></pre>
@@ -183,25 +185,25 @@
     <div id="form" style="display: none">
         <form style="margin-left: -35px">
             <div class="z-form-row">
-                <label class="z-form-label z-col-2">姓名：</label>
+                <label class="z-form-label z-col-2">Name:</label>
                 <div class="z-form-control-wrapper z-col-4">
                     <input type="text" name="name" class="z-input z-form-control">
                 </div>
-                <label class="z-form-label z-col-2">邮箱：</label>
+                <label class="z-form-label z-col-2">Email:</label>
                 <div class="z-form-control-wrapper z-col-4">
                     <input type="text" name="email" class="z-input z-form-control">
                 </div>
             </div>
             <div class="z-form-row">
-                <label class="z-form-label z-col-2">生日：</label>
+                <label class="z-form-label z-col-2">Birth:</label>
                 <div class="z-form-control-wrapper z-col-4">
                     <input type="text" name="birth" class="z-input z-form-control">
                 </div>
-                <label class="z-form-label z-col-2">性别：</label>
+                <label class="z-form-label z-col-2">Gender:</label>
                 <div class="z-form-control-wrapper z-col-4">
                     <select name="gender" class="z-form-control">
-                        <option value="m">男</option>
-                        <option value="f">女</option>
+                        <option value="m">Male</option>
+                        <option value="f">Female</option>
                     </select>
                 </div>
             </div>
@@ -209,59 +211,59 @@
         </form>
     </div>
 
-    <h4>配置项</h4>
+    <h4>Options</h4>
     <table class="z-table bordered doc-table">
         <thead>
             <tr>
-                <th>名称</th>
-                <th>类型</th>
-                <th>默认值</th>
-                <th>描述</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Desc</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>title</td>
                 <td>String</td>
-                <td>空</td>
-                <td>对话框的标题</td>
+                <td>null</td>
+                <td>Title of the dialog</td>
             </tr>
             <tr>
                 <td>width</td>
                 <td>Number/String</td>
-                <td>页面宽度的60%</td>
+                <td>50% of the page width</td>
                 <td>
-                    对话框的宽度。
+                    Width of the dialog
                     <br>
-                    例如：500 或 '500px'。
+                    e.g. 500 or '500px' or '80%'
                 </td>
             </tr>
             <tr>
                 <td>content</td>
                 <td>Html/String</td>
-                <td>空</td>
-                <td>对话框的内容</td>
+                <td>''</td>
+                <td>Content of the dialog</td>
             </tr>
             <tr>
                 <td>okButton</td>
                 <td>Boolean</td>
                 <td>true</td>
-                <td>是否显示“确认”按钮</td>
+                <td>Whether there's an 'OK' button</td>
             </tr>
             <tr>
                 <td>cancelButton</td>
                 <td>Boolean</td>
                 <td>true</td>
-                <td>是否显示“取消”按钮</td>
+                <td>Whether there's an 'Cancel' button</td>
             </tr>
             <tr>
                 <td>actions</td>
                 <td>Array</td>
                 <td>[]</td>
                 <td>
-                    自定义对话框的按钮。
+                    Customize the buttons.
                     <br>
-                    如何使用参见实例。
+                    See the examples.
                 </td>
             </tr>
             <tr>
@@ -269,9 +271,9 @@
                 <td>Function</td>
                 <td>function(dlg) {}</td>
                 <td>
-                    对话框打开时触发
+                    Fires when the dialog is opened
                     <br>
-                    参数：dlg: Dialog对象
+                    param: dlg - The dialog instance
                 </td>
             </tr>
             <tr>
@@ -279,9 +281,9 @@
                 <td>Function</td>
                 <td>function(dlg) {}</td>
                 <td>
-                    对话框关闭时触发
+                    Fires when the dialog is closed
                     <br>
-                    参数：dlg: Dialog对象
+                    param: dlg - The dialog instance
                 </td>
             </tr>
             <tr>
@@ -289,9 +291,9 @@
                 <td>Function</td>
                 <td>function(dlg) {}</td>
                 <td>
-                    点击“确认”按钮时触发
+                    Fires when the 'OK' button is clicked
                     <br>
-                    参数：dlg: Dialog对象
+                    param: dlg - The dialog instance
                 </td>
             </tr>
         </tbody>
@@ -301,16 +303,16 @@
     <table class="z-table bordered doc-table">
         <thead>
             <tr>
-                <th>名称</th>
-                <th>返回值</th>
-                <th>描述</th>
+                <th>Name</th>
+                <th>Return</th>
+                <th>Desc</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>dlg.close()</td>
                 <td></td>
-                <td>关闭对话框，并销毁。</td>
+                <td>Close and destroy the dialog</td>
             </tr>
         </tbody>
     </table>
@@ -321,10 +323,10 @@
             hljs.highlightBlock(block);
         });
     });
-    var content = '与我境遇相似或更不如的当不在少数，梨梦湖与西子湖，同是一滴眼泪，给你的颈根与胸膛一半日的自由，对着这不完全，是怨，再也忍不住的你技痒？流，比方说，流入妩媚的阿诺河去……并且你不但不须应伴，也不能给我们利益，但已往的教训，(一九二五年七月)新近有一天晚上，但我不仅不能尽我的责任，不是寡恩，今天已是壮年；昨天腮边还带着圆润的笑涡，一则因为这道是你自愿才来走的，但我们，在这道上遭受的，与他一样，身影似的不可解脱。我猜想，莱因河与扬子江，可以恣尝鲜味，许是怨，谁不曾在他生命的经途中葛德说的和着悲哀吞他的饭，正像是去赴一个美的宴会，比你住久的，你便在旁边乖乖的坐着静听，是贝德花芬是槐格纳你就爱，没福见着你的父亲，也不能给我们利益，与自然同在一个脉搏里跳动，稍稍疏泄我的积愫，你也不必带书。';
+    var content = "Zero-UI is a powerfull UI component framework which includes some global styles and a set of components. Some of Zero-UI's components use flexbox layout. Mainframe browsers and IE10+ are supported. Zero-UI uses font-awesome as icon fonts. v4.7 is recommended. If you don't include it, some components may not display properly. Zero-UI's javascript components require jQuery. v3.0+ is recommended.";
     $('#btn0').on('click', function(e) {
         Z.dialog({
-            title: '标题',
+            title: 'Title',
             content: content
         });
     });
@@ -335,7 +337,7 @@
     });
     $('#btn7').on('click', function(e) {
         Z.dialog({
-            title: '标题',
+            title: 'Title',
             content: content,
             cancelButton: false,
             okButton: false,
@@ -343,26 +345,26 @@
     });
     $('#btn2').on('click', function(e) {
         Z.dialog({
-            title: '标题',
+            title: 'Title',
             content: content,
             cancelButton: false,
         });
     });
     $('#btn3').on('click', function(e) {
         Z.dialog({
-            title: '标题',
+            title: 'Title',
             content: content,
             onOpen: function(dlg) {
-                alert('对话框将显示！')
+                alert('The dialog will open')
             },
             onOK: function(dlg) {
-                alert('你点击了确认按钮！')
+                alert('You clicked OK!')
             }
         });
     });
     $('#btn4').on('click', function(e) {
         Z.dialog({
-            title: '标题',
+            title: 'Title',
             content: content,
             cancelButton: false,
             onOK: function(dlg) {
@@ -372,17 +374,17 @@
     });
     $('#btn5').on('click', function(e) {
         Z.dialog({
-            title: '标题',
+            title: 'Title',
             content: content,
             actions: [{
-                tmplt: '<button class="z-btn primary">按钮1</button>',
+                tmplt: '<button class="z-btn primary">Button1</button>',
                 onClick: function(dlg) {
-                    alert('你点击了按钮1！')
+                    alert('You clicked button1！')
                 }
             }, {
-                tmplt: '<button class="z-btn default">按钮2</button>',
+                tmplt: '<button class="z-btn default">Button2</button>',
                 onClick: function(dlg) {
-                    alert('你点击了按钮2！')
+                    alert('You clicked button2！')
                 }
             }, {
                 tmplt: '<button class="z-btn red">关闭</button>',
@@ -394,7 +396,7 @@
     });
     $('#btn6').on('click', function(e) {
         Z.dialog({
-            title: '标题',
+            title: 'Title',
             width: 600,
             content: $('#form').html(),
             onOpen: function(dlg) {

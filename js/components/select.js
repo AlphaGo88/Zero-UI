@@ -1,7 +1,5 @@
 /*
     Select
-    author: zhao xin
-    date: 2016.9
 */
 
 ! function($) {

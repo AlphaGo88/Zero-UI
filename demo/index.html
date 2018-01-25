@@ -12,7 +12,6 @@
     </head>
     <body>
         <h3 style="color: #3f51b5">Zero-UI Documentation v1.0.0</h3>
-        <br>
         <p>Zero-UI is a powerfull UI component framework which includes some global styles and a set of components.</p>
         <p>Some of Zero-UI's components use<mark>flexbox</mark>layout.</p>
         <p>Mainframe browsers and IE10+ are supported.</p>
@@ -41,152 +40,20 @@
         <br>
         <br>
 
-        <h3>Basic styles</h3>
-
-        <h4>Global styles</h4>
-        <div class="example">
-            <p>The global box model is set as<mark>box-sizing: border-box</mark>. The default font size is<mark>14px</mark> and the default line height is<mark>1.5</mark>.</p>
-        </div>
-
-        <h4>Link</h4>
+        <h3>Naming Rules</h3>
         <section>
             <div class="example">
-                <a href="https://www.google.com">Google</a>&nbsp;&nbsp;
-                <a href="https://www.baidu.com">Baidu</a>&nbsp;&nbsp;
-                <a href="https://www.sina.com.cn">Sina</a>&nbsp;&nbsp;
+                <p>Classes that represent the name of the components are with the<mark>z-</mark>prefix. However, additional classes e.g. color and size are not with the<mark>z-</mark>prefix. </p>
+                <b>Example:</b>
             </div>
-            <pre><code>
-    &lt;a href="https://www.google.com"&gt;Google&lt;/a&gt;
-    &lt;a href="https://www.baidu.com"&gt;Baidu&lt;/a&gt;
-    &lt;a href="https://www.sina.com.cn"&gt;Sina&lt;/a&gt;
+            <pre><code class="html">
+    &lt;button class="z-btn green small"&gt;Primary&lt;/button&gt;
+    &lt;input type="text" class="z-input large round"&gt;
             </code></pre>
         </section>
 
-        <h4>h1~h6</h4>
-        <section>
-            <div class="example">
-                <h1>h1 This is a title</h1>
-                <h2>h2 This is a title</h2>
-                <h3>h3 This is a title</h3>
-                <h4>h4 This is a title</h4>
-                <h5>h5 This is a title</h5>
-                <h6>h6 This is a title</h6>
-            </div>
-            <pre><code>
-    &lt;h1&gt;h1 This is a title&lt;/h1&gt;
-    &lt;h2&gt;h2 This is a title&lt;/h2&gt;
-    &lt;h3&gt;h3 This is a title&lt;/h3&gt;
-    &lt;h4&gt;h4 This is a title&lt;/h4&gt;
-    &lt;h5&gt;h5 This is a title&lt;/h5&gt;
-    &lt;h6&gt;h6 This is a title&lt;/h6&gt;
-            </code></pre>
-        </section>
-
-        <h4>Text</h4>
-        <section>
-            <div class="example" >
-                <h5>Font size</h5>
-                <p>You can use class<mark>.font12</mark>~<mark>.font36</mark>to render<mark>12px</mark>~<mark>36px</mark>fonts。</p>
-            </div>
-            <div class="example" style="border-top: 1px solid #ccc">
-                <h5>Text color</h5>
-                <div>
-                    <span class="text-primary">primary</span>&nbsp;
-                    <span class="text-green">green</span>&nbsp;
-                    <span class="text-red">red</span>&nbsp;
-                    <span class="text-teal">teal</span>&nbsp;
-                    <span class="text-yellow">yellow</span>&nbsp;
-                    <span class="text-purple">purple</span>&nbsp;
-                </div>
-            </div>
-            <pre><code>
-    &lt;span class="text-primary"&gt;primary&lt;/span&gt;
-    &lt;span class="text-green"&gt;green&lt;/span&gt;
-    &lt;span class="text-red"&gt;red&lt;/span&gt;
-    &lt;span class="text-teal"&gt;teal&lt;/span&gt;&nbsp;
-    &lt;span class="text-yellow"&gt;yellow&lt;/span&gt;&nbsp;
-    &lt;span class="text-purple"&gt;purple&lt;/span&gt;&nbsp;
-            </code></pre>
-            <div class="example" style="border-top: 1px solid #ccc">
-                <h5>Text truncate</h5>
-                <div style="width:100px;padding:10px;border:1px solid #ccc">
-                    <p class="truncate">I'm truncated.</p>
-                </div>
-            </div>
-            <pre><code>    &lt;p class="truncate"&gt;I'm truncated.&lt;/p&gt;</code></pre>
-        </section>
-
-        <h4>Background colors</h4>
-        <section>
-            <div class="example">
-                <div class="bg-primary bg-demo">bg-primary</div>
-                <div class="bg-green bg-demo">bg-green</div>
-                <div class="bg-red bg-demo">bg-red</div>
-                <div class="bg-teal bg-demo">bg-teal</div>
-                <div class="bg-yellow bg-demo">bg-yellow</div>
-                <div class="bg-purple bg-demo">bg-purple</div>
-            </div>
-            <pre><code>
-    &lt;div class="bg-primary"&gt;bg-primary&lt;/div&gt;
-    &lt;div class="bg-green"&gt;bg-green&lt;/div&gt;
-    &lt;div class="bg-red"&gt;bg-red&lt;/div&gt;
-    &lt;div class="bg-teal"&gt;bg-teal&lt;/div&gt;
-    &lt;div class="bg-yellow"&gt;bg-yellow&lt;/div&gt;
-    &lt;div class="bg-purple"&gt;bg-purple&lt;/div&gt;
-            </code></pre>
-        </section>
-
-        <h4>Floating</h4>
-        <section>
-            <div class="example">
-                <p>Use<mark>.fl</mark>and<mark>.fr</mark>to display floating effect.</p>
-                <p>Use<mark>.clearfix</mark>to clear floating.</p>
-                <br>
-                <div class="clearfix">
-                    <div class="fl" style="background-color: #eee">Float left</div>
-                    <div class="fr" style="background-color: #eee">Float right</div>
-                </div>
-            </div>
-            <pre><code>
-    &lt;div class="clearfix"&gt;
-        &lt;div class="fl"&gt;Float left&lt;/div&gt;
-        &lt;div class="fr"&gt;Float right&lt;/div&gt;
-    &lt;/div&gt;
-            </code></pre>
-        </section>
-
-        <h4>Icon</h4>
-        <section>
-            <div class="example">
-                <p>Zero-UI doesn't include icons itself. However, Zero-UI uses <a href="http://fontawesome.io/" target="_blank"> font-awesome</a> as icon fonts.</p>
-                <p>You can change the icon's color by adding color classes.</p>
-                <br>
-                <div>
-                    <i class="fa fa-cloud"></i>&nbsp;&nbsp;
-                    <i class="fa fa-bank"></i>&nbsp;&nbsp;
-                    <i class="fa fa-check green"></i>&nbsp;&nbsp;
-                    <i class="fa fa-close red"></i>&nbsp;&nbsp;
-                </div>
-                <br>
-                <div>
-                    <i class="fa fa-cloud font18"></i>&nbsp;&nbsp;
-                    <i class="fa fa-bank font18"></i>&nbsp;&nbsp;
-                    <i class="fa fa-check green font18"></i>&nbsp;&nbsp;
-                    <i class="fa fa-close red font18"></i>&nbsp;&nbsp;
-                </div>
-            </div>
-        <pre><code>
-    &lt;i class="fa fa-cloud"&gt;&lt;/i&gt;
-    &lt;i class="fa fa-bank"&gt;&lt;/i&gt;
-    &lt;i class="fa fa-check green"&gt;&lt;/i&gt;
-    &lt;i class="fa fa-close red"&gt;&lt;/i&gt; 
-
-    &lt;i class="fa fa-cloud font18"&gt;&lt;/i&gt;
-    &lt;i class="fa fa-bank font18"&gt;&lt;/i&gt;
-    &lt;i class="fa fa-check green font18"&gt;&lt;/i&gt;
-    &lt;i class="fa fa-close red font18"&gt;&lt;/i&gt;      
-        </code></pre>
-        </section>
+        <h3><a href="./basic.html">Basic Styles</a></h3>
+        <br>
         
         <h3>Components</h3>
         <div class="components clearfix">
@@ -213,9 +80,32 @@
             <a href="./process.html">Process</a>
             <a href="./side_nav.html">SideNav<span class="js">js</span></a>
             <a href="./breadcrumb.html">Breadcrumb</a>
-            <a href="./app.html">Demo App</a>
         </div>
-        <br>
+        <hr>
+        <div><b>Note:</b> Some of the javascript components are initialized via event delegation meaning you never need to initialize them manually.</div>
+        <br><br>
+
+        <h3>I18N</h3>
+        <section>
+            <div class="example">
+                <p>You can use Zero-UI in different languages.</p>
+                <p>Zero-UI now supports<mark>'en'</mark>and<mark>'zh-CN'</mark>. To add a new locale, use the flowing api:</p>
+            </div>
+            <pre><code class="javascript">
+    Z.locales['your-locale'] = {
+        'OK': '...',
+        'Cancel': '...',
+        'Page': '...',
+        'Goto': '...'
+    };
+            </code></pre>
+            <div class="example" style="border-top: 1px solid #ccc">
+                <p>Then, set Zero-UI's locale like this:</p>
+            </div>
+            <pre><code class="javascript">
+    Z.locale = 'your-locale';
+            </code></pre>
+        </section>
             
         <script>
             $(document).ready(function() {

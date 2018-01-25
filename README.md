@@ -2,7 +2,7 @@
   <h3 align="center">Zero-UI</h3>
 
   <p align="center">
-    A powerful web UI component framework.
+    An easy-to-use web UI component framework.
     <br>
     <a href="https://alphago88.github.io/Zero-UI/demo/index.html"><strong>-- Browse the docs --</strong></a>
     <br>
