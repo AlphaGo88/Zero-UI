@@ -45,7 +45,7 @@
         <div class="example">
             <p>You can also call the full API<mark>Z.Message.show()</mark>for precise control.</p>
             <p>You can customize the message's duration: <a id="msg5">RUN</a></p>
-            <p>You can make the message not close itslef: <a id="msg6">RUN</a></p>
+            <p>You can make the message not close itself: <a id="msg6">RUN</a></p>
         </div>
         <pre><code class="javascript">
     Z.Message.show({
@@ -56,7 +56,7 @@
 
     Z.Message.show({
         type: 'success',
-        content: "Don't auto close",
+        content: "Don't close myself",
         autoClose: false
     });
         </code></pre>
@@ -111,7 +111,7 @@
     $('#msg6').on('click', function(e) {
         Z.Message.show({
             type: 'success',
-            content: "Don't auto close",
+            content: "Don't close myself",
             autoClose: false
         })
     });

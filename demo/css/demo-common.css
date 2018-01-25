@@ -14,13 +14,13 @@ h3 {
 
 section {
 	margin: 10px 0 30px 0;
-	width: 800px;
+	min-width: 800px;
 	border: 1px solid #ccc;
 }
 
 .doc-table {
 	margin: 10px 0 30px 0;
-	width: 800px;
+	min-width: 800px;
 }
 
 .example {

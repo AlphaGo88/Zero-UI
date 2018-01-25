@@ -19,13 +19,15 @@
         <h4>Default</h4>
         <section>
             <div class="example">
+                <p>Call<mark>Z.dialog()</mark>to open a dialog.</p>
+                <p>The default dialog contains a cancel button and a ok button. When the cancel button is clicked, the dialog will be destroyed.</p>
                 <p><b>Note:</b>  Only 1 dialog can be opened at the same time.</p>
                 <br>
                 <a id="btn0" href="javascript: void 0">Open Dialog</a>
             </div>
-            <pre><code>
-    var content = 'Zero-UI is a powerfull UI component framework which includes some global styles and a set of components. Some of Zero-UI's components use flexbox layout. Mainframe browsers and IE10+ are supported. Zero-UI uses font-awesome as icon fonts. v4.7 is recommended. If you don't include it, some components may not display properly. Zero-UI's javascript components require jQuery. v3.0+ is recommended.';
-    $('#btn1').on('click', function(e) {
+            <pre><code class="javascript">
+    var content = "Zero-UI is a powerfull UI component framework which includes some global styles and a set of components. Some of Zero-UI's components use flexbox layout. Mainframe browsers and IE10+ are supported. Zero-UI uses font-awesome as icon fonts. v4.7 is recommended. If you don't include it, some components may not display properly. Zero-UI's javascript components require jQuery. v3.0+ is recommended.";
+    $('#btn1').on('click', function() {
         Z.dialog({
             title: 'Title',
             content: content
@@ -37,6 +39,8 @@
         <h4>No title</h4>
         <section>
             <div class="example">
+                <p>Just don't add the<mark>title</mark>option.</p>
+                <br>
                 <div><a id="btn1" href="javascript: void 0">Open Dialog</a></div>
             </div>
             <pre><code class="javascript">
