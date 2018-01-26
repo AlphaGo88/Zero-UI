@@ -4,7 +4,7 @@
   <p align="center">
     An easy-to-use web UI component framework.
     <br>
-    <a href="https://alphago88.github.io/Zero-UI/demo/index.html"><strong>-- Browse the docs --</strong></a>
+    <a href="https://alphago88.github.io/Zero-UI/doc/index.html"><strong>-- Browse the docs --</strong></a>
     <br>
 </p>
 
@@ -15,14 +15,14 @@
 - [Copyright and license](#copyright-and-license)
 
 ## Quickstart:
-Read the [Documentation](https://alphago88.github.io/Zero-UI/demo/index.html) for details on how to use Zero-UI.
+Read the [Documentation](https://alphago88.github.io/Zero-UI/doc/index.html) for details on how to use Zero-UI.
 <br>
 - Zero-UI is not on the npm for the time being.
 - Clone the repo: `git clone git@github.com:AlphaGo88/Zero-UI.git`
 - Include `dist/zui.min.css` and `dist/zui.min.js` in your page.
 
 ## Documentation
-The documentation can be found at <https://alphago88.github.io/Zero-UI/demo/index.html>.
+The documentation can be found at <https://alphago88.github.io/Zero-UI/doc/index.html>.
 
 ## Supported Browsers:
 - Chrome >= 45
