@@ -16,8 +16,41 @@
 	</style>
 </head>
 <body>
+	<div class="z-side-nav light">
+	    <a href="./index.html" class="z-logo">Zero-UI</a>
+	    <a href="./index.html#how-to-use" class="z-nav-item">How to Use</a>
+	    <a href="./index.html#css-rule" class="z-nav-item">CSS Naming Rules</a>
+	    <a href="./index.html#basic-styles" class="z-nav-item">Basic Styles</a>
+	    <a class="z-nav-head active">Components</a>
+	    <div class="z-sub-nav">
+	        <a href="./button.html" class="z-nav-item lv2">Button</a>
+	        <a href="./input.html" class="z-nav-item lv2">Input</a>
+	        <a href="./radio_checkbox.html" class="z-nav-item lv2">Radio&Checkbox</a>
+	        <a href="./switch.html" class="z-nav-item lv2">On-off</a>
+	        <a href="./select.html" class="z-nav-item lv2 active">Select</a>
+	        <a href="./dropdown.html" class="z-nav-item lv2">Dropdown</a>
+	        <a href="./datetimepicker.html" class="z-nav-item lv2">Datetimepicker</a>
+	        <a href="./form.html" class="z-nav-item lv2">Form</a>
+	        <a href="./grid.html" class="z-nav-item lv2">Grid</a>
+	        <a href="./table.html" class="z-nav-item lv2">Table</a>
+	        <a href="./pagination.html" class="z-nav-item lv2">Pagination</a>
+	        <a href="./tab.html" class="z-nav-item lv2">Tab</a>
+	        <a href="./panel.html" class="z-nav-item lv2">Panel</a>
+	        <a href="./badge.html" class="z-nav-item lv2">Badge</a>
+	        <a href="./dialog.html" class="z-nav-item lv2">Dialog</a>
+	        <a href="./message.html" class="z-nav-item lv2">Message</a>
+	        <a href="./tooltip.html" class="z-nav-item lv2">Tooltip</a>
+	        <a href="./pop_confirm.html" class="z-nav-item lv2">PopConfirm</a>
+	        <a href="./loader.html" class="z-nav-item lv2">Loader</a>
+	        <a href="./process.html" class="z-nav-item lv2">Process</a>
+	        <a href="./side_nav.html" class="z-nav-item lv2">SideNav</a>
+	        <a href="./breadcrumb.html" class="z-nav-item lv2">Breadcrumb</a>
+	    </div>
+	    <a href="./index.html#i18n" class="z-nav-item">I18N</a>
+	</div>
+	
 	<h3>Select</h3>
-	<p>Select is a replacement of the browser's default<mark>select</mark>. The original<mark>select</mark>or<mark>input</mark>will be hidden, and the selected value can be read from its<mark>value</mark>.</p>
+	<p>Zero-UI's select is a replacement of the browser's default<mark>&lt;select&gt;</mark>. The original<mark>&lt;select&gt;</mark>or<mark>&lt;input&gt;</mark>will be hidden, and the selected value can be read from its<mark>value</mark>.</p>
 	<br>
 	<h4>Initialize</h4>
 	<p>You must initialize<mark>select</mark>manually.</p>
@@ -28,7 +61,8 @@
 	</section>
 	<section>
 		<div class="example">
-			<h4>Generate options via html</h4>
+			<h4>Generate options from html</h4>
+			<p>The first item will be automatically selected unless you added the property<mark>selected</mark>on some<mark>option</mark>.</p>
 			<br>
 			<select id="select1">
 			  <option value="1"><i class="fa fa-apple"></i>Apple</option>
@@ -52,6 +86,7 @@
 		<div class="example">
 			<h4>Generate options via javascript</h4>
 			<p>When the options are generated via javascript, you can also use<mark>&lt;input&gt;</mark>as the trigger element.</p>
+			<p>This will not automatically select the first item.</p>
 			<br>
 			<input type="text" id="select2">
 		</div>
@@ -71,6 +106,7 @@
 	<section>
 		<div class="example">
 			<h4>Grouping</h4>
+			<br>
 			<select id="select3">
 				<optgroup label="Fruits">
 					<option value="1">Apple</option>
@@ -104,6 +140,7 @@
 	<section>
 		<div class="example">
 			<h4>Grouping</h4>
+			<br>
 			<input type="text" id="select4">
 		</div>
 		<pre><code>	&lt;!-- html --&gt;
@@ -128,6 +165,7 @@
 	<section>
 		<div class="example">
 			<h4>Multiple</h4>
+			<br>
 			<input type="text" id="select5">
 		</div>
 		<pre><code>	&lt;!-- html --&gt;
@@ -152,7 +190,6 @@
 	&lt;select id="select7"&gt;
 	&lt;select id="select8"&gt;</code></pre>
 		<pre><code>	// javascript
-
 	// Set initial value
 	$('#select6').select({
 		initialValue: 2,
@@ -299,7 +336,7 @@
 				<select id="select10">
 					<option value="1">Apple</option>
 					<option value="2">Orange</option>
-					<option value="3" disabled>Banana</option>
+					<option value="3">Banana</option>
 					<option value="4">Grape</option>
 				</select>&nbsp;&nbsp;
 				<button class="z-btn primary" id="disable">Diable</button>
@@ -319,7 +356,7 @@
 					<option value="1">Apple</option>
 					<option value="2">Orange</option>
 					<option value="3">Banana</option>
-					<option value="4">西瓜</option>
+					<option value="4">Grape</option>
 				</select>&nbsp;&nbsp;
 				<button class="z-btn primary" id="setvalue">Select Orange</button>
 			</div>
@@ -336,7 +373,7 @@
 				<select id="select11">
 					<option value="1">Apple</option>
 					<option value="2">Orange</option>
-					<option value="3" disabled>Banana</option>
+					<option value="3">Banana</option>
 					<option value="4">Grape</option>
 				</select>&nbsp;&nbsp;
 				<button class="z-btn primary" id="setdata">Reset options</button>

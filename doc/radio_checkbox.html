@@ -14,61 +14,97 @@
 		</style>
 	</head>
 	<body>
+		<div class="z-side-nav light">
+		    <a href="./index.html" class="z-logo">Zero-UI</a>
+		    <a href="./index.html#how-to-use" class="z-nav-item">How to Use</a>
+		    <a href="./index.html#css-rule" class="z-nav-item">CSS Naming Rules</a>
+		    <a href="./index.html#basic-styles" class="z-nav-item">Basic Styles</a>
+		    <a class="z-nav-head active">Components</a>
+		    <div class="z-sub-nav">
+		        <a href="./button.html" class="z-nav-item lv2">Button</a>
+		        <a href="./input.html" class="z-nav-item lv2">Input</a>
+		        <a href="./radio_checkbox.html" class="z-nav-item lv2 active">Radio&Checkbox</a>
+		        <a href="./switch.html" class="z-nav-item lv2">On-off</a>
+		        <a href="./select.html" class="z-nav-item lv2">Select</a>
+		        <a href="./dropdown.html" class="z-nav-item lv2">Dropdown</a>
+		        <a href="./datetimepicker.html" class="z-nav-item lv2">Datetimepicker</a>
+		        <a href="./form.html" class="z-nav-item lv2">Form</a>
+		        <a href="./grid.html" class="z-nav-item lv2">Grid</a>
+		        <a href="./table.html" class="z-nav-item lv2">Table</a>
+		        <a href="./pagination.html" class="z-nav-item lv2">Pagination</a>
+		        <a href="./tab.html" class="z-nav-item lv2">Tab</a>
+		        <a href="./panel.html" class="z-nav-item lv2">Panel</a>
+		        <a href="./badge.html" class="z-nav-item lv2">Badge</a>
+		        <a href="./dialog.html" class="z-nav-item lv2">Dialog</a>
+		        <a href="./message.html" class="z-nav-item lv2">Message</a>
+		        <a href="./tooltip.html" class="z-nav-item lv2">Tooltip</a>
+		        <a href="./pop_confirm.html" class="z-nav-item lv2">PopConfirm</a>
+		        <a href="./loader.html" class="z-nav-item lv2">Loader</a>
+		        <a href="./process.html" class="z-nav-item lv2">Process</a>
+		        <a href="./side_nav.html" class="z-nav-item lv2">SideNav</a>
+		        <a href="./breadcrumb.html" class="z-nav-item lv2">Breadcrumb</a>
+		    </div>
+		    <a href="./index.html#i18n" class="z-nav-item">I18N</a>
+		</div>
+		
 		<h3>Radio&Checkbox</h3>
 
 		<h4>Radio</h4>
 		<section>
 			<div class="example">
-				<p>
+				<div>
 					<label class="z-radio">
 						<input type="radio" name="fruit1" value="apple" checked></input>
 						<span>Apple</span>
 					</label>
-				</p>
-				<p>
+				</div>
+				<br>
+				<div>
 					<label class="z-radio">
 						<input type="radio" name="fruit1" value="orange"></input>
 						<span>Orange</span>
 					</label>
-				</p>
-				<p>
+				</div>
+				<br>
+				<div>
 					<label class="z-radio">
 						<input type="radio" name="fruit1" value="grape"></input>
 						<span>Grape</span>
 					</label>
-				</p>
-				<p>
+				</div>
+				<br>
+				<div>
 					<label class="z-radio">
 						<input type="radio" name="fruit1" value="banana" disabled></input>
 						<span>Banana</span>
 					</label>
-				</p>
+				</div>
 			</div>
 			<pre><code>
-	&lt;p&gt;
+	&lt;div&gt;
 		&lt;label class="z-radio"&gt;
 			&lt;input type="radio" name="fruit1" value="apple" checked/&gt;
 			&lt;span&gt;Apple&lt;/span&gt;
 		&lt;/label&gt;
-	&lt;/p&gt;
-	&lt;p&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
 		&lt;label class="z-radio"&gt;
 			&lt;input type="radio" name="fruit1" value="orange"/&gt;
 			&lt;span&gt;Orange&lt;/span&gt;
 		&lt;/label&gt;
-	&lt;/p&gt;
-	&lt;p&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
 		&lt;label class="z-radio"&gt;
 			&lt;input type="radio" name="fruit1" value="grape"/&gt;
 			&lt;span&gt;Grape&lt;/span&gt;
 		&lt;/label&gt;
-	&lt;/p&gt;
-	&lt;p&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
 		&lt;label class="z-radio"&gt;
 			&lt;input type="radio" name="fruit1" value="banana" disabled/&gt;
 			&lt;span&gt;Banana&lt;/span&gt;
 		&lt;/label&gt;
-	&lt;/p&gt;
+	&lt;/div&gt;
 			</code></pre>
 		</section>
 
@@ -154,6 +190,7 @@
 		<h4>Button-like Radio Group</h4>
 		<section>
 			<div class="example">
+				<p>The button-like radio group supports 3 different sizes.</p>
 				<div class="z-radio-btn-group small">
 					<label class="z-radio-btn">
 						<input type="radio" name="fruit3" value="apple" checked></input>
@@ -226,32 +263,33 @@
 		<h4>Checkbox</h4>
 		<section>
 			<div class="example">
-				<p>
+				<div>
 					<label class="z-checkbox">
 						<input type="checkbox"></input>
 						<span>checkbox</span>
 					</label>
-				</p>
-				<p>
+				</div>
+				<br>
+				<div>
 					<label class="z-checkbox">
 						<input type="checkbox" disabled></input>
 						<span>disabled</span>
 					</label>
-				</p>
+				</div>
 			</div>
 			<pre><code>
-	&lt;p&gt;
+	&lt;div&gt;
 		&lt;label class="z-checkbox"&gt;
 			&lt;input type="checkbox"&gt;&lt;/input&gt;
 			&lt;span&gt;checkbox&lt;/span&gt;
 		&lt;/label&gt;
-	&lt;/p&gt;
-	&lt;p&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
 		&lt;label class="z-checkbox"&gt;
 			&lt;input type="checkbox" disabled&gt;&lt;/input&gt;
 			&lt;span&gt;disabled&lt;/span&gt;
 		&lt;/label&gt;
-	&lt;/p&gt;
+	&lt;/div&gt;
 			</code></pre>
 		</section>
 

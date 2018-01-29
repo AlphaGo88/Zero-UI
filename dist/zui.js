@@ -3032,7 +3032,6 @@ Z.guid = function() {
             var $this = $(this);
 
             $this.toggleClass('active');
-            $this.siblings('.z-sub-nav').toggleClass('open');
         });
     }
 }(jQuery);

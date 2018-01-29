@@ -14,10 +14,45 @@
 		</style>
 	</head>
 	<body>
+		<div class="z-side-nav light">
+		    <a href="./index.html" class="z-logo">Zero-UI</a>
+		    <a href="./index.html#how-to-use" class="z-nav-item">How to Use</a>
+		    <a href="./index.html#css-rule" class="z-nav-item">CSS Naming Rules</a>
+		    <a href="./index.html#basic-styles" class="z-nav-item">Basic Styles</a>
+		    <a class="z-nav-head active">Components</a>
+		    <div class="z-sub-nav">
+		        <a href="./button.html" class="z-nav-item lv2">Button</a>
+		        <a href="./input.html" class="z-nav-item lv2">Input</a>
+		        <a href="./radio_checkbox.html" class="z-nav-item lv2">Radio&Checkbox</a>
+		        <a href="./switch.html" class="z-nav-item lv2 active">On-off</a>
+		        <a href="./select.html" class="z-nav-item lv2">Select</a>
+		        <a href="./dropdown.html" class="z-nav-item lv2">Dropdown</a>
+		        <a href="./datetimepicker.html" class="z-nav-item lv2">Datetimepicker</a>
+		        <a href="./form.html" class="z-nav-item lv2">Form</a>
+		        <a href="./grid.html" class="z-nav-item lv2">Grid</a>
+		        <a href="./table.html" class="z-nav-item lv2">Table</a>
+		        <a href="./pagination.html" class="z-nav-item lv2">Pagination</a>
+		        <a href="./tab.html" class="z-nav-item lv2">Tab</a>
+		        <a href="./panel.html" class="z-nav-item lv2">Panel</a>
+		        <a href="./badge.html" class="z-nav-item lv2">Badge</a>
+		        <a href="./dialog.html" class="z-nav-item lv2">Dialog</a>
+		        <a href="./message.html" class="z-nav-item lv2">Message</a>
+		        <a href="./tooltip.html" class="z-nav-item lv2">Tooltip</a>
+		        <a href="./pop_confirm.html" class="z-nav-item lv2">PopConfirm</a>
+		        <a href="./loader.html" class="z-nav-item lv2">Loader</a>
+		        <a href="./process.html" class="z-nav-item lv2">Process</a>
+		        <a href="./side_nav.html" class="z-nav-item lv2">SideNav</a>
+		        <a href="./breadcrumb.html" class="z-nav-item lv2">Breadcrumb</a>
+		    </div>
+		    <a href="./index.html#i18n" class="z-nav-item">I18N</a>
+		</div>
+		
 		<h3>On-off</h3>
 
 		<section>
 			<div class="example">
+				<p>An on-off is actually a checkbox with an on-off outlook.</p>
+				<br>
 				<!-- On-off -->
 				<p>
 					<label class="z-on-off">
@@ -25,7 +60,10 @@
 						<span class="z-on-off-lever"></span>
 					</label>
 					&nbsp;&nbsp;
-					<span>On-off</span>
+					<label class="z-on-off small">
+						<input type="checkbox">
+						<span class="z-on-off-lever"></span>
+					</label>
 				</p>
 				<br>
 				<!-- Disabled On-off -->
@@ -43,14 +81,6 @@
 					<span>Disabled</span>
 				</p>
 				<br>
-				<p>
-					<label class="z-on-off small">
-						<input type="checkbox">
-						<span class="z-on-off-lever"></span>
-					</label>
-					&nbsp;&nbsp;
-					<span>Small</span>
-				</p>
 				<br>
 				<h4>Colors</h4>
 				<p>
@@ -87,12 +117,16 @@
 			&lt;input type="checkbox"&gt;
 			&lt;span class="z-on-off-lever"&gt;&lt;/span&gt;
 		&lt;/label&gt;
+		&lt;!-- Small On-off --&gt;
+		&lt;label class="z-on-off small"&gt;
+			...
+		&lt;/label&gt;
 	&lt;/p&gt;
 	&lt;br&gt;
 	&lt;p&gt;
 		&lt;!-- Disabled On-off --&gt;
 		&lt;label class="z-on-off"&gt;
-			&lt;input disabled type="checkbox"&gt;
+			&lt;input type="checkbox" disabled&gt;
 			&lt;span class="z-on-off-lever"&gt;&lt;/span&gt;
 		&lt;/label&gt;
 	&lt;/p&gt;

@@ -2,7 +2,7 @@
 // Side Nav
 // --------------------------------------------------
 
-@side-nav-width: 220px;
+@side-nav-width: 250px;
 @side-nav-dark-bg: rgb(43, 49, 56);
 @side-nav-darkblue-bg: rgb(14, 25, 53);
 
@@ -21,6 +21,7 @@
 	box-shadow: 1px 0 7px 0 rgba(0, 3, 6, 0.34);
 
 	> .z-logo {
+		display: block;
 		margin-bottom: 8px;
 		height: 50px;
 		line-height: 50px;
@@ -28,6 +29,7 @@
 		color: #fff;
 		font-size: 20px;
 		font-weight: 600;
+		text-decoration: none;
 	}
 
 	.z-nav-item,
@@ -36,7 +38,7 @@
 		display: block;
 		height: 51px;
 		line-height: 50px;
-		padding: 0 10px;
+		padding: 0 10px 0 20px;
 		font-size: @font-size-base;
 		text-decoration: none;
 		user-select: none;
@@ -47,7 +49,9 @@
 
 		> .z-nav-icon {
 			display: inline-block;
-			width: 44px;
+			width: 40px;
+			height: 50px;
+			line-height: 50px;
 			text-align: center;
 			font-size: @font-size-base;
 		}
@@ -98,10 +102,10 @@
 
 	.z-sub-nav {
 		display: none;
+	}
 
-		&.open {
-			display: block;
-		}
+	.z-nav-head.active + .z-sub-nav {
+		display: block;
 	}
 }
 
