@@ -15,44 +15,52 @@
             <a href="./index.html" class="z-logo">Zero-UI</a>
             <a href="./index.html#how-to-use" class="z-nav-item">How to Use</a>
             <a href="./index.html#css-rule" class="z-nav-item">CSS Naming Rules</a>
-            <a href="./index.html#basic-styles" class="z-nav-item">Basic Styles</a>
+            <a href="./basic.html" class="z-nav-item">Basic Styles</a>
             <a class="z-nav-head active">Components</a>
             <div class="z-sub-nav">
-                <a href="./button.html" class="z-nav-item lv2">Button</a>
-                <a href="./input.html" class="z-nav-item lv2">Input</a>
-                <a href="./radio_checkbox.html" class="z-nav-item lv2">Radio&Checkbox</a>
-                <a href="./switch.html" class="z-nav-item lv2">On-off</a>
-                <a href="./select.html" class="z-nav-item lv2">Select</a>
-                <a href="./dropdown.html" class="z-nav-item lv2">Dropdown</a>
-                <a href="./datetimepicker.html" class="z-nav-item lv2">Datetimepicker</a>
-                <a href="./form.html" class="z-nav-item lv2">Form</a>
-                <a href="./grid.html" class="z-nav-item lv2">Grid</a>
-                <a href="./table.html" class="z-nav-item lv2">Table</a>
-                <a href="./pagination.html" class="z-nav-item lv2">Pagination</a>
-                <a href="./tab.html" class="z-nav-item lv2 active">Tab</a>
-                <a href="./panel.html" class="z-nav-item lv2">Panel</a>
-                <a href="./badge.html" class="z-nav-item lv2">Badge</a>
-                <a href="./dialog.html" class="z-nav-item lv2">Dialog</a>
-                <a href="./message.html" class="z-nav-item lv2">Message</a>
-                <a href="./tooltip.html" class="z-nav-item lv2">Tooltip</a>
-                <a href="./pop_confirm.html" class="z-nav-item lv2">PopConfirm</a>
-                <a href="./loader.html" class="z-nav-item lv2">Loader</a>
-                <a href="./process.html" class="z-nav-item lv2">Process</a>
-                <a href="./side_nav.html" class="z-nav-item lv2">SideNav</a>
-                <a href="./breadcrumb.html" class="z-nav-item lv2">Breadcrumb</a>
+                <div class="z-nav-label lv2">Elements</div>
+                    <a href="./button.html" class="z-nav-item lv3">Button</a>
+                    <a href="./input.html" class="z-nav-item lv3">Input</a>
+                    <a href="./radio_checkbox.html" class="z-nav-item lv3">Radio&Checkbox</a>
+                    <a href="./switch.html" class="z-nav-item lv3">On-off</a>
+                    <a href="./select.html" class="z-nav-item lv3">Select</a>
+                    <a href="./datetimepicker.html" class="z-nav-item lv3">Datetimepicker</a>
+                    <a href="./dropdown.html" class="z-nav-item lv3">Dropdown</a>
+                <div class="z-nav-label lv2">Layout</div>
+                    <a href="./grid.html" class="z-nav-item lv3">Grid</a>
+                    <a href="./form.html" class="z-nav-item lv3">Form</a>
+                    <a href="./panel.html" class="z-nav-item lv3">Panel</a>
+                <div class="z-nav-label lv2">Data Display</div>
+                    <a href="./tab.html" class="z-nav-item lv3 active">Tab</a>
+                    <a href="./table.html" class="z-nav-item lv3">Table</a>
+                    <a href="./pagination.html" class="z-nav-item lv3">Pagination</a>
+                    <a href="./badge.html" class="z-nav-item lv3">Badge</a>
+                    <a href="./process.html" class="z-nav-item lv3">Process</a>
+                <div class="z-nav-label lv2">Feedback</div>
+                    <a href="./dialog.html" class="z-nav-item lv3">Dialog</a>
+                    <a href="./message.html" class="z-nav-item lv3">Message</a>
+                    <a href="./tooltip.html" class="z-nav-item lv3">Tooltip</a>
+                    <a href="./pop_confirm.html" class="z-nav-item lv3">PopConfirm</a>
+                    <a href="./loader.html" class="z-nav-item lv3">Loader</a>
+                <div class="z-nav-label lv2">Other</div>
+                    <a href="./breadcrumb.html" class="z-nav-item lv3">Breadcrumb</a>
+                    <a href="./side_nav.html" class="z-nav-item lv3">SideNav</a>
             </div>
             <a href="./index.html#i18n" class="z-nav-item">I18N</a>
         </div>
         
         <h3>Tabs</h3>
+        <p>The toggle effect of the tabs is initialized via event delegation in<mark>zui.js</mark>.</p>
+
+        <br>
 
         <h4>Default style</h4>
         <section>
             <div class="example">
-                <p>Use class<mark>.z-tabs</mark>and<mark>.z-tab</mark>to create Tabs.</p>
-                <p>Use class<mark>.z-tab-content</mark>and<mark>.z-tab-pane</mark>to create tab-contents.</p>
-                <p>The<mark>tab</mark>'s<mark>data-content</mark>refers to its content element's id.</p>
-                <p>Add class<mark>.active</mark>on the active tab and its content element.</p>
+                <p>Use class<mark>.z-tabs</mark>and<mark>.z-tab</mark>to create Tabs. Use class<mark>.z-tab-content</mark>and<mark>.z-tab-pane</mark>to create tab-contents. The value of the<mark>tab</mark>'s attribute:<mark>data-content</mark>is the content element's id.</p>
+                <p>Initially, there should be an active tab. You need to add class<mark>.active</mark>on the active tab and its content element.</p>
+                <p>When you click a tab, the status will change and the target content will show itself.</p>
+                <p>A tab can also refers to a link. Just see the example below.</p>
                 <br/>
                 <div class="z-tabs-default">
                     <div data-content="#con1" class="z-tab active">Tab1</div>
@@ -108,7 +116,7 @@
     &lt;/div&gt;</code></pre>
         </section>
 
-        <h4>Card with border</h4>
+        <h4>Content with border</h4>
         <section>
             <div class="example">
                 <p>Add class<mark>bordered</mark>.</p>

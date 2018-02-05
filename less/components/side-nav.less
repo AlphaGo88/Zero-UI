@@ -33,7 +33,8 @@
 	}
 
 	.z-nav-item,
-	.z-nav-head {
+	.z-nav-head,
+	.z-nav-label {
 		position: relative;
 		display: block;
 		height: 51px;
@@ -52,8 +53,17 @@
 			width: 40px;
 			height: 50px;
 			line-height: 50px;
+			margin-left: -10px;
 			text-align: center;
 			font-size: @font-size-base;
+		}
+
+		&.lv2 {
+			padding-left: 40px;
+		}
+
+		&.lv3 {
+			padding-left: 60px;
 		}
 	}
 
@@ -90,14 +100,11 @@
 			width: 5px;
 			background-color: @primary-color;
 		}
+	}
 
-		&.lv2 {
-			padding-left: 52px;
-		}
-
-		&.lv3 {
-			padding-left: 80px;
-		}
+	.z-nav-label {
+		font-weight: 600;
+		cursor: default;
 	}
 
 	.z-sub-nav {
@@ -117,10 +124,14 @@
 		border-bottom-color: @primary-color;
 	}
 
+	.z-nav-label,
 	.z-nav-item,
 	.z-nav-head {
 		color: @text-color-base;
+	}
 
+	.z-nav-item,
+	.z-nav-head {
 		&:hover {
 			background-color: #eee;
 		}
@@ -148,10 +159,14 @@
 		border-bottom-color: @primary-color;
 	}
 
+	.z-nav-label,
 	.z-nav-item,
 	.z-nav-head {
 		color: rgb(196, 206, 218);
+	}
 
+	.z-nav-item,
+	.z-nav-head {
 		&:hover {
 			background-color: lighten(@side-nav-dark-bg, 5%);
 		}
@@ -179,9 +194,14 @@
 		border-bottom-color: darken(@side-nav-darkblue-bg, 3%);
 	}
 
+	.z-nav-label,
 	.z-nav-item,
 	.z-nav-head {
 		color: #fff;
+	}
+
+	.z-nav-item,
+	.z-nav-head {
 		border-bottom-color: darken(@side-nav-darkblue-bg, 3%);
 
 		&:hover {
