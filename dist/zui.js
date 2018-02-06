@@ -2042,15 +2042,16 @@ Z.guid = function() {
     }
 
     function Dialog(opt) {
+        var me = this;
         var lang = Z.locales[Z.locale];
-        this.blocker = getBlocker();
+        me.blocker = getBlocker();
 
-        if (this.blocker.find('.dlg').length) {
+        if (me.blocker.find('.dlg').length) {
             console.warn('Only one dialog can be opened at the same time!');
             return;
         }
 
-        this.defaults = {
+        me.defaults = {
             title: '',
             width: '',
             content: '',
@@ -2061,7 +2062,7 @@ Z.guid = function() {
             onClose: noop,
             onOK: noop
         };
-        var config = $.extend(true, {}, this.defaults, opt);
+        var config = $.extend(true, {}, me.defaults, opt);
 
         // support width: 100 and width: '100'
         if (config.width) {
@@ -2069,37 +2070,35 @@ Z.guid = function() {
         }
 
         // add ok & cancel button by default
-        this.actions = [];
+        me.actions = [];
         if (config.actions.length > 0) {
-            this.actions = config.actions;
+            me.actions = config.actions;
         } else {
             if (config.cancelButton !== false) {
-                this.actions.push({
+                me.actions.push({
                     tmplt: '<button class="z-btn red">' + lang['Cancel'] + '</button>',
-                    onClick: this.close.bind(this)
+                    onClick: me.close.bind(me)
                 });
             }
             if (config.okButton !== false) {
-                this.actions.push({
+                me.actions.push({
                     tmplt: '<button class="z-btn primary">' + lang['OK'] + '</button>',
                     onClick: config.onOK
                 });
             }
         }
 
-        this.positionDialog = this.positionDialog.bind(this);
-        this.config = config;
-        this.generateHtml();
-        this.open();
+        me.positionDialog = me.positionDialog.bind(me);
+        me.config = config;
+        me.generateHtml();
+        me.open();
     }
 
     Dialog.prototype.generateHtml = function() {
         var me = this;
-        var config = this.config;
+        var config = me.config;
         var container = $('<div class="z-dlg-container"></div>');
         var dlgHtml = '<div class="z-dlg" tabindex="0" style="width:' + config.width + '">';
-
-        dlgHtml += '<i class="fa fa-close z-dlg-close"></i>';
 
         // title
         if (config.title) {
@@ -2110,9 +2109,9 @@ Z.guid = function() {
         dlgHtml += '<div class="z-dlg-content">' + config.content + '</div>';
 
         // action buttons
-        if (this.actions.length > 0) {
+        if (me.actions.length > 0) {
             dlgHtml += '<div class="z-dlg-foot">';
-            this.actions.forEach(function(action) {
+            me.actions.forEach(function(action) {
                 dlgHtml += '<div class="z-dlg-action-wrapper">' + action.tmplt + '</div>';
             });
             dlgHtml += '</div>';
@@ -2121,27 +2120,30 @@ Z.guid = function() {
         dlgHtml += '</div>';
 
         // mount dom node
-        this.container = container;
-        this.el = $(dlgHtml);
-        container.append(this.el);
-        this.blocker.append(container);
+        me.container = container;
+        me.el = $(dlgHtml);
+        container.append(me.el);
+        me.blocker.append(container);
 
         // bind click events for the buttons
-        if (this.actions.length > 0) {
-            this.el.find('.z-dlg-action-wrapper').each(function(index, item) {
+        if (me.actions.length > 0) {
+            me.el.find('.z-dlg-action-wrapper').each(function(index, item) {
                 $(item).on('click', function(event) {
                     me.actions[index].onClick(me);
                 });
             });
         }
-        this.el.find('.z-dlg-close').on('click', function(event) {
-            me.close();
-        });
 
-        this.el.on('keydown', function(e) {
+        me.el.on('keydown', function(e) {
             if (e.which === 27) {
                 me.close();
             }
+        });
+        me.el.on('click', function(event) {
+            event.stopPropagation();
+        });
+        me.blocker.on('click', function() {
+            me.close();
         });
     };
 
@@ -2190,77 +2192,161 @@ Z.guid = function() {
 ! function($) {
     'use strict';
 
-    $.fn.dropdown = function(opt) {
-        this.each(function(index, el) {
-            var $trigger = $(el);
-            var $dropdown = $trigger.closest('.z-dropdown');
-            var $menu = $dropdown.find('.z-dropdown-menu');
-            var initialized = $trigger.data('dropdown-init'); // if dropdown is already initialized.
-            var triggerByHover = typeof opt === 'object' && opt.hover || false;
+    function Dropdown(element) {
+        var me = this;
+        var $dropdown = me.$dropdown = element;
+        var $menu = me.$menu = $dropdown.children('.z-dropdown-menu');
 
-            if (!initialized) {
-                $trigger.on('open', function(e) {
-                    $menu.addClass('open');
-                });
-                $trigger.on('close', function(e) {
-                    $menu.removeClass('open');
-                });
-                $trigger.on('toggle', function(e) {
-                    $menu.toggleClass('open');
-                });
-                if (triggerByHover) {
-                    $dropdown.hover(function() {
-                        $trigger.trigger('open');
-                    }, function() {
-                        $trigger.trigger('close');
-                    });
-                } else {
-                    $menu.on('click', function(e) {
-                        e.stopPropagation();
-                    });
-                    $(document).on('click', function(e) {
-                        $trigger.trigger('close');
-                    });
-                }
-                $trigger.on('click', function(e) {
-                    $trigger.trigger('toggle');
-                    if (!triggerByHover) {
-                        e.stopPropagation();
-                    }
-                });
-                $trigger.on('keydown', function(e) {
-                    switch (e.which) {
-                        // TAB - close
-                        // ESC - close
-                        case 9:
-                        case 27:
-                            $trigger.trigger('close');
-                            break;
-                        default:
-                    }
-                });
-                $menu.on('click', '.z-menu-item', function(e) {
-                    var $this = $(this);
+        // click to toggle
+        $dropdown.on({
+            'focus': me.open.bind(me),
+            'blur': me.close.bind(me)
+        });
 
-                    if (!$this.hasClass('disabled')) {
-                        $trigger.trigger('close');
-
-                        if ($trigger.hasClass('selectable')) {
-                            $trigger.text($this.text());
-                        }
-                    }
-                });
-                $trigger.data('dropdown-init', true);
-            }
-
-            if (opt === 'open') {
-                $trigger.trigger('open');
-            } else if (opt === 'close') {
-                $trigger.trigger('close');
+        // click on menu item to select
+        $menu.on('click', '.z-menu-item', function() {
+            if (!$(this).hasClass('disabled')) {
+                $dropdown.trigger('blur');
             }
         });
+
+        $dropdown.on('keydown', function(event) {
+            switch (event.which) {
+                // Enter - If there's a selected menu, trigger its click event.
+                case 13:
+                    if ($menu.hasClass('open')) {
+                        event.preventDefault();
+                        $menu.find('.z-menu-item.selected').trigger('click');
+                    }
+                    break;
+
+                // TAB - close
+                // ESC - close
+                case 9:
+                case 27:
+                    $dropdown.trigger('blur');
+                    break;
+
+                // Direction keys
+                // Up - select previous menu
+                case 38:
+                    event.preventDefault();
+
+                    var $menuItems = me.getCurMenuItems();
+                    var len = $menuItems.length;
+                    var i = 0;
+
+                    while (i < len) {
+                        if ($menuItems.eq(i).hasClass('selected')) break;
+                        i++;
+                    }
+                    if (i === len) {
+                        i = len - 1;
+                    } else {
+                        $menuItems.eq(i).removeClass('selected');
+                        i = i === 0 ? len - 1 : i - 1;
+                    }
+                    $menuItems.eq(i).addClass('selected');
+                    break;
+
+                // Down - select next menu
+                case 40:
+                    event.preventDefault();
+
+                    var $menuItems = me.getCurMenuItems();
+                    var len = $menuItems.length;
+                    var i = 0;
+
+                    while (i < len) {
+                        if ($menuItems.eq(i).hasClass('selected')) break;
+                        i++;
+                    }
+                    if (i === len) {
+                        i = 0;
+                    } else {
+                        $menuItems.eq(i).removeClass('selected');
+                        i = i === len - 1 ? 0 : i + 1;
+                    }
+                    $menuItems.eq(i).addClass('selected');
+                    break;
+
+                // Right - toggle sub menu
+                case 39:
+                    event.preventDefault();
+
+                    if ($menu.hasClass('top-left') || $menu.hasClass('bottom-left')) {
+                        me.closeSubMenu();
+                    } else {
+                        me.openSubMenu();
+                    }
+                    break;
+
+                // Left - toggle sub menu
+                case 37:
+                    event.preventDefault();
+
+                    if ($menu.hasClass('top-left') || $menu.hasClass('bottom-left')) {
+                        me.openSubMenu();
+                    } else {
+                        me.closeSubMenu();
+                    }
+                    break;
+
+                default:
+            }
+        });
+
+        $dropdown.data('dropdown-init', true);
     }
 
+    Dropdown.prototype.open = function() {
+        this.$menu.addClass('open');
+    };
+
+    Dropdown.prototype.close = function() {
+        this.$menu.removeClass('open');
+        this.$menu.find('.selected').removeClass('selected');
+        this.$menu.find('.open').removeClass('open');
+    };
+
+    Dropdown.prototype.getCurMenuItems = function() {
+        var $selectedItem = this.$menu.find('.z-menu-item.selected');
+        var $menuItems;
+
+        if ($selectedItem.length) {
+            $menuItems = $selectedItem.parent().children('.z-menu-item,.z-menu-head');
+        } else {
+            $menuItems = this.$menu.children('.z-menu-item,.z-menu-head');
+        }
+        return $menuItems;
+    };
+
+    Dropdown.prototype.openSubMenu = function() {
+        var $menuHead = this.$menu.find('.z-menu-head.selected').last();
+
+        if ($menuHead.length) {
+            $menuHead.children('.z-sub-menu').addClass('open').children('.z-menu-item,.z-menu-head').eq(0).addClass('selected');
+        }
+    };
+
+    Dropdown.prototype.closeSubMenu = function() {
+        var $menuHead = this.$menu.find('.z-menu-head.selected').last();
+
+        if ($menuHead.length) {
+            $menuHead.children('.z-sub-menu').removeClass('open').find('.selected').removeClass('selected');
+        }
+    };
+
+    $.fn.dropdown = function() {
+        this.each(function(index, el) {
+            var $this = $(el);
+            var initialized = $this.data('dropdown-init');
+
+            if (!initialized) {
+                new Dropdown($this);
+            }
+        });
+    };
 }(jQuery);
 /*
     Loader
@@ -2278,12 +2364,13 @@ Z.guid = function() {
     		return;
     	}
 
-    	var content = opt && opt.content || '';
+        var icon = opt && opt.icon || '<i class="fa fa-spinner fa-spin"></i>';
+    	var msg = opt && opt.msg || '';
     	var darkClass = opt && opt.color === 'dark' ? ' dark' : '';
     	var _html = '<div class="z-loading-mask' + darkClass + '">'
     	+ '<div class="z-loading-content">'
-    	+ '<i class="fa fa-spinner fa-spin z-loading-icon"></i><span class="z-loading-text">'
-    	+ content + '</span>'
+    	+ icon
+    	+ '<span class="z-loading-text">' + msg + '</span>'
     	+ '</div></div>';
 
     	if ($this.css('position') === 'static') {
@@ -2295,6 +2382,22 @@ Z.guid = function() {
 	$.fn.unLoad = function() {
 		$(this).find('.z-loading-mask').remove();
 	}
+
+    Z.load = function(opt) {
+        var icon = opt && opt.icon || '<i class="fa fa-spinner fa-spin"></i>';
+        var msg = opt && opt.msg || '';
+        var _html = '<div class="z-g-loading-wrapper">'
+        + '<div class="z-g-loading">'
+        + icon
+        + '<span class="z-loading-text">' + msg + '</span>'
+        + '</div></div>';
+
+        $(_html).appendTo($('body'));
+    }
+
+    Z.unLoad = function(opt) {
+        $('.z-g-loading-wrapper').remove();
+    }
 }(jQuery);
 /*
     Message
@@ -2334,7 +2437,7 @@ Z.guid = function() {
         $.extend(defaults, opt);
 
         var $container = getContainer();
-        var $el = $('<div class="z-msg ' + defaults.type + '">' + '<i class="fa fa-close z-msg-close"></i>' + defaults.content + '</div>');
+        var $el = $('<div class="z-msg ' + defaults.type + '">' + defaults.content + '</div>');
 
         $container.append($el);
 
@@ -2348,7 +2451,7 @@ Z.guid = function() {
         }
 
         // Manually close
-        $el.find('.z-msg-close').on('click', function() {
+        $el.on('click', function() {
             $el.addClass('exit');
             clearTimeout(exitTimeOut);
         });
@@ -2385,17 +2488,6 @@ Z.guid = function() {
                 type: 'error',
                 content: content
             });
-        },
-
-        loading: function(msg) {
-            var msg = msg || '加载中';
-            var _html = '<div class="z-loading-wrapper"><div class="z-loading-msg">' + '<i class="fa fa-circle-o-notch fa-spin z-loading-icon"></i><span class="z-loading-text">' + msg + '</span></div></div>';
-
-            $('body').append($(_html));
-        },
-
-        unLoading: function(container) {
-            $('.z-loading-wrapper').remove();
         }
     }
 
@@ -2667,7 +2759,7 @@ Z.guid = function() {
 
     function Select(element, opt) {
         this.defaults = {
-            position: '', // support: ['top']
+            position: '', // ['top']
             multiple: false, // support multiple selection
             data: null,
             initialValue: '',
@@ -2819,13 +2911,13 @@ Z.guid = function() {
                     $newSelect.trigger('close');
                     break;
 
-                // ENTER - select current option and close
+                    // ENTER - select current option and close
                 case 13:
                     if (!options.hasClass('open')) {
                         $newSelect.trigger('open');
                     }
                     break;
-                    
+
                 default:
             }
         });
@@ -3024,25 +3116,25 @@ Z.guid = function() {
 
 
 ! function($) {
-    'use strict';
+	'use strict';
 
-    Z.initSideNav = function() {
-    	$(document).on('click', '.z-nav-item', function() {
-    	    var $this = $(this);
+	Z.initSideNav = function() {
+		$(document).on('click', '.z-nav-item', function() {
+			var $this = $(this);
 
-    	    if ($this.hasClass('active')) {
-    	    	return;
-    	    }
-    	    $(this).closest('.z-side-nav').find('.active').removeClass('active');
-    	    $this.addClass('active');
-    	});
+			if ($this.hasClass('active')) {
+				return;
+			}
+			$(this).closest('.z-side-nav').find('.active').removeClass('active');
+			$this.addClass('active');
+		});
 
-        $(document).on('click', '.z-nav-head', function() {
-            var $this = $(this);
+		$(document).on('click', '.z-nav-head', function() {
+			var $this = $(this);
 
-            $this.toggleClass('active');
-        });
-    }
+			$this.toggleClass('active');
+		});
+	}
 }(jQuery);
 /*
     Step
@@ -3275,7 +3367,7 @@ Z.guid = function() {
 	'use strict';
 
 	$(function() {
-		$('.z-dropdown-trigger').dropdown();
+		$('.z-dropdown').dropdown();
 		// $('[data-tooltip]').tooltip();
 		Z.initSideNav();
 		Z.initTabs();

@@ -31,7 +31,7 @@
     text-align: center;
 }
 
-.z-loading-wrapper {
+.z-g-loading-wrapper {
     position: fixed;
     left: 0;
     top: 50%;
@@ -42,7 +42,7 @@
     z-index: 1500;
 }
 
-.z-loading-msg {
+.z-g-loading {
     display: inline-block;
     min-width: 160px;
     padding: 10px 25px;
@@ -54,7 +54,8 @@
     animation: z-loading-anim 400ms;
 }
 
-.z-loading-icon {
+.z-loading-content > i,
+.z-g-loading > i {
     margin-right: 10px;
     color: @primary-color;
     font-size: 25px;
@@ -65,8 +66,8 @@
     vertical-align: middle;
 }
 
-.z-loading-mask.dark .z-loading-icon,
-.z-loading-mask.dark .z-loading-text, {
+.z-loading-mask.dark > .z-loading-content > i,
+.z-loading-mask.dark > .z-loading-content > .z-loading-text {
 	color: rgba(255, 255, 255, 0.9);
 }
 

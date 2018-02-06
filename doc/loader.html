@@ -50,12 +50,16 @@
     </div>
     
     <h3>Loader</h3>
+    <p>A loader is used when some action is waiting to complete e.g. an ajax request.</p>
     <section>
         <div class="example">
+            <p>Show a loading mask on an element.</p>
+            <br>
         	<div>
-        		<button class="z-btn gray" onClick="show()">Show loader</button>
-        		<button class="z-btn gray" onClick="show1()">Show dark loader</button>
-        		<button class="z-btn gray" onClick="hide()">Hide loading status</button>
+        		<button class="z-btn gray" onClick="show()">Show loader</button>&nbsp;&nbsp;
+                <button class="z-btn gray" onClick="show1()">Show dark loader</button>&nbsp;&nbsp;
+        		<button class="z-btn gray" onClick="show2()">Customize icon</button>&nbsp;&nbsp;
+        		<button class="z-btn gray" onClick="hide()">Hide loader</button>
         	</div>
         	<br>
         	<div id="demo1" style="border: 1px solid #ccc;padding: 20px">
@@ -70,14 +74,49 @@
 
     // Show dark loader
     $('#demo1').load({
-    	content: 'Loading...',
+    	msg: 'Loading...',
     	color: 'dark'
     });
 
-    // Hide loading status
+    // Customize icon
+    $('#demo1').load({
+        icon: '&lt;i class="fa fa-circle-o-notch fa-spin"&gt;&lt;/i&gt;',
+        msg: 'Loading...'
+    });
+
+    // Remove Loader
     $('#demo1').unLoad();
         </code></pre>
     </section>
+
+    <h4>Global loader</h4>
+    <section>
+        <div class="example">
+            <div>
+                A global loader is a message pop-up at the center of the page.
+            </div>
+            <br>
+            <div>
+                <button class="z-btn gray" id="load">Show</button>&nbsp;&nbsp;
+                <button class="z-btn gray" id="load1">Customize icon</button>&nbsp;&nbsp;
+                <button class="z-btn gray unload">Hide</button>
+            </div>
+        </div>
+        <pre><code>
+    // Show Loader
+    Z.load({
+        msg: 'Loading...'
+    });
+
+    // Customize icon
+    Z.load({
+        icon: '&lt;i class="fa fa-circle-o-notch fa-spin"&gt;&lt;/i&gt;',
+        msg: 'Loading...'
+    });
+
+    // Remove Loader
+    Z.unLoad();
+        </code></pre>
 
     <script>
     $(document).ready(function() {
@@ -90,13 +129,33 @@
     }
     function show1 () {
     	$('#demo1').load({
-    		content: 'Loading...',
+    		msg: 'Loading...',
     		color: 'dark'
     	});
+    }
+    function show2 () {
+        $('#demo1').load({
+            icon: '<i class="fa fa-circle-o-notch fa-spin"></i>',
+            msg: 'Loading...',
+        });
     }
     function hide () {
     	$('#demo1').unLoad();
     }
+    $('#load').on('click', function(e) {
+        Z.load({
+            msg: 'Loading...'
+        });
+    });
+    $('#load1').on('click', function(e) {
+        Z.load({
+            icon: '<i class="fa fa-circle-o-notch fa-spin"></i>',
+            msg: 'Loading...'
+        });
+    });
+    $('.unload').on('click', function(e) {
+        Z.unLoad();
+    });
     </script>
   </body>
 </html>

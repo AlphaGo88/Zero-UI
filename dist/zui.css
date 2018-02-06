@@ -2053,9 +2053,6 @@ td .z-checkbox {
 }
 .z-dropdown {
   position: relative;
-  display: inline-block;
-}
-.z-dropdown-trigger {
   cursor: pointer;
 }
 .z-dropdown-menu,
@@ -2196,7 +2193,9 @@ td .z-checkbox {
   cursor: pointer;
 }
 .z-dropdown-menu .z-menu-item:hover,
-.z-dropdown-menu .z-menu-head:hover {
+.z-dropdown-menu .z-menu-head:hover,
+.z-dropdown-menu .z-menu-item.selected,
+.z-dropdown-menu .z-menu-head.selected {
   text-decoration: none;
   background-color: #eaeaea;
 }
@@ -2242,11 +2241,6 @@ td .z-checkbox {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-.z-dropdown-menu .z-menu-head:hover > .z-sub-menu {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-  opacity: 1;
-}
 .z-dropdown-menu .z-sub-menu {
   top: 0;
   left: 100%;
@@ -2255,6 +2249,12 @@ td .z-checkbox {
           transform: scaleX(0);
   -webkit-transform-origin: 0% 0%;
           transform-origin: 0% 0%;
+}
+.z-dropdown-menu .z-menu-head:hover > .z-sub-menu,
+.z-dropdown-menu .z-sub-menu.open {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  opacity: 1;
 }
 .z-dropdown > .z-dropdown-menu {
   min-width: 160px;
@@ -2479,7 +2479,7 @@ td .z-checkbox {
   transition: all 200ms ease-in;
   -webkit-animation: z-msg-enter 200ms;
           animation: z-msg-enter 200ms;
-  cursor: default;
+  cursor: pointer;
 }
 .z-msg.exit {
   opacity: 0;
@@ -2501,27 +2501,6 @@ td .z-checkbox {
 .z-msg.error {
   background-color: #eb5757;
   color: #fff;
-}
-.z-msg-close {
-  position: absolute;
-  top: 4px;
-  right: 6px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  visibility: hidden;
-}
-.z-msg-close:hover {
-  color: #fff;
-}
-.z-msg:hover > .z-msg-close {
-  visibility: visible;
-}
-.z-msg.msg > .z-msg-close {
-  color: #aaa;
-}
-.z-msg.msg > .z-msg-close:hover {
-  color: #777;
 }
 @-webkit-keyframes z-msg-enter {
   from {
@@ -3384,7 +3363,7 @@ td .z-checkbox {
   line-height: 24px;
   text-align: center;
 }
-.z-loading-wrapper {
+.z-g-loading-wrapper {
   position: fixed;
   left: 0;
   top: 50%;
@@ -3394,7 +3373,7 @@ td .z-checkbox {
   background-color: transparent;
   z-index: 1500;
 }
-.z-loading-msg {
+.z-g-loading {
   display: inline-block;
   min-width: 160px;
   padding: 10px 25px;
@@ -3408,7 +3387,8 @@ td .z-checkbox {
   -webkit-animation: z-loading-anim 400ms;
           animation: z-loading-anim 400ms;
 }
-.z-loading-icon {
+.z-loading-content > i,
+.z-g-loading > i {
   margin-right: 10px;
   color: #2f80ed;
   font-size: 25px;
@@ -3417,8 +3397,8 @@ td .z-checkbox {
 .z-loading-text {
   vertical-align: middle;
 }
-.z-loading-mask.dark .z-loading-icon,
-.z-loading-mask.dark .z-loading-text {
+.z-loading-mask.dark > .z-loading-content > i,
+.z-loading-mask.dark > .z-loading-content > .z-loading-text {
   color: rgba(255, 255, 255, 0.9);
 }
 @-webkit-keyframes z-loading-anim {
@@ -3491,6 +3471,7 @@ td .z-checkbox {
   width: 40px;
   height: 50px;
   line-height: 50px;
+  margin-left: -10px;
   text-align: center;
   font-size: 14px;
 }

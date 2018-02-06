@@ -53,7 +53,9 @@
     </div>
     
     <h3>Message</h3>
-    <p>Use this API to show a message pop-up. Normally, the message pop-up close itself automatically. There are 4 types of messages which are listed below.</p>
+    <p>Use this API to show a message pop-up. Normally, the message pop-up closes itself automatically. You can also close the message by clicking on it.
+    <br>
+    There are 4 types of messages which are listed below.</p>
 
     <h4>Simple API</h4>
     <section>
@@ -100,27 +102,6 @@
         </code></pre>
     </section>
 
-    <h4>Global loading message</h4>
-    <section>
-        <div class="example">
-            <div>
-                A global loading message is a pop-up in the center of the page with a spinning loading icon. It's used when some action is waiting to complete e.g. an ajax request.
-            </div>
-            <br>
-            <div>
-                <a id="load">Show</a>&nbsp;&nbsp;
-                <a id="unload">Hide</a>
-            </div>
-        </div>
-        <pre><code>
-    // Show Loading
-    Z.Message.loading('Loading...');
-
-    // Hide Loading
-    Z.Message.unLoading();
-        </code></pre>
-    </section>
-
     <script>
     $(document).ready(function() {
         $('pre code').each(function(i, block) {
@@ -152,12 +133,6 @@
             content: "Don't close myself",
             autoClose: false
         })
-    });
-    $('#load').on('click', function(e) {
-        Z.Message.loading('Loading...');
-    });
-    $('#unload').on('click', function(e) {
-        Z.Message.unLoading();
     });
     </script>
   </body>

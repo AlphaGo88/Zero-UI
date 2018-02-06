@@ -14,12 +14,13 @@
     		return;
     	}
 
-    	var content = opt && opt.content || '';
+        var icon = opt && opt.icon || '<i class="fa fa-spinner fa-spin"></i>';
+    	var msg = opt && opt.msg || '';
     	var darkClass = opt && opt.color === 'dark' ? ' dark' : '';
     	var _html = '<div class="z-loading-mask' + darkClass + '">'
     	+ '<div class="z-loading-content">'
-    	+ '<i class="fa fa-spinner fa-spin z-loading-icon"></i><span class="z-loading-text">'
-    	+ content + '</span>'
+    	+ icon
+    	+ '<span class="z-loading-text">' + msg + '</span>'
     	+ '</div></div>';
 
     	if ($this.css('position') === 'static') {
@@ -31,4 +32,20 @@
 	$.fn.unLoad = function() {
 		$(this).find('.z-loading-mask').remove();
 	}
+
+    Z.load = function(opt) {
+        var icon = opt && opt.icon || '<i class="fa fa-spinner fa-spin"></i>';
+        var msg = opt && opt.msg || '';
+        var _html = '<div class="z-g-loading-wrapper">'
+        + '<div class="z-g-loading">'
+        + icon
+        + '<span class="z-loading-text">' + msg + '</span>'
+        + '</div></div>';
+
+        $(_html).appendTo($('body'));
+    }
+
+    Z.unLoad = function(opt) {
+        $('.z-g-loading-wrapper').remove();
+    }
 }(jQuery);

@@ -24,15 +24,16 @@
     }
 
     function Dialog(opt) {
+        var me = this;
         var lang = Z.locales[Z.locale];
-        this.blocker = getBlocker();
+        me.blocker = getBlocker();
 
-        if (this.blocker.find('.dlg').length) {
+        if (me.blocker.find('.dlg').length) {
             console.warn('Only one dialog can be opened at the same time!');
             return;
         }
 
-        this.defaults = {
+        me.defaults = {
             title: '',
             width: '',
             content: '',
@@ -43,7 +44,7 @@
             onClose: noop,
             onOK: noop
         };
-        var config = $.extend(true, {}, this.defaults, opt);
+        var config = $.extend(true, {}, me.defaults, opt);
 
         // support width: 100 and width: '100'
         if (config.width) {
@@ -51,37 +52,35 @@
         }
 
         // add ok & cancel button by default
-        this.actions = [];
+        me.actions = [];
         if (config.actions.length > 0) {
-            this.actions = config.actions;
+            me.actions = config.actions;
         } else {
             if (config.cancelButton !== false) {
-                this.actions.push({
+                me.actions.push({
                     tmplt: '<button class="z-btn red">' + lang['Cancel'] + '</button>',
-                    onClick: this.close.bind(this)
+                    onClick: me.close.bind(me)
                 });
             }
             if (config.okButton !== false) {
-                this.actions.push({
+                me.actions.push({
                     tmplt: '<button class="z-btn primary">' + lang['OK'] + '</button>',
                     onClick: config.onOK
                 });
             }
         }
 
-        this.positionDialog = this.positionDialog.bind(this);
-        this.config = config;
-        this.generateHtml();
-        this.open();
+        me.positionDialog = me.positionDialog.bind(me);
+        me.config = config;
+        me.generateHtml();
+        me.open();
     }
 
     Dialog.prototype.generateHtml = function() {
         var me = this;
-        var config = this.config;
+        var config = me.config;
         var container = $('<div class="z-dlg-container"></div>');
         var dlgHtml = '<div class="z-dlg" tabindex="0" style="width:' + config.width + '">';
-
-        dlgHtml += '<i class="fa fa-close z-dlg-close"></i>';
 
         // title
         if (config.title) {
@@ -92,9 +91,9 @@
         dlgHtml += '<div class="z-dlg-content">' + config.content + '</div>';
 
         // action buttons
-        if (this.actions.length > 0) {
+        if (me.actions.length > 0) {
             dlgHtml += '<div class="z-dlg-foot">';
-            this.actions.forEach(function(action) {
+            me.actions.forEach(function(action) {
                 dlgHtml += '<div class="z-dlg-action-wrapper">' + action.tmplt + '</div>';
             });
             dlgHtml += '</div>';
@@ -103,27 +102,30 @@
         dlgHtml += '</div>';
 
         // mount dom node
-        this.container = container;
-        this.el = $(dlgHtml);
-        container.append(this.el);
-        this.blocker.append(container);
+        me.container = container;
+        me.el = $(dlgHtml);
+        container.append(me.el);
+        me.blocker.append(container);
 
         // bind click events for the buttons
-        if (this.actions.length > 0) {
-            this.el.find('.z-dlg-action-wrapper').each(function(index, item) {
+        if (me.actions.length > 0) {
+            me.el.find('.z-dlg-action-wrapper').each(function(index, item) {
                 $(item).on('click', function(event) {
                     me.actions[index].onClick(me);
                 });
             });
         }
-        this.el.find('.z-dlg-close').on('click', function(event) {
-            me.close();
-        });
 
-        this.el.on('keydown', function(e) {
+        me.el.on('keydown', function(e) {
             if (e.which === 27) {
                 me.close();
             }
+        });
+        me.el.on('click', function(event) {
+            event.stopPropagation();
+        });
+        me.blocker.on('click', function() {
+            me.close();
         });
     };
 

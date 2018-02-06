@@ -36,7 +36,7 @@
         $.extend(defaults, opt);
 
         var $container = getContainer();
-        var $el = $('<div class="z-msg ' + defaults.type + '">' + '<i class="fa fa-close z-msg-close"></i>' + defaults.content + '</div>');
+        var $el = $('<div class="z-msg ' + defaults.type + '">' + defaults.content + '</div>');
 
         $container.append($el);
 
@@ -50,7 +50,7 @@
         }
 
         // Manually close
-        $el.find('.z-msg-close').on('click', function() {
+        $el.on('click', function() {
             $el.addClass('exit');
             clearTimeout(exitTimeOut);
         });
@@ -87,17 +87,6 @@
                 type: 'error',
                 content: content
             });
-        },
-
-        loading: function(msg) {
-            var msg = msg || '加载中';
-            var _html = '<div class="z-loading-wrapper"><div class="z-loading-msg">' + '<i class="fa fa-circle-o-notch fa-spin z-loading-icon"></i><span class="z-loading-text">' + msg + '</span></div></div>';
-
-            $('body').append($(_html));
-        },
-
-        unLoading: function(container) {
-            $('.z-loading-wrapper').remove();
         }
     }
 

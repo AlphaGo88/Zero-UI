@@ -3,13 +3,8 @@
 // --------------------------------------------------
 
 
-// The dropdown wrapper
 .z-dropdown {
     position: relative;
-    display: inline-block;
-}
-
-.z-dropdown-trigger {
     cursor: pointer;
 }
 
@@ -143,7 +138,8 @@
         font-weight: 400;
         cursor: pointer;
 
-        &:hover {
+        &:hover,
+        &.selected {
             text-decoration: none;
             background-color: @menu-hover-bg;
         }
@@ -190,11 +186,6 @@
             border-top-color: @icon-color-default;
             transform: rotate(45deg);
         }
-
-        &:hover > .z-sub-menu {
-            transform: scaleX(1);
-            opacity: 1;
-        }
     }
 
     .z-sub-menu {
@@ -203,6 +194,12 @@
         border-top-left-radius: 0;
         transform: scaleX(0);
         transform-origin: 0% 0%;
+    }
+
+    .z-menu-head:hover > .z-sub-menu,
+    .z-sub-menu.open {
+        transform: scaleX(1);
+        opacity: 1;
     }
 }
 

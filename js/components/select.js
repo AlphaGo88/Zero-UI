@@ -7,7 +7,7 @@
 
     function Select(element, opt) {
         this.defaults = {
-            position: '', // support: ['top']
+            position: '', // ['top']
             multiple: false, // support multiple selection
             data: null,
             initialValue: '',
@@ -159,13 +159,13 @@
                     $newSelect.trigger('close');
                     break;
 
-                // ENTER - select current option and close
+                    // ENTER - select current option and close
                 case 13:
                     if (!options.hasClass('open')) {
                         $newSelect.trigger('open');
                     }
                     break;
-                    
+
                 default:
             }
         });
