@@ -2197,13 +2197,16 @@ Z.guid = function() {
         var $dropdown = me.$dropdown = element;
         var $menu = me.$menu = $dropdown.children('.z-dropdown-menu');
 
-        // click to toggle
         $dropdown.on({
             'focus': me.open.bind(me),
-            'blur': me.close.bind(me)
+            'blur': me.close.bind(me),
         });
 
-        // click on menu item to select
+        $menu.on('click', function(event) {
+            event.stopPropagation();
+        });
+
+        // click on menu item to close
         $menu.on('click', '.z-menu-item', function() {
             if (!$(this).hasClass('disabled')) {
                 $dropdown.trigger('blur');
@@ -2339,14 +2342,12 @@ Z.guid = function() {
 
     $.fn.dropdown = function() {
         this.each(function(index, el) {
-            var $this = $(el);
-            var initialized = $this.data('dropdown-init');
-
-            if (!initialized) {
-                new Dropdown($this);
+            if (!$(el).data('dropdown-init')) {
+                new Dropdown($(el));
             }
         });
     };
+    
 }(jQuery);
 /*
     Loader
@@ -2787,7 +2788,8 @@ Z.guid = function() {
         }
 
         // Create new element as select trigger
-        var $newSelect = $('<input type="text" class="z-input z-select-trigger" readonly' + ($select.is(':disabled') ? ' disabled' : '') + '>');
+        var disableClass = $select.is(':disabled') ? ' disabled' : '';
+        var $newSelect = $('<div class="z-select-trigger' + disableClass + '"></div>');
 
         this.$select = $select;
         this.$newSelect = $newSelect;
@@ -2825,20 +2827,30 @@ Z.guid = function() {
         this._updateValue(true);
 
         $newSelect.on({
-            'toggle': function(e) {
+            'toggle': function() {
                 $(this).toggleClass('open');
                 options.toggleClass('open');
             },
-            'open': function(e) {
+            'open': function() {
                 options.addClass('open');
                 $(this).addClass('open');
             },
-            'close': function(e) {
+            'close': function() {
                 options.removeClass('open');
                 $(this).removeClass('open');
+            },
+            'click': function() {
+                if (!$(this).hasClass('disabled')) {
+                    $(this).trigger('toggle');
+                }
             }
         });
 
+        dropdownIcon.on('click', function() {
+            $newSelect.trigger('click');
+        });
+
+        // click elsewhere to close
         var mouseIn = false;
         $wrapper.on({
             'mouseenter': function() {
@@ -2846,64 +2858,52 @@ Z.guid = function() {
             },
             'mouseleave': function() {
                 mouseIn = false;
-            },
-            'click': function() {
-                if (!$newSelect.is(':disabled')) {
-                    $newSelect.trigger('toggle');
-                }
             }
         });
-
-        dropdownIcon.on('click', function(e) {
-            if (!dropdownIcon.hasClass('up')) {
-                $newSelect.focus();
-            }
+        options.on('click', function(event) {
+            event.stopPropagation();
         });
-
-        options.on('click', function(e) {
-            e.stopPropagation();
-        });
-
-        options.on('click', '.z-select-option', function(e) {
-            var $this = $(this);
-
-            // Check if the option element is disabled
-            if (!$this.hasClass('disabled')) {
-                if (multiple) {
-                    if ($this.hasClass('selected')) {
-                        var idx = me.valueSelected.indexOf($this.data('value'));
-
-                        $this.removeClass('selected');
-                        me.valueSelected.splice(idx, 1);
-                        me.textSelected.splice(idx, 1);
-                    } else {
-                        $this.addClass('selected');
-                        me.valueSelected.push($this.data('value'));
-                        me.textSelected.push($this.text());
-                    }
-                    me._updateValue();
-                } else {
-                    if (!$this.hasClass('selected')) {
-                        options.find('.selected').removeClass('selected');
-                        me.valueSelected = [$this.data('value')];
-                        me.textSelected = [$this.text()];
-                        me._updateValue();
-                    }
-                    $newSelect.trigger('close');
-                    $this.addClass('selected');
-                }
-            }
-        });
-
-        // click elsewhere to close
-        $(document).on('click', function(e) {
+        $(document).on('click', function() {
             if (!mouseIn) {
                 $newSelect.trigger('close');
             }
         });
 
-        $wrapper.on('keydown', function(e) {
-            switch (e.which) {
+        options.on('click', '.z-select-option', function() {
+            var $this = $(this);
+
+            if ($this.hasClass('disabled')) return;
+            if (multiple) {
+                if ($this.hasClass('selected')) {
+                    var idx = me.valueSelected.indexOf($this.data('value'));
+
+                    $this.removeClass('selected');
+                    me.valueSelected.splice(idx, 1);
+                    me.textSelected.splice(idx, 1);
+                } else {
+                    $this.addClass('selected');
+                    me.valueSelected.push($this.data('value'));
+                    me.textSelected.push($this.text());
+                }
+                me._updateValue();
+            } else {
+                if (!$this.hasClass('selected')) {
+                    options.find('.selected').removeClass('selected');
+                }
+                me.valueSelected = [$this.data('value')];
+                me.textSelected = [$this.text()];
+                me._updateValue();
+                $newSelect.trigger('close');
+                $this.addClass('selected');
+            }
+        });
+
+        var optionsList = options.children('.z-select-option');
+        var len = optionsList.length;
+        var className = multiple ? 'hover' : 'selected';
+
+        $wrapper.on('keydown', function(event) {
+            switch (event.which) {
                 // TAB - close
                 // ESC - close
                 case 9:
@@ -2913,9 +2913,48 @@ Z.guid = function() {
 
                     // ENTER - select current option and close
                 case 13:
-                    if (!options.hasClass('open')) {
+                    if (options.hasClass('open')) {
+                        options.children('.' + className).trigger('click');
+                    } else {
                         $newSelect.trigger('open');
                     }
+                    break;
+
+                    // Direction keys
+                    // Up - select previous menu
+                case 38:
+                    event.preventDefault();
+
+                    var i = 0;
+                    while (i < len) {
+                        if (optionsList.eq(i).hasClass(className)) break;
+                        i++;
+                    }
+                    if (i === len) {
+                        i = len - 1;
+                    } else {
+                        optionsList.eq(i).removeClass(className);
+                        i = i === 0 ? len - 1 : i - 1;
+                    }
+                    optionsList.eq(i).addClass(className);
+                    break;
+
+                    // Down - select next menu
+                case 40:
+                    event.preventDefault();
+
+                    var i = 0;
+                    while (i < len) {
+                        if (optionsList.eq(i).hasClass(className)) break;
+                        i++;
+                    }
+                    if (i === len) {
+                        i = 0;
+                    } else {
+                        optionsList.eq(i).removeClass(className);
+                        i = i === len - 1 ? 0 : i + 1;
+                    }
+                    optionsList.eq(i).addClass(className);
                     break;
 
                 default:
@@ -3023,14 +3062,14 @@ Z.guid = function() {
     Select.prototype._updateValue = function(firstInit) {
         var text = this.textSelected.join(',');
 
-        this.$newSelect.val(text);
+        this.$newSelect.html(text);
         this.$select.val(this.valueSelected.join(','));
         if (!firstInit) {
             this.$select.trigger('change');
         }
 
         if (this.config.multiple) {
-            this.$wrapper.attr('title', text);
+            this.$newSelect.attr('title', text);
             if (!firstInit) {
                 this.config.onChange(this.valueSelected, this.textSelected);
             }
@@ -3082,12 +3121,12 @@ Z.guid = function() {
     };
 
     Select.prototype.disable = function() {
-        this.$newSelect.attr('disabled', true);
+        this.$newSelect.addClass('disabled');
         this.$select.attr('disabled', true);
     };
 
     Select.prototype.enable = function() {
-        this.$newSelect.removeAttr('disabled');
+        this.$newSelect.removeClass('disabled');
         this.$select.removeAttr('disabled');
     };
 

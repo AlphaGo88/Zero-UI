@@ -9,12 +9,28 @@
 }
 
 .z-select-trigger {
-    position: relative;
     display: block;
+    position: relative;
     width: 100%;
+    height: @input-height-base;
+    line-height: @input-height-base - 2;
     padding-left: @input-padding-x;
     padding-right: 24px;
+    color: @text-color-base;
+    border: 1px solid @input-border-color;
+    border-radius: @border-radius-base;
     transition: border-color 200ms;
+
+    &.disabled {
+        background-color: #f7f7f7 !important;
+        color: @text-color-disabled !important;
+        border-color: @input-border-color !important;
+        cursor: default;
+    }
+}
+
+.z-select-wrapper:focus > .z-select-trigger {
+    border-color: @input-border-color-focus;
 }
 
 .z-select-caret {
@@ -66,7 +82,8 @@
     font-weight: 400;
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &.hover {
         background-color: @menu-hover-bg;
     }
 
@@ -91,8 +108,7 @@
 
     > .z-select-trigger {
         height: @input-height-small;
-        padding-top: @input-padding-y-small;
-        padding-bottom: @input-padding-y-small;
+        line-height: @input-height-small - 2;
     }
 
     > .z-select-options > .z-select-group-label,
@@ -107,8 +123,7 @@
 
     > .z-select-trigger {
         height: @input-height-large;
-        padding-top: @input-padding-y-large;
-        padding-bottom: @input-padding-y-large;
+        line-height: @input-height-large - 2;
     }
 
     > .z-select-options > .z-select-group-label,

@@ -11,13 +11,16 @@
         var $dropdown = me.$dropdown = element;
         var $menu = me.$menu = $dropdown.children('.z-dropdown-menu');
 
-        // click to toggle
         $dropdown.on({
             'focus': me.open.bind(me),
-            'blur': me.close.bind(me)
+            'blur': me.close.bind(me),
         });
 
-        // click on menu item to select
+        $menu.on('click', function(event) {
+            event.stopPropagation();
+        });
+
+        // click on menu item to close
         $menu.on('click', '.z-menu-item', function() {
             if (!$(this).hasClass('disabled')) {
                 $dropdown.trigger('blur');
@@ -153,11 +156,8 @@
 
     $.fn.dropdown = function() {
         this.each(function(index, el) {
-            var $this = $(el);
-            var initialized = $this.data('dropdown-init');
-
-            if (!initialized) {
-                new Dropdown($this);
+            if (!$(el).data('dropdown-init')) {
+                new Dropdown($(el));
             }
         });
     };
