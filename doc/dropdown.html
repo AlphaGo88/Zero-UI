@@ -54,37 +54,45 @@
         <h4>Basic</h4>
         <section>
             <div class="example">
-                <p>Add class name<mark>.z-dropdown</mark>on the trigger element.</p>
-                <p>Put the menu inside the trigger element.</p>
-                <p><b>Note:</b> If the trigger element is not a<mark>&lt;button&gt;</mark>, <mark>tabindex="0"</mark>is required.</p>
+                <p>Use<mark>.z-dropdown</mark>as the wrapper element.</p>
+                <p>Add class name<mark>.z-dropdown-trigger</mark>on the trigger element.</p>
+                <p><b>Note:</b> If the trigger element is not a<mark>&lt;button&gt;</mark>, <mark>tabindex="0"</mark>is required to enable the keyboard operations.</p>
                 <br>
-                <button class="z-btn primary z-dropdown" >
-                    Dropdown
-                    <i class="fa fa-caret-down"></i>
+                <div class="z-dropdown">
+                    <button class="z-btn primary z-dropdown-trigger">
+                        Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </button>
                     <div class="z-dropdown-menu">
                         <a class="z-menu-item">MENU 1</a>
                         <a class="z-menu-item">MENU 2</a>
                         <a class="z-menu-item disabled">Disabled</a>
                     </div>
-                </button>
+                </div>
             </div>
-            <pre><code class="html">    &lt;button class="z-btn primary z-dropdown" &gt;
-        Dropdown
-        &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+            <pre><code class="html">
+    &lt;div class="z-dropdown"&gt;
+        &lt;button class="z-btn primary z-dropdown" &gt;    
+            Dropdown
+            &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+        &lt;/button&gt;
         &lt;div class="z-dropdown-menu"&gt;
             &lt;a class="z-menu-item"&gt;MENU 1&lt;/a&gt;
             &lt;a class="z-menu-item"&gt;MENU 2&lt;/a&gt;
             &lt;a class="z-menu-item disabled"&gt;Disabled&lt;/a&gt;
         &lt;/div&gt;
-    &lt;/button&gt;</code></pre>
+    &lt;/div&gt;
+    </code></pre>
         </section>
 
         <h4>Icon And Image</h4>
         <section>
             <div class="example">
-                <span class="z-dropdown" tabindex="0">
-                    Dropdown
-                    <i class="fa fa-caret-down"></i>
+                <div class="z-dropdown">
+                    <span class="z-dropdown-trigger" tabindex="0">
+                        Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </span>
                     <div class="z-dropdown-menu">
                         <a class="z-menu-item">
                             <i class="fa fa-bank"></i>MENU 1
@@ -97,11 +105,13 @@
                             <i class="fa fa-phone"></i>MENU 3
                         </a>
                     </div>
-                </span>
+                </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button class="z-btn-outline primary z-dropdown">
-                    Dropdown
-                    <i class="fa fa-caret-down"></i>
+                <div class="z-dropdown">
+                    <button class="z-btn-outline primary z-dropdown-trigger">
+                        Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </button>
                     <div class="z-dropdown-menu">
                         <a class="z-menu-item">
                             <img src="./img/qq.jpg">MENU 1
@@ -113,12 +123,14 @@
                             <img src="./img/film.jpg">MENU 3
                         </a>
                     </div>
-                </button>
+                </div>
             </div>
             <pre><code class="html">
-    &lt;span class="z-dropdown" tabindex="0"&gt;
-        Dropdown
-        &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+    &lt;div class="z-dropdown"&gt;
+        &lt;span class="z-dropdown-trigger" tabindex="0">
+            Dropdown
+            &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+        &lt;/span&gt;
         &lt;div class="z-dropdown-menu"&gt;
             &lt;a class="z-menu-item"&gt;
                 &lt;i class="fa fa-bank"&gt;&lt;/i&gt;MENU 1
@@ -131,11 +143,13 @@
                 &lt;i class="fa fa-phone"&gt;&lt;/i&gt;MENU 3
             &lt;/a&gt;
         &lt;/div&gt;
-    &lt;/span&gt;
+    &lt;/div&gt;
 
-    &lt;button class="z-btn-outline primary z-dropdown"&gt;
-        Dropdown
-        &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+    &lt;div class="z-dropdown"&gt;
+        &lt;button class="z-btn-outline primary z-dropdown-trigger"&gt;
+            Dropdown
+            &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+        &lt;/button&gt;
         &lt;div class="z-dropdown-menu"&gt;
             &lt;a class="z-menu-item"&gt;
                 &lt;img src="./img/qq.jpg"&gt;MENU 1
@@ -147,34 +161,38 @@
                 &lt;img src="./img/film.jpg"&gt;MENU 3
             &lt;/a&gt;
         &lt;/div&gt;
-    &lt;/button&gt;
+    &lt;/div&gt;
             </code></pre>
         </section>
 
         <h4>Sub Menu</h4>
         <section>
             <div class="example">
-            <button class="z-btn primary z-dropdown">
-                Dropdown
-                <i class="fa fa-caret-down"></i>
-                <div class="z-dropdown-menu">
-                    <a class="z-menu-item">MENU 1</a>
-                    <a class="z-menu-item">MENU 2</a>
-                    <div class="z-menu-head">
-                        MENU 3
-                        <div class="z-sub-menu">
-                            <a class="z-menu-item">ONE</a>
-                            <a class="z-menu-item">TWO</a>
-                            <a class="z-menu-item">THREE</a>
+                <div class="z-dropdown">
+                    <button class="z-btn primary z-dropdown-trigger">
+                        Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="z-dropdown-menu">
+                        <a class="z-menu-item">MENU 1</a>
+                        <a class="z-menu-item">MENU 2</a>
+                        <div class="z-menu-head">
+                            MENU 3
+                            <div class="z-sub-menu">
+                                <a class="z-menu-item">ONE</a>
+                                <a class="z-menu-item">TWO</a>
+                                <a class="z-menu-item">THREE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </button>
             </div>
             <pre><code class="html">
-    &lt;button class="z-btn primary z-dropdown" &gt;
-        Dropdown
-        &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+    &lt;div class="z-dropdown"&gt;
+        &lt;button class="z-btn primary z-dropdown" &gt;
+            Dropdown
+            &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+        &lt;/button&gt;
         &lt;div class="z-dropdown-menu"&gt;
             &lt;a class="z-menu-item"&gt;MENU 1&lt;/a&gt;
             &lt;a class="z-menu-item"&gt;MENU 2&lt;/a&gt;
@@ -187,16 +205,18 @@
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-    &lt;/button&gt;
+    &lt;/div&gt;
             </code></pre>
         </section>
 
         <h4>Grouping</h4>
         <section>
             <div class="example">
-                <span class="z-dropdown" tabindex="0">
-                    Dropdown
-                    <i class="fa fa-caret-down"></i>
+                <div class="z-dropdown">
+                    <span class="z-dropdown-trigger" tabindex="0">
+                        Dropdown
+                        <i class="fa fa-caret-down"></i>
+                    </span>
                     <div class="z-dropdown-menu">
                         <div class="z-menu-label">US</div>
                         <a class="z-menu-item">New York</a>
@@ -207,12 +227,14 @@
                         <a class="z-menu-item">Shanhai</a>
                         <a class="z-menu-item">Shenzhen</a>
                     </div>
-                </span>
+                </div>
             </div>
             <pre><code class="html">
-    &lt;span class="z-dropdown" tabindex="0"&gt;
-        Dropdown
-        &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+    &lt;div class="z-dropdown"&gt;
+        &lt;span class="z-dropdown-trigger" tabindex="0"&gt;
+            Dropdown
+            &lt;i class="fa fa-caret-down"&gt;&lt;/i&gt;
+        &lt;/span&gt;
         &lt;div class="z-dropdown-menu"&gt;
             &lt;div class="z-menu-label"&gt;US&lt;/div&gt;
             &lt;a class="z-menu-item"&gt;New York&lt;/a&gt;
@@ -223,15 +245,15 @@
             &lt;a class="z-menu-item"&gt;Shanhai&lt;/a&gt;
             &lt;a class="z-menu-item"&gt;Shenzhen&lt;/a&gt;
         &lt;/div&gt;
-    &lt;/span&gt;
+    &lt;/div&gt;
             </code></pre>
         </section>
 
         <h4>Direction</h4>
         <section>
             <div class="example">
-                <span class="z-dropdown" style="margin-right:150px;" tabindex="0">
-                    top-right
+                <div class="z-dropdown" style="margin-right:150px;">
+                    <span class="z-dropdown-trigger" tabindex="0">top-right</span>
                     <div class="z-dropdown-menu top-right">
                         <div class="z-menu-head">
                             ONE
@@ -244,10 +266,10 @@
                         <a class="z-menu-item">TWO</a>
                         <a class="z-menu-item">THREE</a>
                     </div>
-                </span>
+                </div>
 
-                <span class="z-dropdown" style="margin-right:150px;" tabindex="0">
-                    top-left
+                <div class="z-dropdown" style="margin-right:150px;">
+                    <span class="z-dropdown-trigger" tabindex="0">top-left</span>
                     <div class="z-dropdown-menu top-left">
                         <a class="z-menu-item">ONE</a>
                         <div class="z-menu-head">
@@ -260,10 +282,10 @@
                         </div>
                         <a class="z-menu-item">THREE</a>
                     </div>
-                </span>
+                </div>
 
-                <span class="z-dropdown" tabindex="0">
-                    bottom-left
+                <div class="z-dropdown">
+                    <span class="z-dropdown-trigger" tabindex="0">bottom-left</span>
                     <div class="z-dropdown-menu bottom-left">
                         <a class="z-menu-item">ONE</a>
                         <a class="z-menu-item">TWO</a>
@@ -276,29 +298,29 @@
                             </div>
                         </div>
                     </div>
-                </span>
+                </div>
                 <br>
             </div>
-            <pre><code class="html">    &lt;span class="z-dropdown" tabindex="0"&gt;
-        top-right
+            <pre><code class="html">    &lt;div class="z-dropdown"&gt;
+        &lt;span class="z-dropdown-trigger" tabindex="0">top-right&lt;/span&gt;
         &lt;div class="z-dropdown-menu top-right"&gt;
             ...
         &lt;/div&gt;
-    &lt;/span&gt;
+    &lt;/div&gt;
 
-    &lt;span class="z-dropdown" tabindex="0"&gt;
-        top-left
+    &lt;div class="z-dropdown"&gt;
+        &lt;span class="z-dropdown-trigger" tabindex="0">top-left&lt;/span&gt;
         &lt;div class="z-dropdown-menu top-left"&gt;
             ...
         &lt;/div&gt;
-    &lt;/span&gt;  
+    &lt;/div&gt;  
 
-    &lt;span class="z-dropdown" tabindex="0"&gt;
-        bottom-left
+    &lt;div class="z-dropdown"&gt;
+        &lt;span class="z-dropdown-trigger" tabindex="0">bottom-left&lt;/span&gt;
         &lt;div class="z-dropdown-menu bottom-left"&gt;
             ...
         &lt;/div&gt;
-    &lt;/span&gt;</code></pre>
+    &lt;/div&gt;</code></pre>
         </section>
 
         <h4>Javascript</h4>

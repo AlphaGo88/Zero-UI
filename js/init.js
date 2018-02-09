@@ -6,7 +6,7 @@
 	'use strict';
 
 	$(function() {
-		$('.z-dropdown').dropdown();
+		$('.z-dropdown-trigger').dropdown();
 		// $('[data-tooltip]').tooltip();
 		Z.initSideNav();
 		Z.initTabs();

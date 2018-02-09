@@ -60,17 +60,15 @@
 	<h4>Initialize</h4>
 	<p>You must initialize<mark>select</mark>manually.</p>
 	<section>
-	<pre style="border-top:0"><code>    
-	$('select').select();
-	</code></pre>
+	<pre style="border-top:0"><code>	$('select').select();</code></pre>
 	</section>
 	<section>
 		<div class="example">
 			<h4>Generate options from html</h4>
-			<p>The first item will be automatically selected unless you added the property<mark>selected</mark>on an<mark>option</mark>.</p>
+			<p>The first item will be automatically selected unless you added the attribute<mark>'selected'</mark>on an<mark>&lt;option&gt;</mark>.</p>
 			<br>
 			<select id="select1">
-			  <option value="1"><i class="fa fa-apple"></i>Apple</option>
+			  <option value="1">Apple</option>
 			  <option value="2">Orange</option>
 			  <option value="3" disabled>Banana</option>
 			  <option value="4">Grape</option>
@@ -90,7 +88,7 @@
 	<section>
 		<div class="example">
 			<h4>Generate options via javascript</h4>
-			<p>When the options are generated via javascript, you can also use<mark>&lt;input&gt;</mark>as the trigger element.</p>
+			<p>When the options are generated via javascript, please use<mark>&lt;input&gt;</mark>as the trigger element.</p>
 			<p>This will not automatically select the first item.</p>
 			<br>
 			<input type="text" id="select2">
@@ -266,6 +264,66 @@
 	&lt;/select&gt;
 	
 	&lt;select class="large"&gt;
+		...	
+	&lt;/select&gt;</code></pre>
+	</section>
+
+	<h4>Styles</h4>
+	<section>
+		<div class="example">
+			<div>
+			<select id="select100" class="light">
+			  <option value="1">Apple</option>
+			  <option value="2">Orange</option>
+			  <option value="3">Banana</option>
+			</select>
+			&nbsp;
+			<select id="select101" class="gray">
+			  <option value="1">Apple</option>
+			  <option value="2">Orange</option>
+			  <option value="3">Banana</option>
+			</select>
+			&nbsp;
+			<select id="select102" class="square">
+			  <option value="1">Apple</option>
+			  <option value="2">Orange</option>
+			  <option value="3">Banana</option>
+			</select>
+			&nbsp;
+			</div>
+			<br>
+			<div>
+			<select id="select103" class="round">
+			  <option value="1">Apple</option>
+			  <option value="2">Orange</option>
+			  <option value="3">Banana</option>
+			</select>
+			&nbsp;
+			<select id="select104" class="shadow">
+			  <option value="1">Apple</option>
+			  <option value="2">Orange</option>
+			  <option value="3">Banana</option>
+			</select>
+			</div>
+		</div>
+		<pre><code>	&lt;!-- html --&gt;
+	&lt;select class="light"&gt;
+		...
+	&lt;/select&gt;
+
+	&lt;select class="gray"&gt;
+		...
+	&lt;/select&gt;
+
+	&lt;select class="square"&gt;
+		...	
+	&lt;/select&gt;
+	
+	&lt;select class="round"&gt;
+		...	
+	&lt;/select&gt;
+
+	&lt;select class="shadow"&gt;
 		...	
 	&lt;/select&gt;</code></pre>
 	</section>
@@ -480,6 +538,12 @@
 		$('#select15').select();
 		$('#select16').select();
 		$('#select17').select({position: 'top'});
+
+		$('#select100').select();
+		$('#select101').select();
+		$('#select102').select();
+		$('#select103').select();
+		$('#select104').select();
 
 		$('#enable').on('click', function(event) {
 			$('#select10').select('enable');

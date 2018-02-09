@@ -4,13 +4,13 @@
 
 
 .z-select-wrapper {
-    position: relative;
     display: inline-block;
+    position: relative;
+    vertical-align: middle;
 }
 
 .z-select-trigger {
     display: block;
-    position: relative;
     width: 100%;
     height: @input-height-base;
     line-height: @input-height-base - 2;
@@ -20,6 +20,7 @@
     border: 1px solid @input-border-color;
     border-radius: @border-radius-base;
     transition: border-color 200ms;
+    cursor: default;
 
     &.disabled {
         background-color: #f7f7f7 !important;
@@ -137,12 +138,43 @@
     border-radius: @input-round-radius;
 
     > .z-select-trigger {
+        padding-left: @input-padding-x + 3;
+        padding-right: 26px;
         border-radius: @input-round-radius;
+    }
+
+    > .z-select-caret {
+        right: 14px;
     }
 
     > .z-select-options {
         border-radius: 12px;
     }
+}
+
+.z-select-wrapper.square { 
+    > .z-select-trigger {
+        border-radius: 0;
+    }
+
+    > .z-select-options {
+        border-radius: 0;
+    }
+}
+
+.z-select-wrapper.light > .z-select-trigger {
+    padding-left: 0;
+    border-color: transparent;
+    border-bottom-color: @input-border-color;
+    border-radius: 0;
+}
+
+.z-select-wrapper.light:focus > .z-select-trigger {
+    border-bottom-color: @input-border-color-focus;
+}
+
+.z-select-wrapper.gray > .z-select-trigger {
+    background-color: #f5f5f7;
 }
 
 .z-select-wrapper.shadow {

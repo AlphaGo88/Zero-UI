@@ -8,32 +8,47 @@
 
     function Dropdown(element) {
         var me = this;
-        var $dropdown = me.$dropdown = element;
+        var $dropdownTrigger = me.$dropdownTrigger = element;
+        var $dropdown = me.$dropdown = element.parent();
         var $menu = me.$menu = $dropdown.children('.z-dropdown-menu');
 
-        $dropdown.on({
-            'focus': me.open.bind(me),
-            'blur': me.close.bind(me),
-        });
+        $dropdownTrigger.on('click', me.toggle.bind(me));
 
+        // click elsewhere to close
+        var mouseIn = false;
+        $dropdown.on({
+            'mouseenter': function() {
+                mouseIn = true;
+            },
+            'mouseleave': function() {
+                mouseIn = false;
+            }
+        });
         $menu.on('click', function(event) {
             event.stopPropagation();
+        });
+        $(document).on('click', function() {
+            if (!mouseIn) {
+                me.close();
+            }
         });
 
         // click on menu item to close
         $menu.on('click', '.z-menu-item', function() {
             if (!$(this).hasClass('disabled')) {
-                $dropdown.trigger('blur');
+                me.close();
             }
         });
 
-        $dropdown.on('keydown', function(event) {
+        $dropdownTrigger.on('keydown', function(event) {
             switch (event.which) {
                 // Enter - If there's a selected menu, trigger its click event.
                 case 13:
+                    event.preventDefault();
                     if ($menu.hasClass('open')) {
-                        event.preventDefault();
                         $menu.find('.z-menu-item.selected').trigger('click');
+                    } else {
+                        me.open();
                     }
                     break;
 
@@ -41,7 +56,7 @@
                 // ESC - close
                 case 9:
                 case 27:
-                    $dropdown.trigger('blur');
+                    me.close();
                     break;
 
                 // Direction keys
@@ -113,7 +128,7 @@
             }
         });
 
-        $dropdown.data('dropdown-init', true);
+        $dropdownTrigger.data('dropdown-init', true);
     }
 
     Dropdown.prototype.open = function() {
@@ -124,6 +139,14 @@
         this.$menu.removeClass('open');
         this.$menu.find('.selected').removeClass('selected');
         this.$menu.find('.open').removeClass('open');
+    };
+
+    Dropdown.prototype.toggle = function() {
+        if (this.$menu.hasClass('open')) {
+            this.close();
+        } else {
+            this.open();
+        }
     };
 
     Dropdown.prototype.getCurMenuItems = function() {

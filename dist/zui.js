@@ -2194,32 +2194,47 @@ Z.guid = function() {
 
     function Dropdown(element) {
         var me = this;
-        var $dropdown = me.$dropdown = element;
+        var $dropdownTrigger = me.$dropdownTrigger = element;
+        var $dropdown = me.$dropdown = element.parent();
         var $menu = me.$menu = $dropdown.children('.z-dropdown-menu');
 
-        $dropdown.on({
-            'focus': me.open.bind(me),
-            'blur': me.close.bind(me),
-        });
+        $dropdownTrigger.on('click', me.toggle.bind(me));
 
+        // click elsewhere to close
+        var mouseIn = false;
+        $dropdown.on({
+            'mouseenter': function() {
+                mouseIn = true;
+            },
+            'mouseleave': function() {
+                mouseIn = false;
+            }
+        });
         $menu.on('click', function(event) {
             event.stopPropagation();
+        });
+        $(document).on('click', function() {
+            if (!mouseIn) {
+                me.close();
+            }
         });
 
         // click on menu item to close
         $menu.on('click', '.z-menu-item', function() {
             if (!$(this).hasClass('disabled')) {
-                $dropdown.trigger('blur');
+                me.close();
             }
         });
 
-        $dropdown.on('keydown', function(event) {
+        $dropdownTrigger.on('keydown', function(event) {
             switch (event.which) {
                 // Enter - If there's a selected menu, trigger its click event.
                 case 13:
+                    event.preventDefault();
                     if ($menu.hasClass('open')) {
-                        event.preventDefault();
                         $menu.find('.z-menu-item.selected').trigger('click');
+                    } else {
+                        me.open();
                     }
                     break;
 
@@ -2227,7 +2242,7 @@ Z.guid = function() {
                 // ESC - close
                 case 9:
                 case 27:
-                    $dropdown.trigger('blur');
+                    me.close();
                     break;
 
                 // Direction keys
@@ -2299,7 +2314,7 @@ Z.guid = function() {
             }
         });
 
-        $dropdown.data('dropdown-init', true);
+        $dropdownTrigger.data('dropdown-init', true);
     }
 
     Dropdown.prototype.open = function() {
@@ -2310,6 +2325,14 @@ Z.guid = function() {
         this.$menu.removeClass('open');
         this.$menu.find('.selected').removeClass('selected');
         this.$menu.find('.open').removeClass('open');
+    };
+
+    Dropdown.prototype.toggle = function() {
+        if (this.$menu.hasClass('open')) {
+            this.close();
+        } else {
+            this.open();
+        }
     };
 
     Dropdown.prototype.getCurMenuItems = function() {
@@ -2762,6 +2785,7 @@ Z.guid = function() {
         this.defaults = {
             position: '', // ['top']
             multiple: false, // support multiple selection
+            search: false,
             data: null,
             initialValue: '',
             onChange: $.noop
@@ -2818,12 +2842,11 @@ Z.guid = function() {
 
         $select.wrap(wrapper);
         $select.before($newSelect);
-        $select.hide(); // hide original element
+        $select.hide(); // hide the original <select> or <input>
         $newSelect.after(options);
         $newSelect.after(dropdownIcon);
 
-        var $wrapper = $newSelect.closest('.z-select-wrapper');
-        this.$wrapper = $wrapper;
+        var $wrapper = this.$wrapper = $newSelect.parent();
         this._updateValue(true);
 
         $newSelect.on({
@@ -2960,7 +2983,7 @@ Z.guid = function() {
                 default:
             }
         });
-    }
+    };
 
     Select.prototype._genOptionsFromData = function(data) {
         var me = this,
@@ -2971,12 +2994,12 @@ Z.guid = function() {
 
         var appendOptions = function(data, type) {
             data.forEach(function(item, idx, data) {
-                var disabledClass = item.disabled ? 'disabled ' : '';
+                var disabledClass = item.disabled ? ' disabled' : '';
                 var selectedClass = '';
-                var optgroupClass = (type === 'group-option') ? 'group-option ' : '';
+                var optgroupClass = (type === 'group-option') ? ' group-option' : '';
 
                 if (item.selected || item.value === me.config.initialValue) {
-                    selectedClass = 'selected ';
+                    selectedClass = ' selected';
                     if (multiple) {
                         valueSelected.push(item.value);
                         textSelected.push(item.text);
@@ -2986,8 +3009,8 @@ Z.guid = function() {
                     }
                 }
 
-                optionList += '<div class="z-select-option ' + disabledClass + selectedClass + optgroupClass + '" data-value=' + item.value + '>' + item.text + '</div>'
-            })
+                optionList += '<div class="z-select-option' + disabledClass + selectedClass + optgroupClass + '" data-value=' + item.value + '>' + item.text + '</div>';
+            });
         }
 
         if (Array.isArray(data)) {
@@ -3014,16 +3037,15 @@ Z.guid = function() {
             textSelected = [];
 
         var appendOption = function(option, type) {
-            // Add disabled attr if disabled
-            var disabledClass = (option.is(':disabled')) ? 'disabled ' : '';
+            var disabledClass = (option.is(':disabled')) ? ' disabled' : '';
             var selectedClass = '';
-            var optgroupClass = (type === 'group-option') ? 'group-option ' : '';
+            var optgroupClass = (type === 'group-option') ? ' group-option' : '';
 
             if (option.is(':selected')) {
-                var value = option.attr('value'),
-                    text = option.text();
+                var value = option.attr('value');
+                var text = option.text();
 
-                selectedClass = 'selected ';
+                selectedClass = ' selected';
                 if (multiple) {
                     valueSelected.push(value);
                     textSelected.push(text);
@@ -3033,8 +3055,8 @@ Z.guid = function() {
                 }
             }
 
-            optionList += '<div class="z-select-option ' + disabledClass + selectedClass + optgroupClass + '" data-value=' + option.attr('value') + '>' + option.html() + '</div>';
-        }
+            optionList += '<div class="z-select-option' + disabledClass + selectedClass + optgroupClass + '" data-value=' + option.attr('value') + '>' + option.html() + '</div>';
+        };
 
         /* Create dropdown structure. */
         selectChildren.each(function() {
@@ -3406,7 +3428,7 @@ Z.guid = function() {
 	'use strict';
 
 	$(function() {
-		$('.z-dropdown').dropdown();
+		$('.z-dropdown-trigger').dropdown();
 		// $('[data-tooltip]').tooltip();
 		Z.initSideNav();
 		Z.initTabs();

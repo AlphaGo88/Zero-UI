@@ -9,6 +9,7 @@
         this.defaults = {
             position: '', // ['top']
             multiple: false, // support multiple selection
+            search: false,
             data: null,
             initialValue: '',
             onChange: $.noop
@@ -65,12 +66,11 @@
 
         $select.wrap(wrapper);
         $select.before($newSelect);
-        $select.hide(); // hide original element
+        $select.hide(); // hide the original <select> or <input>
         $newSelect.after(options);
         $newSelect.after(dropdownIcon);
 
-        var $wrapper = $newSelect.closest('.z-select-wrapper');
-        this.$wrapper = $wrapper;
+        var $wrapper = this.$wrapper = $newSelect.parent();
         this._updateValue(true);
 
         $newSelect.on({
@@ -207,7 +207,7 @@
                 default:
             }
         });
-    }
+    };
 
     Select.prototype._genOptionsFromData = function(data) {
         var me = this,
@@ -218,12 +218,12 @@
 
         var appendOptions = function(data, type) {
             data.forEach(function(item, idx, data) {
-                var disabledClass = item.disabled ? 'disabled ' : '';
+                var disabledClass = item.disabled ? ' disabled' : '';
                 var selectedClass = '';
-                var optgroupClass = (type === 'group-option') ? 'group-option ' : '';
+                var optgroupClass = (type === 'group-option') ? ' group-option' : '';
 
                 if (item.selected || item.value === me.config.initialValue) {
-                    selectedClass = 'selected ';
+                    selectedClass = ' selected';
                     if (multiple) {
                         valueSelected.push(item.value);
                         textSelected.push(item.text);
@@ -233,8 +233,8 @@
                     }
                 }
 
-                optionList += '<div class="z-select-option ' + disabledClass + selectedClass + optgroupClass + '" data-value=' + item.value + '>' + item.text + '</div>'
-            })
+                optionList += '<div class="z-select-option' + disabledClass + selectedClass + optgroupClass + '" data-value=' + item.value + '>' + item.text + '</div>';
+            });
         }
 
         if (Array.isArray(data)) {
@@ -261,16 +261,15 @@
             textSelected = [];
 
         var appendOption = function(option, type) {
-            // Add disabled attr if disabled
-            var disabledClass = (option.is(':disabled')) ? 'disabled ' : '';
+            var disabledClass = (option.is(':disabled')) ? ' disabled' : '';
             var selectedClass = '';
-            var optgroupClass = (type === 'group-option') ? 'group-option ' : '';
+            var optgroupClass = (type === 'group-option') ? ' group-option' : '';
 
             if (option.is(':selected')) {
-                var value = option.attr('value'),
-                    text = option.text();
+                var value = option.attr('value');
+                var text = option.text();
 
-                selectedClass = 'selected ';
+                selectedClass = ' selected';
                 if (multiple) {
                     valueSelected.push(value);
                     textSelected.push(text);
@@ -280,8 +279,8 @@
                 }
             }
 
-            optionList += '<div class="z-select-option ' + disabledClass + selectedClass + optgroupClass + '" data-value=' + option.attr('value') + '>' + option.html() + '</div>';
-        }
+            optionList += '<div class="z-select-option' + disabledClass + selectedClass + optgroupClass + '" data-value=' + option.attr('value') + '>' + option.html() + '</div>';
+        };
 
         /* Create dropdown structure. */
         selectChildren.each(function() {
