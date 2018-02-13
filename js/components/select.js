@@ -23,9 +23,9 @@
     }
 
     Select.prototype.init = function() {
-        var me = this,
-            $select = this.$select,
-            multiple = this.config.multiple;
+        var me = this;
+        var $select = me.$select;
+        var multiple = me.config.multiple;
 
         // Tear down structure if Select needs to be rebuilt
         if ($select.siblings('.z-select-trigger').length > 0) {
@@ -39,25 +39,27 @@
         var disableClass = $select.is(':disabled') ? ' disabled' : '';
         var $newSelect = $('<div class="z-select-trigger' + disableClass + '"></div>');
 
-        this.$select = $select;
-        this.$newSelect = $newSelect;
+        me.$select = $select;
+        me.$newSelect = $newSelect;
 
         // Generate options
-        var optionsClasses = 'z-dropdown-menu z-select-options ' + this.config.position,
-            options = $('<div class="' + optionsClasses + '"></div>'),
-            data = this.config.data,
-            optionList;
+        var optionsClasses = 'z-dropdown-menu z-select-options ' + me.config.position;
+        var options = $('<div class="' + optionsClasses + '"></div>');
+        var data = me.config.data;
+        var optionListHtml;
 
         if (data) {
-            optionList = this._genOptionsFromData(data);
+            optionListHtml = me._genOptionsFromData(data);
         } else {
-            optionList = this._genOptionsFromHtml($select);
+            optionListHtml = me._genOptionsFromHtml($select);
         }
-        options.html(optionList);
-        this.$options = options;
+        options.html(optionListHtml);
+        me.$options = options;
+        me.$optionList = options.children('.z-select-option');
 
         // Wrap Elements
-        var wrapper = $('<div class="z-select-wrapper" tabindex="0"></div>');
+        var wrapperClasses = 'z-select-wrapper' + (multiple ? ' multiple' : '');
+        var wrapper = $('<div class="' + wrapperClasses + '" tabindex="0"></div>');
         wrapper.css('width', $select.outerWidth() + 'px');
         wrapper.addClass($select.attr('class')).removeClass('z-input').removeClass('z-select');
 
@@ -70,8 +72,23 @@
         $newSelect.after(options);
         $newSelect.after(dropdownIcon);
 
-        var $wrapper = this.$wrapper = $newSelect.parent();
-        this._updateValue(true);
+        var $wrapper = me.$wrapper = $newSelect.parent();
+
+        // initial html of the select trigger
+        if (multiple) {
+            var _html = '';
+
+            me.textSelected.forEach(function(text, i) {
+                var _value = me.valueSelected[i];
+
+                _html += '<span class="z-selected-item" data-value="' + _value + '">' + text + '</span>';
+            });
+            me.$newSelect.html(_html);
+        } else {
+            me.$newSelect.html(me.textSelected[0]);
+        }
+        // initial value of the original element
+        me.$select.val(me.valueSelected.join(','));
 
         $newSelect.on({
             'toggle': function() {
@@ -85,6 +102,7 @@
             'close': function() {
                 options.removeClass('open');
                 $(this).removeClass('open');
+                me.$options.children('.hover').removeClass('hover');
             },
             'click': function() {
                 if (!$(this).hasClass('disabled')) {
@@ -116,38 +134,52 @@
             }
         });
 
+        // Click to select the item
         options.on('click', '.z-select-option', function() {
             var $this = $(this);
+            var value = $this.data('value');
+            var text = $this.html();
 
             if ($this.hasClass('disabled')) return;
             if (multiple) {
                 if ($this.hasClass('selected')) {
-                    var idx = me.valueSelected.indexOf($this.data('value'));
-
                     $this.removeClass('selected');
-                    me.valueSelected.splice(idx, 1);
-                    me.textSelected.splice(idx, 1);
+                    me.$newSelect.children('[data-value=' + value + ']').remove();
+                    me._updateValue(value, text, true);
                 } else {
+                    var itemHtml = '<span class="z-selected-item" data-value="' + value + '">' + text + '</span>';
+
+                    $(itemHtml).appendTo(me.$newSelect);
                     $this.addClass('selected');
-                    me.valueSelected.push($this.data('value'));
-                    me.textSelected.push($this.text());
+                    me._updateValue(value, text);
                 }
-                me._updateValue();
             } else {
                 if (!$this.hasClass('selected')) {
                     options.find('.selected').removeClass('selected');
+                    $this.addClass('selected');
                 }
-                me.valueSelected = [$this.data('value')];
-                me.textSelected = [$this.text()];
-                me._updateValue();
+                me.$newSelect.html(text);
                 $newSelect.trigger('close');
-                $this.addClass('selected');
+                me._updateValue(value, text);
             }
         });
 
-        var optionsList = options.children('.z-select-option');
-        var len = optionsList.length;
-        var className = multiple ? 'hover' : 'selected';
+        // deselect the item
+        if (multiple) {
+            $newSelect.on('click', '.z-selected-item', function(event) {
+                event.stopPropagation();
+
+                var $this = $(this);
+                var value = $this.data('value');
+                var text = $this.text();
+
+                $this.remove();
+                me.$options.find('[data-value=' + value + ']').removeClass('selected');
+                me._updateValue(value, text, true);
+            });
+        }
+
+        var len = this.$optionList.length;
 
         $wrapper.on('keydown', function(event) {
             switch (event.which) {
@@ -161,7 +193,7 @@
                     // ENTER - select current option and close
                 case 13:
                     if (options.hasClass('open')) {
-                        options.children('.' + className).trigger('click');
+                        options.children('.hover').trigger('click');
                     } else {
                         $newSelect.trigger('open');
                     }
@@ -172,36 +204,32 @@
                 case 38:
                     event.preventDefault();
 
-                    var i = 0;
-                    while (i < len) {
-                        if (optionsList.eq(i).hasClass(className)) break;
-                        i++;
-                    }
-                    if (i === len) {
-                        i = len - 1;
+                    var i = me.getInitialIndex();
+
+                    if (i === -1) {
+                        i = len;
                     } else {
-                        optionsList.eq(i).removeClass(className);
-                        i = i === 0 ? len - 1 : i - 1;
+                        me.$optionList.eq(i).removeClass('hover');
                     }
-                    optionsList.eq(i).addClass(className);
+
+                    var j = me.findPrev(i);
+                    me.$optionList.eq(j).addClass('hover');
+
                     break;
 
                     // Down - select next menu
                 case 40:
                     event.preventDefault();
 
-                    var i = 0;
-                    while (i < len) {
-                        if (optionsList.eq(i).hasClass(className)) break;
-                        i++;
+                    var i = me.getInitialIndex();
+
+                    if (i != -1) {
+                        me.$optionList.eq(i).removeClass('hover');
                     }
-                    if (i === len) {
-                        i = 0;
-                    } else {
-                        optionsList.eq(i).removeClass(className);
-                        i = i === len - 1 ? 0 : i + 1;
-                    }
-                    optionsList.eq(i).addClass(className);
+
+                    var j = me.findNext(i);
+                    me.$optionList.eq(j).addClass('hover');
+
                     break;
 
                 default:
@@ -305,25 +333,78 @@
         return optionList;
     };
 
-    Select.prototype._updateValue = function(firstInit) {
-        var text = this.textSelected.join(',');
+    Select.prototype._updateValue = function(value, text, remove) {
+        var me = this;
+        var multiple = me.config.multiple;
 
-        this.$newSelect.html(text);
-        this.$select.val(this.valueSelected.join(','));
-        if (!firstInit) {
-            this.$select.trigger('change');
-        }
-
-        if (this.config.multiple) {
-            this.$newSelect.attr('title', text);
-            if (!firstInit) {
-                this.config.onChange(this.valueSelected, this.textSelected);
+        if (multiple) {
+            if (remove) {
+                me.valueSelected.splice(me.valueSelected.indexOf(value), 1);
+                me.textSelected.splice(me.textSelected.indexOf(text), 1);
+            } else {
+                me.valueSelected.push(value);
+                me.textSelected.push(text);
             }
         } else {
-            if (!firstInit) {
-                this.config.onChange(this.valueSelected[0], this.textSelected[0]);
+            me.valueSelected = [value];
+            me.textSelected = [text];
+        }
+
+        me.$select.val(me.valueSelected.join(','));
+        me.$select.trigger('change');
+        if (multiple) {
+            me.config.onChange(me.valueSelected, me.textSelected);
+        } else {
+            me.config.onChange(me.valueSelected[0], me.textSelected[0]);
+        }
+    };
+
+    Select.prototype.getInitialIndex = function() {
+        var i = this.$options.children('.hover').index();
+
+        if (i === -1) {
+            if (this.config.multiple) {
+                i = -1;
+            } else {
+                i = this.$options.children('.selected').index();
             }
         }
+
+        return i;
+    };
+
+    Select.prototype.findPrev = function(i) {
+        var len = this.$optionList.length;
+        var j;
+
+        if (i === 0) {
+            j = len - 1;
+        } else {
+            j = i - 1;
+        }
+
+        var $cur = this.$optionList.eq(j);
+        if ($cur.hasClass('disabled')) {
+            return this.findPrev(j);
+        }
+        return j;
+    };
+
+    Select.prototype.findNext = function(i) {
+        var len = this.$optionList.length;
+        var j;
+
+        if (i >= len - 1) {
+            j = 0;
+        } else {
+            j = i + 1;
+        }
+
+        var $cur = this.$optionList.eq(j);
+        if ($cur.hasClass('disabled')) {
+            return this.findNext(j);
+        }
+        return j;
     };
 
     // set data of select options

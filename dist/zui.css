@@ -2270,7 +2270,6 @@ td .z-checkbox {
 .z-select-wrapper {
   display: inline-block;
   position: relative;
-  vertical-align: middle;
 }
 .z-select-trigger {
   display: block;
@@ -2293,6 +2292,30 @@ td .z-checkbox {
 }
 .z-select-wrapper:focus > .z-select-trigger {
   border-color: #969696;
+}
+.z-select-wrapper.multiple > .z-select-trigger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 34px;
+  height: auto;
+  padding: 2px 24px 2px 4px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  line-height: 1.2;
+}
+.z-selected-item {
+  margin: 2px;
+  padding: 3px 5px;
+  background-color: #e5e5e5;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.z-selected-item:hover {
+  background-color: #dedede;
 }
 .z-select-caret {
   position: absolute;
@@ -2357,6 +2380,13 @@ td .z-checkbox {
 }
 .z-select-option.group-option {
   padding-left: 30px;
+}
+.z-select-wrapper.multiple .z-select-option.selected {
+  color: #333;
+  background-color: #dbdbdb;
+}
+.z-select-wrapper.multiple .z-select-option.hover {
+  background-color: #eaeaea;
 }
 .z-select-wrapper.small {
   width: 120px;

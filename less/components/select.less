@@ -6,7 +6,6 @@
 .z-select-wrapper {
     display: inline-block;
     position: relative;
-    vertical-align: middle;
 }
 
 .z-select-trigger {
@@ -32,6 +31,28 @@
 
 .z-select-wrapper:focus > .z-select-trigger {
     border-color: @input-border-color-focus;
+}
+
+.z-select-wrapper.multiple > .z-select-trigger {
+    display: flex;
+    min-height: @input-height-base;
+    height: auto;
+    padding: 2px 24px 2px 4px;
+    align-items: center;
+    flex-wrap: wrap;
+    line-height: 1.2;
+}
+
+.z-selected-item {
+    margin: 2px;
+    padding: 3px 5px;
+    background-color: #e5e5e5;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #dedede;
+    }
 }
 
 .z-select-caret {
@@ -102,6 +123,15 @@
     &.group-option {
         padding-left: 30px;
     }
+}
+
+.z-select-wrapper.multiple .z-select-option.selected {
+    color: @text-color-base;
+    background-color: darken(@menu-hover-bg, 6%);
+}
+
+.z-select-wrapper.multiple .z-select-option.hover {
+    background-color: @menu-hover-bg;
 }
 
 .z-select-wrapper.small {

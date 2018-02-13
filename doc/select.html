@@ -169,10 +169,10 @@
 		<div class="example">
 			<h4>Multiple</h4>
 			<br>
-			<input type="text" id="select5">
+			<input type="text" id="select5" style="width: 380px">
 		</div>
 		<pre><code>	&lt;!-- html --&gt;
-	&lt;select id="select5"&gt;</code></pre>
+	&lt;input id="select5"&gt;</code></pre>
 		<pre><code>	// javascript
 	$('#select5').select({
 		multiple: true,
@@ -184,9 +184,14 @@
 		<div class="example">
 			<h4>Set initial value via javascript</h4>
 			<br>
-			<input type="text" id="select6">
-			<input type="text" id="select7">
-			<input type="text" id="select8">
+			<div>
+				<input type="text" id="select6">&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="text" id="select7">
+			</div>
+			<br>
+			<div>
+				<input type="text" id="select8" style="width: 360px">
+			</div>
 		</div>
 		<pre><code>	&lt;!-- html --&gt;
 	&lt;select id="select6"&gt;
