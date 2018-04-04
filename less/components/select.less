@@ -135,8 +135,6 @@
 }
 
 .z-select-wrapper.small {
-    width: 120px;
-
     > .z-select-trigger {
         height: @input-height-small;
         line-height: @input-height-small - 2;
@@ -149,9 +147,13 @@
     }
 }
 
-.z-select-wrapper.large {
-    width: 120px;
+.z-select-wrapper.small.multiple > .z-select-trigger {
+    min-height: @input-height-small;
+    height: auto;
+    line-height: 1;
+}
 
+.z-select-wrapper.large {
     > .z-select-trigger {
         height: @input-height-large;
         line-height: @input-height-large - 2;
@@ -162,6 +164,12 @@
         height: @input-height-large;
         line-height: @input-height-large;
     }
+}
+
+.z-select-wrapper.large.multiple > .z-select-trigger {
+    min-height: @input-height-large;
+    height: auto;
+    line-height: 1.2;
 }
 
 .z-select-wrapper.round {

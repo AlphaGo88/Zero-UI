@@ -2388,9 +2388,6 @@ td .z-checkbox {
 .z-select-wrapper.multiple .z-select-option.hover {
   background-color: #eaeaea;
 }
-.z-select-wrapper.small {
-  width: 120px;
-}
 .z-select-wrapper.small > .z-select-trigger {
   height: 28px;
   line-height: 26px;
@@ -2400,8 +2397,10 @@ td .z-checkbox {
   height: 28px;
   line-height: 28px;
 }
-.z-select-wrapper.large {
-  width: 120px;
+.z-select-wrapper.small.multiple > .z-select-trigger {
+  min-height: 28px;
+  height: auto;
+  line-height: 1;
 }
 .z-select-wrapper.large > .z-select-trigger {
   height: 42px;
@@ -2411,6 +2410,11 @@ td .z-checkbox {
 .z-select-wrapper.large > .z-select-options > .z-select-option {
   height: 42px;
   line-height: 42px;
+}
+.z-select-wrapper.large.multiple > .z-select-trigger {
+  min-height: 42px;
+  height: auto;
+  line-height: 1.2;
 }
 .z-select-wrapper.round {
   border-radius: 20px;

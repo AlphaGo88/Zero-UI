@@ -360,13 +360,35 @@
     };
 
     Select.prototype.getInitialIndex = function() {
-        var i = this.$options.children('.hover').index();
+        var items = this.$optionList;
+        var len = items.length;
+        var i = 0;
 
-        if (i === -1) {
+        // find the keyboard hover item
+        while (i < len) {
+            if (items.eq(i).hasClass('hover')) {
+                break;
+            }
+            i++;
+        }
+
+        if (i === len) {
             if (this.config.multiple) {
                 i = -1;
             } else {
-                i = this.$options.children('.selected').index();
+                // If there's no keyboard hover item, find the selected item
+                len = items.length;
+                i = 0;
+
+                while (i < len) {
+                    if (items.eq(i).hasClass('selected')) {
+                        break;
+                    }
+                    i++;
+                }
+                if (i === len) {
+                    i = -1;
+                }
             }
         }
 
