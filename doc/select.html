@@ -34,7 +34,6 @@
 	        <div class="z-nav-label lv2">Layout</div>
 	            <a href="./grid.html" class="z-nav-item lv3">Grid</a>
 	            <a href="./form.html" class="z-nav-item lv3">Form</a>
-	            <a href="./panel.html" class="z-nav-item lv3">Panel</a>
 	        <div class="z-nav-label lv2">Data Display</div>
 	            <a href="./tab.html" class="z-nav-item lv3">Tab</a>
 	            <a href="./table.html" class="z-nav-item lv3">Table</a>
@@ -304,7 +303,7 @@
 			  <option value="3">Banana</option>
 			</select>
 			&nbsp;
-			<select id="select104" class="shadow">
+			<select id="select105" class="bold">
 			  <option value="1">Apple</option>
 			  <option value="2">Orange</option>
 			  <option value="3">Banana</option>
@@ -328,7 +327,7 @@
 		...	
 	&lt;/select&gt;
 
-	&lt;select class="shadow"&gt;
+	&lt;select class="bold"&gt;
 		...	
 	&lt;/select&gt;</code></pre>
 	</section>
@@ -415,7 +414,7 @@
 	$('#select10').select('enable');  // Enable</code></pre>
 	</section>
 
-	<section>
+	<!--section>
 		<div class="example">
 			<h4>Select a item</h4>
 			<br>
@@ -451,7 +450,7 @@
 		{ value:1, text:'football', selected:true },
 		{ value:2, text:'swim' }
 	]);</code></pre>
-	</section>
+	</section-->
 
 	<script>
 		$(document).ready(function() {
@@ -557,6 +556,7 @@
 		$('#select102').select();
 		$('#select103').select();
 		$('#select104').select();
+		$('#select105').select();
 
 		$('#enable').on('click', function(event) {
 			$('#select10').select('enable');

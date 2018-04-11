@@ -29,7 +29,6 @@
             <div class="z-nav-label lv2">Layout</div>
                 <a href="./grid.html" class="z-nav-item lv3">Grid</a>
                 <a href="./form.html" class="z-nav-item lv3">Form</a>
-                <a href="./panel.html" class="z-nav-item lv3">Panel</a>
             <div class="z-nav-label lv2">Data Display</div>
                 <a href="./tab.html" class="z-nav-item lv3">Tab</a>
                 <a href="./table.html" class="z-nav-item lv3 active">Table</a>
@@ -125,10 +124,10 @@
         </code></pre>
     </section>
 
-    <h4>No outer border</h4>
+    <h4>No lines</h4>
     <section>
       <div class="example">
-        <table class="z-table no-border">
+        <table class="z-table no-line">
           <thead>
             <tr>
               <th>Name</th>
@@ -156,7 +155,44 @@
         </table>
       </div>
       <pre><code>
-  &lt;table class="z-table no-border"&gt;
+  &lt;table class="z-table no-line"&gt;
+      ...
+  &lt;/table&gt;
+      </code></pre>
+    </section>
+
+    <h4>Bordered</h4>
+    <section>
+      <div class="example">
+        <table class="z-table bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jay</td>
+              <td>23</td>
+              <td>New York</td>
+            </tr>
+            <tr>
+              <td>Mike</td>
+              <td>43</td>
+              <td>London</td>
+            </tr>
+            <tr>
+              <td>Larry</td>
+              <td>18</td>
+              <td>Sidney</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <pre><code>
+  &lt;table class="z-table bordered"&gt;
       ...
   &lt;/table&gt;
       </code></pre>
@@ -283,11 +319,11 @@
       </code></pre>
     </section>
 
-    <h4>Light thead and tfoot</h4>
+    <h4>Dark thead</h4>
     <section>
       <div class="example">
         <table class="z-table">
-          <thead class="light">
+          <thead class="dark">
             <tr>
               <th>Name</th>
               <th>Age</th>
@@ -311,26 +347,16 @@
               <td>Sidney</td>
             </tr>
           </tbody>
-          <tfoot class="light">
-            <tr>
-              <td>3 Employees</td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tfoot>
         </table>
       </div>
       <pre><code>
   &lt;table class="z-table"&gt;
-      &lt;thead class="light"&gt; 
+      &lt;thead class="dark"&gt; 
         ... 
       &lt;/thead&gt;
       &lt;tbody&gt; 
         ... 
       &lt;/tbody&gt;
-      &lt;tfoot class="light"&gt; 
-        ... 
-      &lt;/tfoot&gt;
   &lt;/table&gt;
       </code></pre>
     </section>

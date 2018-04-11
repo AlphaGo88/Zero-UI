@@ -90,24 +90,28 @@
         // initial value of the original element
         me.$select.val(me.valueSelected.join(','));
 
-        $newSelect.on({
+        $wrapper.on({
             'toggle': function() {
-                $(this).toggleClass('open');
+                $newSelect.toggleClass('open');
                 options.toggleClass('open');
             },
             'open': function() {
+                $newSelect.addClass('open');
                 options.addClass('open');
-                $(this).addClass('open');
             },
             'close': function() {
+                $newSelect.removeClass('open');
                 options.removeClass('open');
-                $(this).removeClass('open');
                 me.$options.children('.hover').removeClass('hover');
             },
-            'click': function() {
-                if (!$(this).hasClass('disabled')) {
-                    $(this).trigger('toggle');
-                }
+            'blur': function() {
+                $wrapper.trigger('close');
+            }
+        });
+
+        $newSelect.on('click', function() {
+            if (!$newSelect.hasClass('disabled')) {
+                $wrapper.trigger('toggle');
             }
         });
 
@@ -116,23 +120,23 @@
         });
 
         // click elsewhere to close
-        var mouseIn = false;
-        $wrapper.on({
-            'mouseenter': function() {
-                mouseIn = true;
-            },
-            'mouseleave': function() {
-                mouseIn = false;
-            }
-        });
-        options.on('click', function(event) {
-            event.stopPropagation();
-        });
-        $(document).on('click', function() {
-            if (!mouseIn) {
-                $newSelect.trigger('close');
-            }
-        });
+        // var mouseIn = false;
+        // $wrapper.on({
+        //     'mouseenter': function() {
+        //         mouseIn = true;
+        //     },
+        //     'mouseleave': function() {
+        //         mouseIn = false;
+        //     }
+        // });
+        // options.on('click', function(event) {
+        //     event.stopPropagation();
+        // });
+        // $(document).on('click', function() {
+        //     if (!mouseIn) {
+        //         $wrapper.trigger('close');
+        //     }
+        // });
 
         // Click to select the item
         options.on('click', '.z-select-option', function() {
@@ -159,7 +163,7 @@
                     $this.addClass('selected');
                 }
                 me.$newSelect.html(text);
-                $newSelect.trigger('close');
+                $wrapper.trigger('close');
                 me._updateValue(value, text);
             }
         });
@@ -187,7 +191,7 @@
                 // ESC - close
                 case 9:
                 case 27:
-                    $newSelect.trigger('close');
+                    $wrapper.trigger('close');
                     break;
 
                     // ENTER - select current option and close
@@ -195,7 +199,9 @@
                     if (options.hasClass('open')) {
                         options.children('.hover').trigger('click');
                     } else {
-                        $newSelect.trigger('open');
+                        if (!$newSelect.hasClass('disabled')) {
+                            $wrapper.trigger('open');
+                        }
                     }
                     break;
 
@@ -429,45 +435,46 @@
         return j;
     };
 
-    // set data of select options
-    Select.prototype.setData = function(data) {
-        var optionList = this._genOptionsFromData(data);
-        this.$options.html(optionList);
-        this._updateValue();
-    };
+    // Select.prototype.setData = function(data) {
+    //     var optionList = this._genOptionsFromData(data);
+    //     this.$options.html(optionList);
+    //     this.$newSelect.html('');
+    //     this._updateValue();
+    // };
 
-    Select.prototype.setValue = function(value) {
-        if (this.config.multiple) {
-            this.valueSelected = [];
-            this.textSelected = [];
-            this.$options.find('.z-select-option').each(function(index, el) {
-                var $el = $(el);
-                var optionValue = $el.data('value');
-                var optionText = $el.text();
+    // Select.prototype.setValue = function(value) {
+    //     if (this.config.multiple) {
+    //         this.valueSelected = [];
+    //         this.textSelected = [];
+    //         this.$options.find('.z-select-option').each(function(index, el) {
+    //             var $el = $(el);
+    //             var optionValue = $el.data('value');
+    //             var optionText = $el.text();
 
-                if (value.indexOf(optionValue) > -1) {
-                    this.valueSelected.push(optionValue);
-                    this.textSelected.push(optionText);
-                    $el.addClass('selected');
-                } else {
-                    $el.removeClass('selected');
-                }
-            });
-            this._updateValue();
-        } else {
-            if (this.valueSelected[0] === value) {
-                return;
-            }
+    //             if (value.indexOf(optionValue) > -1) {
+    //                 this.valueSelected.push(optionValue);
+    //                 this.textSelected.push(optionText);
+    //                 $el.addClass('selected');
+    //             } else {
+    //                 $el.removeClass('selected');
+    //             }
+    //         });
+    //         me.$newSelect.html(_html);
+    //         this._updateValue();
+    //     } else {
+    //         if (this.valueSelected[0] === value) {
+    //             return;
+    //         }
 
-            var $newOption = this.$options.find('[data-value=' + value + ']');
+    //         var $newOption = this.$options.find('[data-value=' + value + ']');
+    //         var text = $newOption.text();
 
-            this.$options.find('.selected').removeClass('selected');
-            $newOption.addClass('selected');
-            this.valueSelected = [value];
-            this.textSelected = [$newOption.text()];
-            this._updateValue();
-        }
-    };
+    //         this.$options.find('.selected').removeClass('selected');
+    //         $newOption.addClass('selected');
+    //         this.$newSelect.html(text);
+    //         this._updateValue(value, text);
+    //     }
+    // };
 
     Select.prototype.disable = function() {
         this.$newSelect.addClass('disabled');

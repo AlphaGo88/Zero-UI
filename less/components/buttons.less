@@ -3,12 +3,12 @@
 // --------------------------------------------------
 
 
-@btn-height-base: @input-height-base;
-@btn-height-small: @input-height-small;
-@btn-height-large: @input-height-large;
-@btn-padding-x-base: 12px;
+@btn-height-base: @input-height-base - 2;
+@btn-height-small: @input-height-small - 2;
+@btn-height-large: @input-height-large - 2;
+@btn-padding-x-base: 13px;
 @btn-padding-x-small: @btn-padding-x-base - 4;
-@btn-padding-x-large: @btn-padding-x-base + 4;
+@btn-padding-x-large: @btn-padding-x-base + 6;
 @btn-icon-color-dark: #888;
 
 
@@ -19,21 +19,6 @@
     &.circle {
         width: @height;
     }
-
-    &.labeled {
-        padding-left: @padding-x + @height - 4;
-
-        > i {
-            width: @height - 4;
-            height: @height;
-            line-height: @height;
-        }
-    }
-
-    &.labeled.right {
-        padding-left: @padding-x;
-        padding-right: @padding-x + @height - 4;
-    }
 }
 
 .btn-color(@bg-color) {
@@ -41,40 +26,19 @@
     border-color: @bg-color;
     color: #fff;
 
-    &:hover,
-    &:active,
-    &:focus {
+    &:hover {
         background-color: darken(@bg-color, 10%);
         border-color: darken(@bg-color, 10%);
-    }
-
-    &:active {
-        box-shadow: 0 0 0 2px fade(@bg-color, 60%);
-    }
-
-    &.labeled > i {
-        background-color: darken(@bg-color, 8%);
-    }
-
-    &.labeled:hover > i,
-    &.labeled:focus > i {
-        background-color: darken(@bg-color, 16%);
     }
 }
 
 .btn-outline-color(@border-color, @color, @hover-bg) {
-    background-color: transparent;
+    background-color: #fff;
     color: @color;
     border-color: @border-color;
 
-    &:hover,
-    &:active,
-    &:focus {
+    &:hover {
         background-color: @hover-bg;
-    }
-
-    &:active {
-        box-shadow: 0 0 0 2px fade(@border-color, 40%);
     }
 }
 
@@ -89,7 +53,7 @@
     font-family: @font-family-base;
     white-space: nowrap;
     border: 1px solid transparent;
-    border-radius: @border-radius-base;
+    border-radius: 3px;
     outline: none;
     cursor: pointer;
     user-select: none;
@@ -129,8 +93,12 @@
         border-radius: 50%;
     }
 
+    &.bold {
+        border-width: 2px;
+    }
+
     &.shadow {
-        box-shadow: @input-shadow;
+        box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.24);
     }
 
     &.block {
@@ -140,89 +108,31 @@
     }
 }
 
-.z-btn {
-    &.labeled > i {
-        display: inline-block;
-        position: absolute;
-        top: -1px;
-        left: -1px;
-        margin: 0;
-        text-align: center;
-        transition: background-color .2s;
-        border-top-left-radius: inherit;
-        border-bottom-left-radius: inherit;
-    }
-
-    &.labeled.right > i {
-        left: auto;
-        right: -1px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: inherit;
-        border-bottom-right-radius: inherit;
-    }
-}
-
 a.z-btn,
 a.z-btn-outline {
-    line-height: @btn-height-base - 2;
+    line-height: @btn-height-base - 4;
 
     &.small {
-        line-height: @btn-height-small - 2;
+        line-height: @btn-height-small - 4;
     }
 
     &.large {
-        line-height: @btn-height-large - 2;
+        line-height: @btn-height-large - 4;
     }
 }
 
 .z-btn.default {
-    background-color: #f5f5f5;
-    border-color: #bcbcbc;
-    color: @text-color-base;
-
-    &:hover,
-    &:active,
-    &:focus {
-        background-color: darken(#f5f5f5, 6%);
-    }
-
-    &:active {
-        box-shadow: 0 0 0 2px fade(#bcbcbc, 60%);
-    }
-
-    > i {
-        color: @btn-icon-color-dark;
-    }
-}
-
-.z-btn.gray {
     background-color: #e0e1e2;
     border-color: #e0e1e2;
     color: @text-color-base;
 
-    &:hover,
-    &:active,
-    &:focus {
+    &:hover {
         background-color: darken(#e0e1e2, 8%);
         border-color: darken(#e0e1e2, 8%);
     }
 
-    &:active {
-        box-shadow: 0 0 0 2px #e0e1e2;
-    }
-
     > i {
         color: @btn-icon-color-dark;
-    }
-
-    &.labeled > i {
-        background-color: darken(#e0e1e2, 4%);
-    }
-
-    &.labeled:hover > i,
-    &.labeled:focus > i {
-        background-color: darken(#e0e1e2, 12%);
     }
 }
 
@@ -250,18 +160,8 @@ a.z-btn-outline {
     .btn-color(@purple);
 }
 
-.z-btn.inverted {
-    background-color: #fff;
-    color: @text-color-base;
-    border-color: #fff;
-
-    > i {
-        color: @btn-icon-color-dark;
-    }
-}
-
 .z-btn-outline.default {
-    .btn-outline-color(#999, @text-color-base, #f5f5f5);
+    .btn-outline-color(#bbb, @text-color-light, #f5f5f5);
 
     > i {
         color: @btn-icon-color-dark;
@@ -290,23 +190,6 @@ a.z-btn-outline {
 
 .z-btn-outline.purple {
     .btn-outline-color(@purple, @purple, fade(@purple, 8%));
-}
-
-.z-btn-outline.inverted {
-    background-color: transparent;
-    color: #fff;
-    border-color: #fff;
-
-    &:hover,
-    &:active,
-    &:focus {
-        background-color: #fff;
-        color: @text-color-base;
-
-        > i {
-            color: @btn-icon-color-dark;
-        }
-    }
 }
 
 .z-btn-group {

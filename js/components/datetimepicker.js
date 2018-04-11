@@ -695,7 +695,7 @@
       while (dowCnt < this.weekStart + 7) {
         html += '<th class="dow">' + dates[this.language].daysMin[(dowCnt++) % 7] + '</th>';
       }
-      html += '</tr>';
+      html += '</tr><tr class="dow-margin"></tr>';
       this.picker.find('.datetimepicker-days thead').append(html);
     },
 

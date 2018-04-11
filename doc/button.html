@@ -29,7 +29,6 @@
             <div class="z-nav-label lv2">Layout</div>
                 <a href="./grid.html" class="z-nav-item lv3">Grid</a>
                 <a href="./form.html" class="z-nav-item lv3">Form</a>
-                <a href="./panel.html" class="z-nav-item lv3">Panel</a>
             <div class="z-nav-label lv2">Data Display</div>
                 <a href="./tab.html" class="z-nav-item lv3">Tab</a>
                 <a href="./table.html" class="z-nav-item lv3">Table</a>
@@ -68,7 +67,6 @@
         <button class="z-btn teal">Teal</button>
         <button class="z-btn yellow">Yellow</button>
         <button class="z-btn purple">Purple</button>
-        <button class="z-btn gray">Gray</button>
       </div>
       <pre><code>
   &lt;button class="z-btn primary"&gt;Primary&lt;/button&gt;
@@ -78,7 +76,6 @@
   &lt;button class="z-btn teal"&gt;Teal&lt;/button&gt;
   &lt;button class="z-btn yellow"&gt;Yellow&lt;/button&gt;
   &lt;button class="z-btn purple"&gt;Purple&lt;/button&gt;
-  &lt;button class="z-btn gray"&gt;Gray&lt;/button&gt;
       </code></pre>
       <div class="example" style="border-top: 1px solid #ccc">
         <h5>Outline</h5>
@@ -100,20 +97,6 @@
   &lt;button class="z-btn-outline teal"&gt;Teal&lt;/button&gt;
   &lt;button class="z-btn-outline yellow"&gt;Yellow&lt;/button&gt;
   &lt;button class="z-btn-outline purple"&gt;Purple&lt;/button&gt;
-      </code></pre>
-      <div class="example" style="border-top:1px solid #ccc">
-        <h5>Inverted</h5>
-        <p>A inverted button is used in dark background.</p>
-        <p><b>Note:</b> <mark>inverted</mark>is not a type but a color.</p>
-        <br>
-        <div style="padding:20px;background-color:grey">
-          <button class="z-btn inverted">Inverted</button>
-          <button class="z-btn-outline inverted">Inverted</button>
-        </div>
-      </div>
-      <pre class="html"><code>
-  &lt;button class="z-btn inverted"&gt;Inverted&lt;/button&gt;
-  &lt;button class="z-btn-outline inverted"&gt;Inverted&lt;/button&gt;
       </code></pre>
     </section>
 
@@ -145,19 +128,22 @@
         <p>
           z-ui provides additional classes for volatile styles.
           <br>
-          These are available: <mark>square</mark>, <mark>roud</mark>, <mark>shadow</mark>
+          These are available: <mark>square</mark>, <mark>bold</mark>, <mark>shadow</mark>
         </p>
         <br>
         &nbsp;
         <button class="z-btn-outline primary square">Search</button>
         &nbsp;
-        <button class="z-btn teal round">Search</button>
+        <button class="z-btn primary round">Search</button>
+        &nbsp;
+        <button class="z-btn-outline primary bold">Search</button>
         &nbsp;
         <button class="z-btn primary shadow">Search</button>
       </div>
       <pre><code>
   &lt;button class="z-btn-outline primary square"&gt;Search&lt;/button&gt;
-  &lt;button class="z-btn teal round"&gt;Search&lt;/button&gt;
+  &lt;button class="z-btn primary round"&gt;Search&lt;/button&gt;
+  &lt;button class="z-btn-outline primary bold"&gt;Search&lt;/button&gt;
   &lt;button class="z-btn primary shadow"&gt;Search&lt;/button&gt;
       </code></pre>
     </section>
@@ -167,24 +153,16 @@
       <div class="example">
         <div>
           <button class="z-btn primary">
-              <i class="fa fa-cloud"></i>
-              Button
+              <i class="fa fa-cloud"></i>&nbsp;
+              Upload
+          </button>
+          <button class="z-btn-outline teal">
+              <i class="fa fa-heart"></i>&nbsp;
+              Follow
           </button>
           <button class="z-btn default">
-              <i class="fa fa-cloud"></i>
-              Button
-          </button>
-          <button class="z-btn-outline primary">
-              <i class="fa fa-cloud"></i>
-              Button
-          </button>
-          <button class="z-btn-outline red">
-              <i class="fa fa-cloud"></i>
-              Button
-          </button>
-          <button class="z-btn gray">
-              <i class="fa fa-cloud"></i>
-              Button
+              <i class="fa fa-comment"></i>&nbsp;
+              Comment
           </button>
         </div>
       </div>
@@ -208,37 +186,6 @@
     &lt;button class="z-btn gray"&gt;
         &lt;i class="fa fa-cloud"&gt;&lt;/i&gt;
         Button
-    &lt;/button&gt;
-      </code></pre>
-      <div class="example" style="border-top:1px solid #ccc">
-        <p>Add class name<mark>.labeled</mark>to the button with label like icon.</p>
-        <p>If the icon is on the right, <mark>.right</mark>is needed.</p>
-        <br>
-        <button class="z-btn primary labeled">
-            <i class="fa fa-heart"></i>
-            Button
-        </button>
-        <button class="z-btn green labeled">
-            <i class="fa fa-pause"></i>
-            Button
-        </button>
-        <button class="z-btn gray labeled right">
-            Button
-            <i class="fa fa-arrow-right"></i>
-        </button>
-      </div>
-      <pre><code>
-    &lt;button class="z-btn primary labeled"&gt;
-        &lt;i class="fa fa-heart"&gt;&lt;/i&gt;
-        Button
-    &lt;/button&gt;
-    &lt;button class="z-btn green labeled"&gt;
-        &lt;i class="fa fa-pause"&gt;&lt;/i&gt;
-        Button
-    &lt;/button&gt;
-    &lt;button class="z-btn gray labeled right"&gt;
-        Button
-        &lt;i class="fa fa-arrow-right"&gt;&lt;/i&gt;
     &lt;/button&gt;
       </code></pre>
       <div class="example" style="border-top:1px solid #ccc">
@@ -374,11 +321,6 @@
             <button class="z-btn-outline small default"><i class="fa fa-upload"></i></button>
             <button class="z-btn-outline small default"><i class="fa fa-download"></i></button>
           </div>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="z-btn-group">
-            <button class="z-btn gray">Cancel</button>
-            <button class="z-btn green">Save</button>
-          </div>
       </div>
       <pre><code>
     &lt;div class="z-btn-group"&gt;
@@ -406,11 +348,6 @@
       &lt;button class="z-btn-outline small default"&gt;&lt;i class="fa fa-minus"&gt;&lt;/i&gt;&lt;/button&gt;
       &lt;button class="z-btn-outline small default"&gt;&lt;i class="fa fa-upload"&gt;&lt;/i&gt;&lt;/button&gt;
       &lt;button class="z-btn-outline small default"&gt;&lt;i class="fa fa-download"&gt;&lt;/i&gt;&lt;/button&gt;
-    &lt;/div&gt;
-
-    &lt;div class="z-btn-group"&gt;
-      &lt;button class="z-btn gray"&gt;Cancel&lt;/button&gt;
-      &lt;button class="z-btn green"&gt;Save&lt;/button&gt;
     &lt;/div&gt;
       </code></pre>
     </section>

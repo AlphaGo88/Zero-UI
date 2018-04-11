@@ -90,14 +90,13 @@
 .z-radio-btn {
     > span {
         display: block;
-        height: @input-height-base;
-        line-height: @input-height-base - 2;
+        height: @btn-height-base;
+        line-height: @btn-height-base - 2;
         padding: 0 @btn-padding-x-base;
         font-size: @font-size-base;
         color: @primary-color;
         background-color: #fff;
         border: 1px solid @primary-color;
-        border-radius: inherit;
         cursor: pointer;
         transition: all 200ms;
 
@@ -107,13 +106,13 @@
     }
 
     &:first-child > span {
-        border-top-left-radius: @border-radius-base;
-        border-bottom-left-radius: @border-radius-base;
+        border-top-left-radius: @input-round-radius;
+        border-bottom-left-radius: @input-round-radius;
     }
 
     &:last-child > span {
-        border-top-right-radius: @border-radius-base;
-        border-bottom-right-radius: @border-radius-base;
+        border-top-right-radius: @input-round-radius;
+        border-bottom-right-radius: @input-round-radius;
     }
 
     &:not(:last-child) > span {
@@ -153,19 +152,5 @@
 .z-radio-light-group {
     > .z-radio-light {
         margin: 0 8px;
-    }
-}
-
-.z-radio-btn-group {
-    &.small > .z-radio-btn > span {
-        height: @input-height-small;
-        line-height: @input-height-small - 2;
-        padding: 0 @btn-padding-x-small;
-    }
-
-    &.large > .z-radio-btn > span {
-        height: @input-height-large;
-        line-height: @input-height-large - 2;
-        padding: 0 @btn-padding-x-large;
     }
 }

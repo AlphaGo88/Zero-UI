@@ -3,11 +3,11 @@
 // --------------------------------------------------
 
 
-@thead-bg: #f9f9f9;
+@thead-dark-bg: #eee;
 @table-bg-hover: #f2f2f2;
-@table-bg-selected: #e6f7ff;
-@table-bg-accent: #f9f9f9;
-@table-border-color: @border-color-base;
+@table-bg-selected: #eee;
+@table-bg-accent: #fbfbfb;
+@table-border-color: #ddd;
 @table-cell-padding: 10px 12px;
 @table-condensed-cell-padding: 6px 10px;
 
@@ -20,16 +20,14 @@ caption {
     width: 100%;
     max-width: 100%;
     background-color: #fff;
+    border: 0;
     border-collapse: collapse;
     border-spacing: 0;
-    border: 1px solid @table-border-color;
 
     > thead, 
     > tfoot {
-        background-color: @thead-bg;
-
-        &.light {
-            background-color: #fff;
+        &.dark {
+            background-color: @thead-dark-bg;
         }
     }
 
@@ -37,7 +35,7 @@ caption {
         transition: background-color 400ms;
 
         &.selected {
-            background-color: @table-bg-selected;
+            background-color: @table-bg-selected !important;
         }
     }
 
@@ -49,14 +47,23 @@ caption {
         border-top: 1px solid @table-border-color;
     }
 
-    th, 
-    tfoot td {
-        padding: 6px 12px;
-    }
-
     th {
         font-weight: 600;
         color: @text-color-light;
+    }
+
+    tr:first-child > th {
+        border-top: none;
+    }
+
+    th:first-child,
+    td:first-child {
+        border-left: none;
+    }
+
+    th:last-child,
+    td:last-child {
+        border-right: none;
     }
 
     tr.success > td,
@@ -88,25 +95,21 @@ caption {
     }
 }
 
-.z-table.no-border {
-    border: none;
+.z-table.no-line {
+    border: 0;
 
-    tr:first-child > th {
-        border-top: none;
-    }
-
-    th:first-child,
-    td:first-child {
-        border-left: none;
-    }
-
-    th:last-child,
-    td:last-child {
-        border-right: none;
+    th, td {
+        border: none;
     }
 }
 
+.z-table.bordered {
+    border: 1px solid @table-border-color;
+}
+
 .z-table.lined {
+    border: 1px solid @table-border-color;
+
     th, td {
         border-left: 1px solid @table-border-color;
         border-right: 1px solid @table-border-color;

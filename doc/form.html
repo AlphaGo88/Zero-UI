@@ -30,7 +30,6 @@
                 <div class="z-nav-label lv2">Layout</div>
                     <a href="./grid.html" class="z-nav-item lv3">Grid</a>
                     <a href="./form.html" class="z-nav-item lv3 active">Form</a>
-                    <a href="./panel.html" class="z-nav-item lv3">Panel</a>
                 <div class="z-nav-label lv2">Data Display</div>
                     <a href="./tab.html" class="z-nav-item lv3">Tab</a>
                     <a href="./table.html" class="z-nav-item lv3">Table</a>
@@ -285,6 +284,93 @@
             &lt;button class="z-btn primary"&gt;Submit&lt;/button&gt;
         &lt;/div&gt;
     &lt;/form&gt;
+            </code></pre>
+        </section>
+
+
+        <h4>Vertical</h4>
+        <section>
+            <div class="example">
+                <p>Add class<mark>.vertical</mark>on the form row, the items will be aligned vertically.</p>
+                <br>
+                <form style="width: 600px">
+                    <div class="z-row">
+                        <div class="z-col-6" style="padding-right: 14px;">
+                            <div class="z-form-row vertical">
+                                <label class="z-form-label required">Name:</label>
+                                <div class="z-form-control-wrapper">
+                                    <input type="text" name="name" class="z-input light z-form-control" placeholder="Your Name">
+                                </div>
+                            </div>
+                            <div class="z-form-row vertical">
+                                <label class="z-form-label">Phone:</label>
+                                <div class="z-form-control-wrapper">
+                                    <span class="z-input-group z-form-control">
+                                        <input type="text" class="z-input light" value="010" style="width:18%" readonly>
+                                        <input type="text" class="z-input light" style="width:82%">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="z-col-6" style="padding-left: 14px;">
+                            <div class="z-form-row vertical">
+                                <label class="z-form-label required">Age:</label>
+                                <div class="z-form-control-wrapper">
+                                    <input type="text" name="name" class="z-input light z-form-control" placeholder="Your Age">
+                                </div>
+                            </div>
+                            <div class="z-form-row vertical">
+                                <label class="z-form-label">Company:</label>
+                                <div class="z-form-control-wrapper">
+                                    <input type="text" name="age" class="z-input light z-form-control" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="z-form-action">
+                        <button class="z-btn primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <pre><code>
+    &lt;form style="width: 600px"&gt;
+        &lt;div class="z-row"&gt;
+            &lt;div class="z-col-6" style="padding-right: 10px;"&gt;
+                &lt;div class="z-form-row vertical"&gt;
+                    &lt;label class="z-form-label required"&gt;Name:&lt;/label&gt;
+                    &lt;div class="z-form-control-wrapper"&gt;
+                        &lt;input type="text" name="name" class="z-input light z-form-control" placeholder="Your Name"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="z-form-row vertical"&gt;
+                    &lt;label class="z-form-label"&gt;Phone:&lt;/label&gt;
+                    &lt;div class="z-form-control-wrapper"&gt;
+                        &lt;span class="z-input-group z-form-control"&gt;
+                            &lt;input type="text" class="z-input light" value="010" style="width:18%" readonly&gt;
+                            &lt;input type="text" class="z-input light" style="width:82%"&gt;
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="z-col-6" style="padding-left: 10px;"&gt;
+                &lt;div class="z-form-row vertical"&gt;
+                    &lt;label class="z-form-label required"&gt;Age:&lt;/label&gt;
+                    &lt;div class="z-form-control-wrapper"&gt;
+                        &lt;input type="text" name="name" class="z-input light z-form-control" placeholder="Your Age"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="z-form-row vertical"&gt;
+                    &lt;label class="z-form-label"&gt;Company:&lt;/label&gt;
+                    &lt;div class="z-form-control-wrapper"&gt;
+                        &lt;input type="text" name="age" class="z-input light z-form-control" placeholder=""&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="z-form-action"&gt;
+            &lt;button class="z-btn primary"&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;              
             </code></pre>
         </section>
 
