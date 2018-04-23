@@ -43,6 +43,10 @@ input:-ms-input-placeholder {
         border-color: @input-border-color-focus;
     }
 
+    &.primary:focus {
+        border-color: @primary-color;
+    }
+
     &[readonly] {
         cursor: default;
     }
@@ -198,12 +202,22 @@ input:-ms-input-placeholder {
     	width: 100%;
 
 		&:first-child {
-			padding-right: 30px;
+			padding-right: 32px;
 		}
 
     	&:not(:first-child) {
-    		padding-left: 30px;
+    		padding-left: 32px;
     	}
+    }
+
+    > .z-input.light {
+        &:first-child {
+            padding-right: 28px;
+        }
+
+        &:not(:first-child) {
+            padding-left: 28px;
+        }
     }
 
     > i {
@@ -211,14 +225,32 @@ input:-ms-input-placeholder {
         position: absolute;
         width: 32px;
         top: 50%;
+        text-align: center;
         transform: translateY(-50%);
         line-height: 1;
-        text-align: center;
         font-size: @font-size-base;
     	color: @icon-color-default;
 
-        &:not(:first-child) {
-            right: 0px;
+        &:first-child {
+            left: 0;
+        }
+
+        &:last-child {
+            right: 0;
+        }
+    }
+
+    &.light > i {
+        width: auto;
+
+        &:first-child {
+            padding-left: 8px;
+            text-align: left;
+        }
+
+        &:last-child {
+            padding-right: 8px;
+            text-align: right;
         }
     }
 

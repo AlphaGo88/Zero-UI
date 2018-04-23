@@ -110,14 +110,26 @@
 
 a.z-btn,
 a.z-btn-outline {
-    line-height: @btn-height-base - 4;
+    line-height: @btn-height-base - 2;
+
+    &.bold {
+        line-height: @btn-height-base - 4;
+    }
 
     &.small {
-        line-height: @btn-height-small - 4;
+        line-height: @btn-height-small - 2;
+
+        &.bold {
+            line-height: @btn-height-small - 4;
+        }
     }
 
     &.large {
-        line-height: @btn-height-large - 4;
+        line-height: @btn-height-large - 2;
+
+        &.bold {
+            line-height: @btn-height-large - 4;
+        }
     }
 }
 
