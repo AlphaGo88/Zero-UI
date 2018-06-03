@@ -9,7 +9,7 @@ if (!window.jQuery) {
 
 window.Z = {};
 
-Z.version = '0.1.0';
+Z.version = '1.0.0';
 
 Z.locales = {
 	'en': {

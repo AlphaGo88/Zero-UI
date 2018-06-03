@@ -62,7 +62,8 @@
             <p>We provide simple API to call 4 types of messages.</p>
             <br>
             <div>
-                <a id="msg1">Normal</a>&nbsp;&nbsp;
+                <a id="msg0">Normal</a>&nbsp;&nbsp;
+                <a id="msg1">Dark</a>&nbsp;&nbsp;
                 <a id="msg2">Success</a>&nbsp;&nbsp;
                 <a id="msg3">Warning</a>&nbsp;&nbsp;
                 <a id="msg4">Error</a>&nbsp;&nbsp;
@@ -107,8 +108,11 @@
             hljs.highlightBlock(block);
         });
     });
-    $('#msg1').on('click', function(e) {
+    $('#msg0').on('click', function(e) {
         Z.Message.msg('Normal message');
+    });
+    $('#msg1').on('click', function(e) {
+        Z.Message.dark('Dark background');
     });
     $('#msg2').on('click', function(e) {
         Z.Message.success('Success message');

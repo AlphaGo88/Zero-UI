@@ -16,14 +16,14 @@
 .z-msg {
     position: relative;
     right: 50%;
-    min-width: 146px;
+    min-width: 200px;
     width: auto;
     margin-top: 15px;
-    padding: 10px 25px;
+    padding: 12px 25px;
     text-align: center;
     border-radius: @border-radius-base;
     opacity: 1;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.36);
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.36);
     transition: all 200ms ease-in;
     animation: z-msg-enter 200ms;
     cursor: pointer;
@@ -38,19 +38,24 @@
         color: @text-color-base;
     }
 
-    &.success {
-        background-color: @green;
+    &.dark {
+        background-color: rgba(0, 0, 0, 0.8);
         color: #fff;
+    }
+
+    &.success {
+        background-color: @state-success-bg;
+        color: @state-success-color;
     }
 
     &.warning {
-        background-color: @color-warning;
-        color: #fff;
+        background-color: @state-warning-bg;
+        color: @state-warning-color;
     }
 
     &.error {
-        background-color: @red;
-        color: #fff;
+        background-color: @state-error-bg;
+        color: @state-error-color;
     }
 }
 

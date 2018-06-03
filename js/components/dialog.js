@@ -64,7 +64,7 @@
             }
             if (config.okButton !== false) {
                 me.actions.push({
-                    tmplt: '<button class="z-btn green">' + lang['OK'] + '</button>',
+                    tmplt: '<button class="z-btn primary">' + lang['OK'] + '</button>',
                     onClick: config.onOK
                 });
             }

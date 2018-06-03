@@ -68,6 +68,13 @@
             });
         },
 
+        dark: function(content) {
+            _msg({
+                type: 'dark',
+                content: content
+            });
+        },
+
         success: function(content) {
             _msg({
                 type: 'success',

@@ -9,7 +9,7 @@ if (!window.jQuery) {
 
 window.Z = {};
 
-Z.version = '0.1.0';
+Z.version = '1.0.0';
 
 Z.locales = {
 	'en': {
@@ -2082,7 +2082,7 @@ Z.guid = function() {
             }
             if (config.okButton !== false) {
                 me.actions.push({
-                    tmplt: '<button class="z-btn green">' + lang['OK'] + '</button>',
+                    tmplt: '<button class="z-btn primary">' + lang['OK'] + '</button>',
                     onClick: config.onOK
                 });
             }
@@ -2489,6 +2489,13 @@ Z.guid = function() {
         msg: function(content) {
             _msg({
                 type: 'msg',
+                content: content
+            });
+        },
+
+        dark: function(content) {
+            _msg({
+                type: 'dark',
                 content: content
             });
         },
