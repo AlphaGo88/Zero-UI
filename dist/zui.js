@@ -3382,6 +3382,13 @@ Z.guid = function() {
             var $content = $($tab.data('content'));
             $content.addClass('active').siblings('.active').removeClass('active');
         });
+
+        $(document).on('keydown', '.z-tab', function(event) {
+            if (event.which === 13 || event.which === 32) {
+                event.preventDefault();
+                $(this).click();
+            }
+        })
     }
 
     // $.fn.tab = function() {
@@ -3523,6 +3530,10 @@ Z.guid = function() {
                 $filePath.val(fileNames.join(', '));
                 $close.show();
             }
+        });
+
+        $(document).on('click', '.z-input-file button', function() {
+            $(this).siblings('[type=file]').click();
         });
 
         $(document).on('click', '.z-remove-file', function() {

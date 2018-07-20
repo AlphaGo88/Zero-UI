@@ -21,10 +21,17 @@
     color: @text-color-light;
     text-decoration: none !important;
     cursor: pointer;
+    outline: 0;
 
     > i {
         margin-right: 5px;
         font-size: @font-size-base + 2;
+    }
+
+    &:focus:after {
+        opacity: 1;
+        transform: scale(0.6);
+        background-color: lighten(@primary-color, 24%);
     }
 
     &:hover,
@@ -40,7 +47,6 @@
         height: 2px;
         left: 0;
         bottom: 0;
-        background-color: @primary-color;
         transition: transform 200ms, opacity 200ms;
         transform: scale(0.2);
         opacity: 0;
@@ -49,6 +55,7 @@
     &.active:after {
         transform: scale(1);
         opacity: 1;
+        background-color: @primary-color;
     }
 
     &.disabled {
@@ -60,6 +67,10 @@
 .z-tabs.condensed > .z-tab {
     padding: 0;
     margin-right: 15px;
+
+    &:focus:after {
+        transform: scale(1);
+    }
 
     &:last-child {
         margin-right: 0;

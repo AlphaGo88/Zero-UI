@@ -18,6 +18,13 @@
             var $content = $($tab.data('content'));
             $content.addClass('active').siblings('.active').removeClass('active');
         });
+
+        $(document).on('keydown', '.z-tab', function(event) {
+            if (event.which === 13 || event.which === 32) {
+                event.preventDefault();
+                $(this).click();
+            }
+        })
     }
 
     // $.fn.tab = function() {

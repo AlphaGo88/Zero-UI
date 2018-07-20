@@ -31,6 +31,10 @@
             }
         });
 
+        $(document).on('click', '.z-input-file button', function() {
+            $(this).siblings('[type=file]').click();
+        });
+
         $(document).on('click', '.z-remove-file', function() {
             var $this = $(this);
             var $file = $this.siblings('[type=file]');

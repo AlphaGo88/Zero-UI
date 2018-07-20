@@ -3,29 +3,18 @@
 // --------------------------------------------------
 
 
-@input-width-default: 188px;
+@input-width-default: 220px;
 @input-line-height: @font-size-base + 6;
 @input-padding-x: 10px;
 @input-padding-y-base: (@input-height-base - 2 - @input-line-height) / 2;
 @input-padding-y-small: (@input-height-small - 2 - @input-line-height) / 2;
 @input-padding-y-large: (@input-height-large - 2 - @input-line-height) / 2;
-@placeholder-color: #aaa;
-@input-border-color: #bcbcbc;
-@input-border-color-focus: darken(@input-border-color, 15%);
+@input-border-color: #a2a2a2;
+@input-border-color-hover: darken(@input-border-color, 15%);
+@input-border-color-focus: @primary-color;
 @input-border-radius: 2px;
-@input-shadow: inset 0 0 1px #ccc;
+@input-shadow: none;
 
-input::-webkit-input-placeholder {
-  color: @placeholder-color;
-}
-
-// input::-moz-placeholder {  /* Firefox 19+ */
-//   color: @placeholder-color;
-// }
-
-input:-ms-input-placeholder {
-  color: @placeholder-color;
-}
 
 .z-input,
 .z-textarea {
@@ -36,15 +25,15 @@ input:-ms-input-placeholder {
     background-color: #fff;
     border: 1px solid @input-border-color;
     border-radius: @input-border-radius;
-    outline: none;
+    outline: 0;
     box-shadow: @input-shadow;
+
+    &:hover {
+        border-color: @input-border-color-hover;
+    }
 
     &:focus {
         border-color: @input-border-color-focus;
-    }
-
-    &.primary:focus {
-        border-color: @primary-color;
     }
 
     &[readonly] {
@@ -65,6 +54,10 @@ input:-ms-input-placeholder {
         border-bottom-color: @input-border-color;
         border-radius: 0;
         box-shadow: none;
+
+        &:hover {
+            border-bottom-color: @input-border-color-hover;
+        }
 
         &:focus {
             border-bottom-color: @input-border-color-focus;
@@ -298,6 +291,7 @@ input:-ms-input-placeholder {
     display: inline-flex;
 
 	> .z-input,
+    > .z-input-wrapper,
     > .z-input-addon,
     > .z-select,
     > .z-btn,
@@ -321,7 +315,8 @@ input:-ms-input-placeholder {
         }
     }
 
-    > .z-input {
+    > .z-input,
+    > .z-input-wrapper {
         flex: 1 1 auto;
     }
 
